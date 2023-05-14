@@ -32,6 +32,7 @@
         display: flex;
         gap: 15px;
         li {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -56,6 +57,24 @@
                 width: 20px;
                 height: 20px;
                 fill: #ccc;
+            }
+            span {
+                font-size: 12px;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                right: -8px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 20px;
+                background: #ccc;
+            }
+            &:last-of-type {
+                &::after {
+                    display: none;
+                }
             }
         }
     }
