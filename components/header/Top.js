@@ -8,36 +8,40 @@ import Link from "next/link";
 import UserMenu from "./UserMenu";
 
 export default function Top() {
-    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [loggedIn, setLoggedIn] = React.useState(true);
+    const [visible, setVisible] = React.useState(false);
     return (
         <div className={styles.top}>
             <div className={styles.top__container}>
                 <div></div>
                 <ul className={styles.top__list}>
-                    <li>
+                    <li className={styles.li}>
                         <img 
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png"
                             alt=""
                         />
                         <span>English / EUR</span>
                     </li>
-                    <li>
+                    <li className={styles.li}>
                         <MdSecurity />
                         <span>Buyer Protection</span>
                     </li>
-                    <li>
+                    <li className={styles.li}>
                         <span>Customer Service</span>
                     </li>
-                    <li>
+                    <li className={styles.li}>
                         <span>Help</span>
                     </li>
-                    <li>
+                    <li className={styles.li}>
                         <BsSuitHeart />
                         <Link href="/profile/wishlist">
                             <span>Wishlist</span>
                         </Link>
                     </li>
-                    <li>
+                    <li className={styles.li}
+                        onMouseOver={() => setVisible(true)}
+                        onMouseLeave={() => setVisible(false)}
+                    >
                         {loggedIn ? (
                             <li>
                                 <div className={styles.flex}>
@@ -58,7 +62,7 @@ export default function Top() {
                             </div>
                         </li>
                         )}
-                        <UserMenu loggedIn={loggedIn}/>
+                        { visible && <UserMenu loggedIn={loggedIn}/> }
                     </li>
 
                 </ul>
