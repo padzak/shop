@@ -5,8 +5,10 @@ import { BsSuitHeart } from "react-icons/bs";
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
+import UserMenu from "./UserMenu";
 
 export default function Top() {
+    const [loggedIn, setLoggedIn] = React.useState(false);
     return (
         <div className={styles.top}>
             <div className={styles.top__container}>
@@ -36,12 +38,29 @@ export default function Top() {
                         </Link>
                     </li>
                     <li>
-                        <div className={styles.flex}>
-                            <RiAccountPinCircleLine />
-                            <span>Account</span>
-                            <RiArrowDropDownFill />
-                        </div>
+                        {loggedIn ? (
+                            <li>
+                                <div className={styles.flex}>
+                                    <img
+                                        src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png"
+                                        alt=""
+                                        />
+                                    <span>Marcin</span>
+                                    <RiArrowDropDownFill />
+                                </div>
+                            </li>
+                        ) : (
+                            <li>
+                            <div className={styles.flex}>
+                                <RiAccountPinCircleLine />
+                                <span>Account</span>
+                                <RiArrowDropDownFill />
+                            </div>
+                        </li>
+                        )}
+                        <UserMenu loggedIn={loggedIn}/>
                     </li>
+
                 </ul>
             </div>
         </div>
