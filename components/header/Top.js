@@ -34,7 +34,7 @@ export default function Top() {
                     </li>
                     <li className={styles.li}>
                         <BsSuitHeart />
-                        <Link href="/profile/wishlist">
+                        <Link href="/profile/wishlist" legacyBehavior>
                             <span>Wishlist</span>
                         </Link>
                     </li>
