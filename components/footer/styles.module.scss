@@ -34,4 +34,18 @@
             }
         }
     }
+    &__socials {
+        section {
+            ul {
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                li {
+                    font-size: 2rem;
+                    color: #333;
+                }
+            }
+        }
+    }
 }
