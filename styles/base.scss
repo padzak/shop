@@ -27,3 +27,9 @@ $gray-color: #f8f8f8;
     cursor: pointer;
     border-radius: 2px;
 }
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
