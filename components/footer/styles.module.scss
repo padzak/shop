@@ -1,0 +1,37 @@
+.footer {
+    font-style: normal;
+    background: #f8f8f8;
+    &__container {
+        position: relative;
+        width: 100%;
+        display: grid;
+        gap: 3rem;
+        padding: 1rem;
+    }
+    img {
+        width: 40px;
+        height: 40px;
+
+    }
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        ul {
+            padding: 5px;
+            b {
+                text-transform: uppercase;
+            }
+            li {
+                font-size: 12px;
+                a {
+                    color: #222;
+                    line-height: 23px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
