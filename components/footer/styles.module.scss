@@ -5,6 +5,12 @@
         position: relative;
         width: 100%;
         display: grid;
+        grid-template-areas: 
+            "links"
+            "socials"
+            "newsletter"
+            "payments"
+            "copyrights";
         gap: 3rem;
         padding: 1rem;
     }
@@ -19,6 +25,7 @@
         color: #222;
     }
     &__links {
+        grid-area: links;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
@@ -40,6 +47,7 @@
         }
     }
     &__socials {
+        grid-area: socials;
         section {
             ul {
                 margin-top: 10px;
@@ -61,6 +69,7 @@
         margin-top: 10px;
     }
     &__newsletter {
+        grid-area: newsletter;
         input {
             outline: none;
             border: 1px solid #999;
@@ -87,7 +96,7 @@
         }
     }
     &__payments {
-
+        grid-area: payments;
     }
     &__flexwrap {
         display: flex;
@@ -101,6 +110,7 @@
         }
     }
     &__copyrights {
+        grid-area: copyrights;
         section {
             display: flex;
             align-items: center;
