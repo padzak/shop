@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import Links from "./Links";
 import Socials from "./Socials";
+import NewsLetter from "./Newsletter";
 
 export default function Footer() {
     return (
@@ -9,6 +10,7 @@ export default function Footer() {
             <div className={styles.footer__container}>
                 <Links />
                 <Socials />
+                <NewsLetter />
             </div>
         </footer>
     )

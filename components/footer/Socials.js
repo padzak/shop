@@ -12,7 +12,7 @@ import {
 export default function Socials() {
     return (
         <div className={styles.footer__socials}>
-            <h1>STAY CONNECTED</h1>
+            <h3>STAY CONNECTED</h3>
             <section>
                 <ul>
                     <li>
