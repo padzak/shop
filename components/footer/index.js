@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Links from "./Links";
 import Socials from "./Socials";
 import NewsLetter from "./Newsletter";
+import Payments from "./Payments";
 
 export default function Footer() {
     return (
@@ -11,6 +12,7 @@ export default function Footer() {
                 <Links />
                 <Socials />
                 <NewsLetter />
+                <Payments />
             </div>
         </footer>
     )
