@@ -4,6 +4,7 @@ import Links from "./Links";
 import Socials from "./Socials";
 import NewsLetter from "./Newsletter";
 import Payments from "./Payments";
+import Copyrights from "./Copyrights";
 
 export default function Footer() {
     return (
@@ -13,6 +14,7 @@ export default function Footer() {
                 <Socials />
                 <NewsLetter />
                 <Payments />
+                <Copyrights />
             </div>
         </footer>
     )

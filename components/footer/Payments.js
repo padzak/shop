@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 
 export default function Payments() {
     return (
-        <div className={styles.footer__payment}> 
+        <div className={styles.footer__payments}> 
             <h3>WE ACCEPT</h3>
             <div className={styles.footer__flexwrap}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/640px-Visa_2021.svg.png" alt="visa" />
