@@ -9,10 +9,16 @@ export default function Links() {
     })
     return (
         <div className={styles.footer__links}>
-            {links.map((link) => (
+            {links.map((link, i) => (
                 // eslint-disable-next-line react/jsx-key
                 <ul>
-                    <b>{link.heading}</b>
+                    {
+                        i===0 ? (
+                            <img src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f2b060c7a92408bac811_logo.svg" />
+                            ) : (
+                                <b>{link.heading}</b>
+                            )
+                    }
                     {link.links.map((link) => (
                         // eslint-disable-next-line react/jsx-key
                         <li>                           
@@ -76,7 +82,10 @@ const links = [
     {
         heading: "Customer Service",
         links: [
-
+            {
+                name: "Customer Service",
+                link: "",
+            },
         ],
     }
 ]
