@@ -7,7 +7,7 @@ import { RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
 
-export default function Top() {
+export default function Top({ country }) {
     const [loggedIn, setLoggedIn] = React.useState(true);
     const [visible, setVisible] = React.useState(false);
     return (
@@ -17,10 +17,10 @@ export default function Top() {
                 <ul className={styles.top__list}>
                     <li className={styles.li}>
                         <img 
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png"
+                            src={country.flag}
                             alt=""
                         />
-                        <span>English / EUR</span>
+                        <span>{country.name} / EUR</span>
                     </li>
                     <li className={styles.li}>
                         <MdSecurity />
