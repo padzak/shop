@@ -13,11 +13,21 @@
             "copyrights";
         gap: 3rem;
         padding: 1rem;
+        @media (min-width: 800px) {
+            grid-template-areas: 
+            "links socials"
+            "links newsletter"
+            "copyrights payments";
+        }
+        @media (min-width: 1200px) {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
     }
     img {
         width: 40px;
         height: 40px;
-
+        object-fit: contain;
     }
     h3 {
         font-size: 12px;
