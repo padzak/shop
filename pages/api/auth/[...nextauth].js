@@ -3,6 +3,7 @@ import AppleProvider from 'next-auth/providers/apple';
 import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from 'next-auth/providers/github';
+import TwitterProvider from 'next-auth/providers/twitter';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import clientPromise from './lib/mongodb';
 
@@ -21,6 +22,10 @@ export default NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET
+    }),
+    TwitterProvider({ // Twitter developer portal
+      clientId: process.env.TWITTER_ID,
+      clientSecret: process.env.TWITTER_SECRET
     }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
