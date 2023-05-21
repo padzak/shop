@@ -5,8 +5,20 @@ import { BiLeftArrowAlt } from 'react-icons/bi';
 import Link from 'next/link';
 import { Formik, Form } from 'formik';
 import LoginInput from '@/components/inputs/loginInput';
+import { useState } from 'react';
+
+const initialValues = {
+    login_email: "",
+    login_password: "",
+}
 
 export default function signin({ country }) {
+    const [user, setUser] = useState(initialValues);
+    const { login_email, login_password } = user;
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setUser({...user, [name]: value});
+    }
     return (
         <>
             <Header country="Poland"/>
@@ -29,7 +41,18 @@ export default function signin({ country }) {
                             {
                                 (form) => (
                                     <Form>
-                                        <LoginInput icon="email" placeholder="Email Address" />
+                                        <LoginInput 
+                                            type="text"
+                                            name="login_email"
+                                            icon="email" placeholder="Email Address" 
+                                            onChange={handleChange}
+                                        />
+                                        <LoginInput 
+                                            type="password"
+                                            name="login_password"
+                                            icon="password" placeholder="Password" 
+                                            onChange={handleChange}
+                                        />                                        
                                     </Form>
                                 )
                             }
