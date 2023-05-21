@@ -69,7 +69,10 @@ export default function signin({ country }) {
                                             icon="password" placeholder="Password" 
                                             onChange={handleChange}
                                         />
-                                        <CircleBtn type="submit" text="Sign in" />                              
+                                        <CircleBtn type="submit" text="Sign in" />
+                                        <div className={styles.forgot}>
+                                            <Link href="/forget">Forgot Password?</Link>
+                                        </div>
                                     </Form>
                                 )
                             }
