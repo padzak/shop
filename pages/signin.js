@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Formik, Form } from 'formik';
 import LoginInput from '@/components/inputs/loginInput';
 import { useState } from 'react';
+import * as Yup from 'yup';
 
 const initialValues = {
     login_email: "",
@@ -19,6 +20,13 @@ export default function signin({ country }) {
         const {name, value} = e.target;
         setUser({...user, [name]: value});
     }
+    const loginValidation = Yup.object({
+        login_email: Yup.string()
+            .email("Invalid email address")
+            .required("Required"),
+        login_password: Yup.string()
+            .required("Enter a password"),
+    });
     return (
         <>
             <Header country="Poland"/>
@@ -37,7 +45,14 @@ export default function signin({ country }) {
                         <p>
                             Get full access to our shopping platform. 
                         </p>
-                        <Formik>
+                        <Formik
+                            enableReinitialize
+                            initialValues = {{
+                                login_email,
+                                login_password,
+                            }}
+                            validationSchema={loginValidation}
+                        >
                             {
                                 (form) => (
                                     <Form>
