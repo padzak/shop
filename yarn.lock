@@ -60,6 +60,11 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@next-auth/mongodb-adapter@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@next-auth/mongodb-adapter/-/mongodb-adapter-1.1.3.tgz#531b75f828338ebd73d8539685641a17804d1d77"
+  integrity sha512-nH/may8hntYBlcuxepSsR2b95w6SRnP+c/FFt3KKjdTScNjhrN0zZdlT90nisjG/3gK+MvzMbz/F4Rwpgr9RMA==
+
 "@next/env@13.4.2":
   version "13.4.2"
   resolved "https://registry.npmjs.org/@next/env/-/env-13.4.2.tgz"
@@ -1737,7 +1742,7 @@ mongodb@5.3.0:
 
 mongodb@^5.5.0:
   version "5.5.0"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-5.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.5.0.tgz#5d213ef68f6b48610909d98d537059f2d7f374a1"
   integrity sha512-XgrkUgAAdfnZKQfk5AsYL8j7O99WHd4YXPxYxnh8dZxD+ekYWFRA3JktUsBnfg+455Smf75/+asoU/YLwNGoQQ==
   dependencies:
     bson "^5.3.0"
