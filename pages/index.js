@@ -3,12 +3,13 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.scss'
 import Header from '../components/header';
 import Footer from '../components/footer';
+import { useSession, signIn, signOut } from "next-auth/react"
 import axios from 'axios';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  
+  const { data: session } = useSession();
   let country = {
     name: 'Poland',
     flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
@@ -16,6 +17,7 @@ export default function Home() {
   
   return (<div>
     <Header country={country}/>
+    { session ? "you are logged in" : "you are not logged in" }
     <Footer country={country}/>
   </div>
   )
