@@ -1,6 +1,8 @@
 $shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 $blue-color: #2f82ff;
-$gray-color: #f8f8f8;
+$grey-color: #f8f8f8;
+$light-error-color: #fd010169;
+$error-color: #ed4337;
 
 .btn_primary {
     display: flex;
@@ -20,7 +22,7 @@ $gray-color: #f8f8f8;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background: $gray-color;
+    background: $grey-color;
     color: $blue-color;
     width: 100%;
     font-weight: 600;

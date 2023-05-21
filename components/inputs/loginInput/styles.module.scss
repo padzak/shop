@@ -31,3 +31,42 @@
         }
     }
 }
+
+.error {
+    background: $light-error-color;
+    margin-top: 5rem !important;
+    input {
+        color: #fff !important;
+        &::placeholder {
+            color: #fff !important;
+        }
+    }
+    svg {
+        fill: #fff !important;
+        stroke: #fff !important;
+    }
+}
+
+.error__message {
+    position: absolute;
+    top: -70px;
+    background: $error-color;
+    height: 60px;
+    width: 100%;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    span {
+        position: absolute;
+        bottom: -9px;
+        left: 1.5rem;
+        border-top: 10px solid $error-color;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+    }
+
+}
