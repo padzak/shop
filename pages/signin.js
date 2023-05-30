@@ -82,18 +82,18 @@ export default function Signin({ providers }) {
                         {
                             <div className={styles.login__socials}>
                                 <span className={styles.or}>Or continue with</span>
-                                {
+                               <div className={styles.login__socials_wrap}>
+                               {
                                     providers.map((provider) => (
                                         // eslint-disable-next-line react/jsx-key
-                                        <button className={styles.social_btn} onClick={() => {
-                                            console.log("Provider", provider.id)
-                                            signIn(provider.id)
-                                            
-                                            }}>
+                                        <button className={styles.social__btn} onClick={() => signIn(provider.id)}>
+                                            {/* <img src={`../public/images/icons/${provider.id}.png`} /> */}
+                                            <img src="https://img.freepik.com/darmowe-ikony/szukaj_318-265146.jpg" />
                                             Sign in with {provider.name}
                                         </button>
                                     ))
                                 }
+                               </div>
                             </div>
                         }
                     </div>
