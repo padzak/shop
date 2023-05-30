@@ -13,12 +13,21 @@ import { getProviders, signIn } from 'next-auth/react';
 const initialValues = {
     login_email: "",
     login_password: "",
+    full_name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
 }
 
 export default function Signin({ providers }) {
-    console.log(providers);
     const [user, setUser] = useState(initialValues);
-    const { login_email, login_password } = user;
+    const { login_email, 
+            login_password,
+            full_name,
+            password,
+            confirm_password,
+            email 
+        } = user;
     const handleChange = (e) => {
         const {name, value} = e.target;
         setUser({...user, [name]: value});
@@ -29,6 +38,24 @@ export default function Signin({ providers }) {
             .required("Required"),
         login_password: Yup.string()
             .required("Enter a password"),
+    });
+    const registerValidation = Yup.object({
+        full_name: Yup.string()
+            .required("Please enter your full name")
+            .min(2, 'First name is too short - should be 2 chars minimum.')
+            .max(22, 'First name is too long - should be 22 chars maximum.')
+            .matches(/^[a-zA-Z]+$/, 'First name should contain only Latin letters.'),
+        email: Yup.string()
+            .required("Please enter your email")
+            .email("Invalid email address"),
+        password: Yup.string()
+            .required("Enter a password")
+            .min(8, 'Password is too short - should be 8 chars minimum.')
+            .max(20, 'Password is too long - should be 20 chars maximum.')
+            .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
+        confirm_password: Yup.string()
+            .required("Enter a password")
+            .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     });
     return (
         <>
@@ -79,7 +106,6 @@ export default function Signin({ providers }) {
                                 )
                             }
                         </Formik>
-                        {
                             <div className={styles.login__socials}>
                                 <span className={styles.or}>Or continue with</span>
                                <div className={styles.login__socials_wrap}>
@@ -95,7 +121,57 @@ export default function Signin({ providers }) {
                                 }
                                </div>
                             </div>
-                        }
+                    </div>
+                </div>
+                <div className={styles.login__container}>
+                    <div className={styles.login__form}>
+                        <h1>Sign up</h1>
+                        <p>
+                            Get full access to our shopping platform. 
+                        </p>
+                        <Formik
+                            enableReinitialize
+                            initialValues = {{
+                                full_name,
+                                email,
+                                password,
+                                confirm_password,
+                            }}
+                            validationSchema={registerValidation}
+                        >
+                            {
+                                (form) => (
+                                    <Form>
+                                        <LoginInput 
+                                            type="text"
+                                            name="full_name"
+                                            icon="user" placeholder="Full Name" 
+                                            onChange={handleChange}
+                                        />
+                                        <LoginInput 
+                                            type="text"
+                                            name="email"
+                                            icon="email" placeholder="Email Address" 
+                                            onChange={handleChange}
+                                        />
+                                        <LoginInput 
+                                            type="password"
+                                            name="password"
+                                            icon="password" placeholder="Password" 
+                                            onChange={handleChange}
+                                        />
+                                        <LoginInput 
+                                            type="password"
+                                            name="confirm_password"
+                                            icon="password" placeholder="Confirm Password" 
+                                            onChange={handleChange}
+                                        />  
+                                        <CircleBtn type="submit" text="Sign up" />
+                                    </Form>
+                                )
+                            }
+                        </Formik>
+
                     </div>
                 </div>
             </div>
