@@ -71,4 +71,26 @@
             }
         }
     }
+    &__socials {
+        margin-top: 1rem;
+        .or {
+            position: relative;
+            color: #666;
+            padding-left: 8rem;
+            &:before,&:after {
+                content: "";
+                width: 130px;
+                height: 1px;
+                background: #66666648;
+                position: absolute;
+                top: 50%;
+            }
+            &:before {
+                left: 250px;
+            }
+            &:after {
+                left: -10px;
+            }
+        }
+    }
 }

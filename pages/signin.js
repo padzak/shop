@@ -8,13 +8,15 @@ import LoginInput from '@/components/inputs/loginInput';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import CircleBtn from '@/components/buttons/circleBtn';
+import { getProviders, signIn } from 'next-auth/react';
 
 const initialValues = {
     login_email: "",
     login_password: "",
 }
 
-export default function signin({ country }) {
+export default function Signin({ providers }) {
+    console.log(providers);
     const [user, setUser] = useState(initialValues);
     const { login_email, login_password } = user;
     const handleChange = (e) => {
@@ -77,10 +79,34 @@ export default function signin({ country }) {
                                 )
                             }
                         </Formik>
+                        {
+                            <div className={styles.login__socials}>
+                                <span className={styles.or}>Or continue with</span>
+                                {
+                                    providers.map((provider) => (
+                                        // eslint-disable-next-line react/jsx-key
+                                        <button className={styles.social_btn} onClick={() => {
+                                            console.log("Provider", provider.id)
+                                            signIn(provider.id)
+                                            
+                                            }}>
+                                            Sign in with {provider.name}
+                                        </button>
+                                    ))
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
             <Footer country="Poland"/>
         </>
     );
+}
+
+export async function getServerSideProps(context) {
+    const providers = Object.values(await getProviders());
+    return {
+        props: { providers },
+    };
 }
