@@ -1,4 +1,5 @@
 import { createRouter } from 'next-connect';
+import { validateEmail } from '@/utils/validation';
 import db from '@/utils/db';
 
 const router = createRouter();
@@ -10,7 +11,9 @@ router.post(async (req, res) => {
         if (!name || !email || !password) {
             return res.status(400).json({ message: "Please fill all fields" });
         }
-
+        if (!validateEmail(email)) {
+            return res.status(400).json({ message: "Invalid email" });
+        }
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
