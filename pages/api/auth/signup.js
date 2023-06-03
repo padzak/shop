@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { validateEmail } from '@/utils/validation';
 import db from '@/utils/db';
 import User from '@/models/User';
+import { createActivationToken } from '@/utils/tokens';
 
 const router = createRouter();
 
@@ -26,7 +27,10 @@ router.post(async (req, res) => {
         const encryptedPassword = await bcrypt.hash(password, 12);
         const newUser = new User({ name, email, password: encryptedPassword });
         const addedUser = await newUser.save();
-        res.send(addedUser)
+        const activation_token = createActivationToken({
+            id: addedUser._id.toString(),
+        });
+        console.log(activation_token);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
