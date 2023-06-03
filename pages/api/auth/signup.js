@@ -1,4 +1,5 @@
 import { createRouter } from 'next-connect';
+import bcrypt from 'bcrypt';
 import { validateEmail } from '@/utils/validation';
 import db from '@/utils/db';
 import User from '@/models/User';
@@ -22,6 +23,10 @@ router.post(async (req, res) => {
         if (password.length < 8) {
             return res.status(400).json({ message: "Password must be at least 8 characters" });
         }
+        const encryptedPassword = await bcrypt.hash(password, 12);
+        const newUser = new User({ name, email, password: encryptedPassword });
+        const addedUser = await newUser.save();
+        res.send(addedUser)
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
