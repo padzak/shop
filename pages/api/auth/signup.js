@@ -30,7 +30,9 @@ router.post(async (req, res) => {
         const activation_token = createActivationToken({
             id: addedUser._id.toString(),
         });
+        const url = `${process.env.BASE_URL}/activate/${activation_token}`;
         console.log(activation_token);
+        res.send(url);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
