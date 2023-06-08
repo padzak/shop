@@ -4,7 +4,7 @@ import { validateEmail } from '@/utils/validation';
 import db from '@/utils/db';
 import User from '@/models/User';
 import { createActivationToken } from '@/utils/tokens';
-import sendEmail from '@/utils/sendEmail';
+import { sendEmail } from '@/utils/sendEmail';
 
 const router = createRouter();
 
