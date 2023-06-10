@@ -9,24 +9,30 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import CircleBtn from '@/components/buttons/circleBtn';
 import { getProviders, signIn } from 'next-auth/react';
+import axios from 'axios';
 
 const initialValues = {
     login_email: "",
     login_password: "",
-    full_name: "",
+    name: "",
     email: "",
     password: "",
     confirm_password: "",
+    success: "",
+    error: "",
 }
 
 export default function Signin({ providers }) {
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(initialValues);
     const { login_email, 
             login_password,
-            full_name,
+            name,
             password,
             confirm_password,
-            email 
+            email,
+            success,
+            error,
         } = user;
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -40,7 +46,7 @@ export default function Signin({ providers }) {
             .required("Enter a password"),
     });
     const registerValidation = Yup.object({
-        full_name: Yup.string()
+        name: Yup.string()
             .required("Please enter your full name")
             .min(2, 'First name is too short - should be 2 chars minimum.')
             .max(22, 'First name is too long - should be 22 chars maximum.')
@@ -57,6 +63,21 @@ export default function Signin({ providers }) {
             .required("Enter a password")
             .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     });
+    const signUpHandler = async() => {
+        try {
+            setLoading(true);
+            const { data } = await axios.post("/api/auth/signup", {
+                name,
+                email,
+                password,
+            });
+            setUser({ ...user, success: data.message, error: "" });
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            setUser({ ...user, success: "", error: error.message });
+        }
+    }
     return (
         <>
             <Header country="Poland"/>
@@ -132,19 +153,23 @@ export default function Signin({ providers }) {
                         <Formik
                             enableReinitialize
                             initialValues = {{
-                                full_name,
+                                name,
                                 email,
                                 password,
                                 confirm_password,
                             }}
                             validationSchema={registerValidation}
+                            onSubmit={() => {
+                                console.log("submit")
+                                signUpHandler();
+                            }}
                         >
                             {
                                 (form) => (
                                     <Form>
                                         <LoginInput 
                                             type="text"
-                                            name="full_name"
+                                            name="name"
                                             icon="user" placeholder="Full Name" 
                                             onChange={handleChange}
                                         />
@@ -171,7 +196,10 @@ export default function Signin({ providers }) {
                                 )
                             }
                         </Formik>
-
+                        <div>
+                            { success && <span>{success}</span> }
+                            { error && <span>{error}</span> }
+                        </div>
                     </div>
                 </div>
             </div>
