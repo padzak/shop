@@ -32,7 +32,6 @@ router.post(async (req, res) => {
             id: addedUser._id.toString(),
         });
         const url = `${process.env.BASE_URL}/activate/${activation_token}`;
-        res.send(url);
         sendEmail(email, url, "", "Activate your account");
     } catch (error) {
         res.status(500).json({ message: error.message });
