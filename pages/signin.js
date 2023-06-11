@@ -22,6 +22,7 @@ const initialValues = {
     confirm_password: "",
     success: "",
     error: "",
+    login_error: "",
 }
 
 export default function Signin({ providers }) {
@@ -35,6 +36,7 @@ export default function Signin({ providers }) {
             email,
             success,
             error,
+            login_error,
         } = user;
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -65,6 +67,26 @@ export default function Signin({ providers }) {
             .required("Enter a password")
             .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     });
+    const signInHandler = async() => {
+        setLoading(true);
+        let options = {
+            redirect: false,
+            email: login_email,
+            password: login_password,
+        };
+        const res = await signIn("credentials", options);
+
+        console.log("Signin user", user);
+
+        setUser({ ...user, success: "", error: "" });
+        setLoading(false);
+        if (res?.error) {
+            setLoading(false);
+            setUser({ ...user, login_error: res?.error });
+        } else {
+            return Router.push("/");
+        }
+    };
     const signUpHandler = async() => {
         try {
             setLoading(true);
@@ -82,7 +104,7 @@ export default function Signin({ providers }) {
             setLoading(false);
             setUser({ ...user, success: "", error: error.response.data.message });
         }
-    }
+    };
     return (
         <>
         {
@@ -111,29 +133,34 @@ export default function Signin({ providers }) {
                                 login_password,
                             }}
                             validationSchema={loginValidation}
+                            onSubmit = {() => {                    
+                                console.log("Login user", user);        
+                                signInHandler();
+                            }}
                         >
-                            {
-                                (form) => (
-                                    <Form>
-                                        <LoginInput 
-                                            type="text"
-                                            name="login_email"
-                                            icon="email" placeholder="Email Address" 
-                                            onChange={handleChange}
-                                        />
-                                        <LoginInput 
-                                            type="password"
-                                            name="login_password"
-                                            icon="password" placeholder="Password" 
-                                            onChange={handleChange}
-                                        />
-                                        <CircleBtn type="submit" text="Sign in" />
-                                        <div className={styles.forgot}>
-                                            <Link href="/forget">Forgot Password?</Link>
-                                        </div>
-                                    </Form>
-                                )
-                            }
+                            {(form) => (
+                                <Form>
+                                    <LoginInput
+                                        type="text"
+                                        name="login_email"
+                                        icon="email" placeholder="Email Address"
+                                        onChange={handleChange}
+                                    />
+                                    <LoginInput
+                                        type="password"
+                                        name="login_password"
+                                        icon="password" placeholder="Password"
+                                        onChange={handleChange}
+                                    />
+                                    <CircleBtn type="submit" text="Sign in" />
+                                    {
+                                        login_error && <span className={styles.error}>{login_error}</span>
+                                    }
+                                    <div className={styles.forgot}>
+                                        <Link href="/forget">Forgot Password?</Link>
+                                    </div>
+                                </Form>
+                            )}
                         </Formik>
                             <div className={styles.login__socials}>
                                 <span className={styles.or}>Or continue with</span>

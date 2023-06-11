@@ -6,9 +6,15 @@ import GoogleProvider from 'next-auth/providers/google';
 // import PinterestProvider from "next-auth/providers/pinterest"
 // import TwitterProvider from 'next-auth/providers/twitter';
 // import GithubProvider from 'next-auth/providers/github';
-import Auth0Provider from "next-auth/providers/auth0";
+// import Auth0Provider from "next-auth/providers/auth0";
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import clientPromise from './lib/mongodb';
+import User from '@/models/User';
+import bcrypt from 'bcrypt';
+import db from '@/utils/db';
+
+db.connectDb();
 
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
@@ -46,7 +52,32 @@ export default NextAuth({
     //   clientId: process.env.AUTH0_ID,
     //   clientSecret: process.env.AUTH0_SECRET,
     //   issuer: process.env.AUTH0_ISSUER,
-    // })
+    // }),
+    CredentialsProvider({ // TODO Investigate if this is a good way of authentication
+      // The name to display on the sign in form (e.g. "Sign in with...")
+      name: "Credentials",
+      // `credentials` is used to generate a form on the sign in page.
+      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+      // e.g. domain, username, password, 2FA token, etc.
+      // You can pass any HTML attribute to the <input> tag through the object.
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials, req) {
+        const email = credentials.email;
+        const password = credentials.password;
+        const user = await User.findOne({ email });
+
+        console.log(user);
+
+        if (user) {
+          return SignInUser(user, password);
+        } else {
+          throw new Error("Provided incorrect sign in credentials");
+        }
+      }
+    }),
   ],
   pages: {
     signIn: '/signin',
@@ -56,3 +87,14 @@ export default NextAuth({
   },
   secret: process.env.JWT_SECRET,
 });
+
+const SignInUser = async (user, password) => {
+  if (!user.password) {
+    throw new Error("Password not set");
+  }
+  const passwordChallange = await bcrypt.compare(password, user.password);
+  if (!passwordChallange) {
+    throw new Error("Provided incorrect sign in credentials");
+  }
+  return user;
+}
