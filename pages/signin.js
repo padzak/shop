@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import CircleBtn from '@/components/buttons/circleBtn';
 import { getProviders, signIn } from 'next-auth/react';
 import axios from 'axios';
+import DotSpinner from '@/components/loaders/dotLoader';
 
 const initialValues = {
     login_email: "",
@@ -80,6 +81,9 @@ export default function Signin({ providers }) {
     }
     return (
         <>
+        {
+            loading && <DotSpinner loading={loading} />
+        }
             <Header country="Poland"/>
             <div className={styles.login}>
                 <div className={styles.login__container}>
