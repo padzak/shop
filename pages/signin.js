@@ -12,6 +12,7 @@ import { getProviders, signIn } from 'next-auth/react';
 import axios from 'axios';
 import DotSpinner from '@/components/loaders/dotLoader';
 import Router from 'next/router';
+import { getSession, getCsrfToken } from 'next-auth/react';
 
 const initialValues = {
     login_email: "",
@@ -25,7 +26,7 @@ const initialValues = {
     login_error: "",
 }
 
-export default function Signin({ providers }) {
+export default function Signin({ providers, callbackUrl, csrfToken }) {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(initialValues);
     const { login_email, 
@@ -81,7 +82,7 @@ export default function Signin({ providers }) {
             setLoading(false);
             setUser({ ...user, login_error: res?.error });
         } else {
-            return Router.push("/");
+            return Router.push(callbackUrl || "/");
         }
     };
     const signUpHandler = async() => {
@@ -253,8 +254,20 @@ export default function Signin({ providers }) {
 }
 
 export async function getServerSideProps(context) {
+    const { req, query } = context;
+    const session = await getSession({ req });
+    const callbackUrl = query;
+
+    if (session) {
+        return {
+            redirect: {
+                destination: callbackUrl,
+            },
+        };
+    }
+    const csrfToken = await getCsrfToken(context);
     const providers = Object.values(await getProviders());
     return {
-        props: { providers },
+        props: { providers, csrfToken, callbackUrl },
     };
 }
