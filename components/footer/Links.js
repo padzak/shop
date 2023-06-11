@@ -3,10 +3,6 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 
 export default function Links() {
-
-    links.map((link) => { 
-        console.log(link.links);        
-    })
     return (
         <div className={styles.footer__links}>
             {links.map((link, i) => (
