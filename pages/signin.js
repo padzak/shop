@@ -137,7 +137,6 @@ export default function Signin({ providers }) {
                             }}
                             validationSchema={loginValidation}
                             onSubmit = {() => {                    
-                                console.log("Login user", user);        
                                 signInHandler();
                             }}
                         >

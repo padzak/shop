@@ -68,9 +68,6 @@ export default NextAuth({
         const email = credentials.email;
         const password = credentials.password;
         const user = await User.findOne({ email });
-
-        console.log(user);
-
         if (user) {
           return SignInUser(user, password);
         } else {
@@ -79,6 +76,14 @@ export default NextAuth({
       }
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      let user = await User.findById(token.sub);
+      session.user.id = token.sub || user.id.toString();
+      session.user.role = user.role || 'user';
+      return session;
+    }
+  },
   pages: {
     signIn: '/signin',
   },
