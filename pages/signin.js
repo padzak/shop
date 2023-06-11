@@ -11,6 +11,7 @@ import CircleBtn from '@/components/buttons/circleBtn';
 import { getProviders, signIn } from 'next-auth/react';
 import axios from 'axios';
 import DotSpinner from '@/components/loaders/dotLoader';
+import Router from 'next/router';
 
 const initialValues = {
     login_email: "",
@@ -19,7 +20,7 @@ const initialValues = {
     email: "",
     password: "",
     confirm_password: "",
-    success: "User registered successfully",
+    success: "",
     error: "",
 }
 
@@ -74,6 +75,9 @@ export default function Signin({ providers }) {
             });
             setUser({ ...user, success: data.message, error: "" });
             setLoading(false);
+            setTimeout(() => {
+                Router.push("/");
+            }, 1200);
         } catch (error) {
             setLoading(false);
             setUser({ ...user, success: "", error: error.response.data.message });
