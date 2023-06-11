@@ -8,11 +8,15 @@ import LoginInput from '@/components/inputs/loginInput';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import CircleBtn from '@/components/buttons/circleBtn';
-import { getProviders, signIn } from 'next-auth/react';
+import {
+    getProviders,
+    signIn,
+    getSession,
+    getCsrfToken 
+} from 'next-auth/react';
 import axios from 'axios';
 import DotSpinner from '@/components/loaders/dotLoader';
 import Router from 'next/router';
-import { getSession, getCsrfToken } from 'next-auth/react';
 
 const initialValues = {
     login_email: "",
@@ -142,7 +146,8 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
                             }}
                         >
                             {(form) => (
-                                <Form>
+                                <Form method="post" action="/api/auth/signin/email">
+                                    <input type="hidden" name="csrfToken" defaultValue={csrfToken} />
                                     <LoginInput
                                         type="text"
                                         name="login_email"
