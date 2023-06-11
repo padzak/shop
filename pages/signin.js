@@ -256,7 +256,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
 export async function getServerSideProps(context) {
     const { req, query } = context;
     const session = await getSession({ req });
-    const callbackUrl = query;
+    const { callbackUrl } = query;
 
     if (session) {
         return {
