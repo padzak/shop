@@ -75,9 +75,6 @@ export default function Signin({ providers }) {
             password: login_password,
         };
         const res = await signIn("credentials", options);
-
-        console.log("Signin user", user);
-
         setUser({ ...user, success: "", error: "" });
         setLoading(false);
         if (res?.error) {
@@ -97,7 +94,13 @@ export default function Signin({ providers }) {
             });
             setUser({ ...user, success: data.message, error: "" });
             setLoading(false);
-            setTimeout(() => {
+            setTimeout(async () => {
+                let options = {
+                    redirect: false,
+                    email: email,
+                    password: password,
+                };
+                const res = await signIn("credentials", options);
                 Router.push("/");
             }, 1200);
         } catch (error) {
