@@ -19,7 +19,7 @@ const initialValues = {
     email: "",
     password: "",
     confirm_password: "",
-    success: "",
+    success: "User registered successfully",
     error: "",
 }
 
@@ -76,7 +76,7 @@ export default function Signin({ providers }) {
             setLoading(false);
         } catch (error) {
             setLoading(false);
-            setUser({ ...user, success: "", error: error.message });
+            setUser({ ...user, success: "", error: error.response.data.message });
         }
     }
     return (
@@ -201,8 +201,8 @@ export default function Signin({ providers }) {
                             }
                         </Formik>
                         <div>
-                            { success && <span>{success}</span> }
-                            { error && <span>{error}</span> }
+                            { success && <span className={styles.success}>{success}</span> }
+                            { error && <span className={styles.error}>{error}</span> }
                         </div>
                     </div>
                 </div>
