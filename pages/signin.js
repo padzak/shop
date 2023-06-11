@@ -51,7 +51,7 @@ export default function Signin({ providers }) {
             .required("Please enter your full name")
             .min(2, 'First name is too short - should be 2 chars minimum.')
             .max(22, 'First name is too long - should be 22 chars maximum.')
-            .matches(/^[a-zA-Z]+$/, 'First name should contain only Latin letters.'),
+            .matches(/^[A-Za-z\s\-]+$/, 'First name should contain only Latin letters.'),
         email: Yup.string()
             .required("Please enter your email")
             .email("Invalid email address"),
