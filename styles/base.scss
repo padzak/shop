@@ -36,3 +36,11 @@ $light-error-color: #fd010169;
     align-items: center;
     gap: 5px;
 }
+
+.error {
+    color: $error-color;
+}
+
+.success {
+    color: $success-color;
+}
