@@ -11,14 +11,14 @@ const router = createRouter();
 router.post(async (req, res) => {
     try {
         await db.connectDb();
-        const { name, email, password } = req.body;
+        const { email } = req.body;
         
-        const url = `${process.env.BASE_URL}/activate/${activation_token}`;
-        sendEmail(email, url, "", "Activate your account");
-        await db.disconnectDb();
-        res.json({
-            message: "Register success! Please activate your email to start.",
-        });
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.json({ message: "This email does not exist." });
+        }
+        const userId = user._id.toString();
+        
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
