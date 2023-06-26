@@ -5,6 +5,7 @@ import db from '@/utils/db';
 import User from '@/models/User';
 import { createResetToken } from '@/utils/tokens';
 import { sendEmail } from '@/utils/sendEmail';
+import resetPasswordEmailTemplate from '@/emails/resetPasswordEmailTemplate';
 
 const router = createRouter();
 
@@ -20,10 +21,10 @@ router.post(async (req, res) => {
         const user_id = createResetToken({
             id: user._id.toString(),
         });        const url = `${process.env.BASE_URL}/auth/reset/${user_id}`;
-        sendEmail(email, url, "", "Activate your account");
+        sendEmail(email, url, "", "Reset password", resetPasswordEmailTemplate);
         await db.disconnectDb();
         res.json({
-            message: "Register success! Please activate your email to start.",
+            message: "Reset password email has been sent!",
         });
     } catch (error) {
         res.status(500).json({ message: error.message });
