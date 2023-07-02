@@ -16,7 +16,7 @@ router.post(async (req, res) => {
         
         const user = await User.findOne({ email });
         if (!user) {
-            return res.json({ message: "This email does not exist." });
+            return res.status(400).json({ message: "This email does not exist." });
         }
         const user_id = createResetToken({
             id: user._id.toString(),
