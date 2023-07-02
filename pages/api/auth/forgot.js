@@ -5,7 +5,7 @@ import db from '@/utils/db';
 import User from '@/models/User';
 import { createResetToken } from '@/utils/tokens';
 import { sendEmail } from '@/utils/sendEmail';
-import resetPasswordEmailTemplate from '@/emails/resetPasswordEmailTemplate';
+import { resetPasswordEmailTemplate } from '@/emails/resetPasswordEmailTemplate';
 
 const router = createRouter();
 
