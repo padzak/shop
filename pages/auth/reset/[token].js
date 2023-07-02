@@ -36,9 +36,15 @@ export default function Reset({ user_id }) {
         try {
             setLoading(true);
             const { data } = await axios.put('/api/auth/reset', {
-                user_id,
+                user_id: user_id.id,
                 password,
             });
+            let options = {
+                redirect: false,
+                email: data.email,
+                password: password,
+            };
+            await signIn("credentials", options);
             setError("");
             setLoading(false);
         } catch (error) {
@@ -107,6 +113,7 @@ export async function getServerSideProps(context) {
     const { query } = context;
     const token = query.token;
     const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
+
     return {
         props: {
             user_id: user_id.id,
