@@ -67,6 +67,9 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
             .required("Enter a password")
             .min(8, 'Password is too short - should be 8 chars minimum.')
             .max(20, 'Password is too long - should be 20 chars maximum.')
+            .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+            .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+            .matches(/[0-9]/, 'Password must contain at least one number')
             .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
         confirm_password: Yup.string()
             .required("Enter a password")

@@ -42,7 +42,7 @@ export default function Forgot() {
                 loading && <DotSpinner loading={loading} />
             }
             <Header country=""/>
-            <div className={styles.forgot}>forgot
+            <div className={styles.forgot}>
                 <div>
                     <div className={styles.forgot__header}>
                         <div className={styles.back__svg}>
