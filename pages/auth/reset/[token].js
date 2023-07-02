@@ -10,11 +10,9 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import CircleBtn from '@/components/buttons/circleBtn';
 import DotSpinner from '@/components/loaders/dotLoader';
+import jwt from 'jsonwebtoken';
 
-export default function Reset({ token }) {
-
-    console.log("TOKEN", token);
-
+export default function Reset({ user_id }) {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
@@ -37,8 +35,11 @@ export default function Reset({ token }) {
     const resetHandler = async () => {
         try {
             setLoading(true);
-            
-            setError("")
+            const { data } = await axios.put('/api/auth/reset', {
+                user_id,
+                password,
+            });
+            setError("");
             setLoading(false);
         } catch (error) {
             setLoading(false);
@@ -105,10 +106,10 @@ export default function Reset({ token }) {
 export async function getServerSideProps(context) {
     const { query } = context;
     const token = query.token;
-
+    const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
     return {
         props: {
-            token,
+            user_id: user_id.id,
 
         }
     }
