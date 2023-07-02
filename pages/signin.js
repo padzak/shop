@@ -72,7 +72,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
             .matches(/[0-9]/, 'Password must contain at least one number')
             .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
         confirm_password: Yup.string()
-            .required("Enter a password")
+            .required("Confirm your password")
             .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     });
     const signInHandler = async() => {
