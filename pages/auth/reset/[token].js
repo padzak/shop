@@ -13,6 +13,7 @@ import CircleBtn from '@/components/buttons/circleBtn';
 import DotSpinner from '@/components/loaders/dotLoader';
 import jwt from 'jsonwebtoken';
 import Router from 'next/router';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default function Reset({ user_id }) {
     const [password, setPassword] = useState("");
@@ -48,6 +49,9 @@ export default function Reset({ user_id }) {
             };
             await signIn("credentials", options);
             Router.push("/");
+            setTimeout(function(){
+                window.location.reload(true);
+            });
         } catch (error) {
             setLoading(false);
             setSuccess("");
@@ -112,6 +116,14 @@ export default function Reset({ user_id }) {
 
 export async function getServerSideProps(context) {
     const { query } = context;
+    const session = await getSession({ req });
+    if (session) {
+        return {
+            redirect: {
+                destination: '/',
+            },
+        };
+    }
     const token = query.token;
     const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
     return {
