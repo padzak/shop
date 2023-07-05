@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Formik, Form } from 'formik';
 import LoginInput from '@/components/inputs/loginInput';
 import { useState } from 'react';
-import { signIn } from 'next-auth';
+import { signIn } from 'next-auth/react';
 import * as Yup from 'yup';
 import axios from 'axios';
 import CircleBtn from '@/components/buttons/circleBtn';
@@ -37,7 +37,7 @@ export default function Reset({ user_id }) {
         try {
             setLoading(true);
             const { data } = await axios.put('/api/auth/reset', {
-                user_id: user_id.id,
+                user_id,    // user_id: user_id.id 
                 password,
             });
             let options = {
@@ -46,12 +46,13 @@ export default function Reset({ user_id }) {
                 password: password,
             };
             await signIn("credentials", options);
+
             setError("");
             setLoading(false);
         } catch (error) {
             setLoading(false);
             setSuccess("");
-            setError(error.response.data.message);
+            setError(error.response.data ? error.response.data.message : error.message);
         }
     };
     return (
@@ -114,11 +115,7 @@ export async function getServerSideProps(context) {
     const { query } = context;
     const token = query.token;
     const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
-
     return {
-        props: {
-            user_id: user_id.id,
-
-        }
+        props: { user_id, }
     }
 }
