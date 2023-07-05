@@ -14,7 +14,7 @@ router.put(async (req, res) => {
     try {
         await db.connectDb();
         const { user_id, password } = req.body;
-        const user = await User.findById({ user_id });
+        const user = await User.findById(user_id);
         if (!user) {
             return res.status(400).json({ message: "This user account does not exist." });
         }
