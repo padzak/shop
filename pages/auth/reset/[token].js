@@ -12,6 +12,7 @@ import axios from 'axios';
 import CircleBtn from '@/components/buttons/circleBtn';
 import DotSpinner from '@/components/loaders/dotLoader';
 import jwt from 'jsonwebtoken';
+import Router from 'next/router';
 
 export default function Reset({ user_id }) {
     const [password, setPassword] = useState("");
@@ -37,7 +38,7 @@ export default function Reset({ user_id }) {
         try {
             setLoading(true);
             const { data } = await axios.put('/api/auth/reset', {
-                user_id,    // user_id: user_id.id 
+                user_id,
                 password,
             });
             let options = {
@@ -46,7 +47,7 @@ export default function Reset({ user_id }) {
                 password: password,
             };
             await signIn("credentials", options);
-
+            Router.push("/");
             setError("");
             setLoading(false);
         } catch (error) {
@@ -116,6 +117,6 @@ export async function getServerSideProps(context) {
     const token = query.token;
     const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
     return {
-        props: { user_id, }
+        props: { user_id: user_id.id, }
     }
 }
