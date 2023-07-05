@@ -48,8 +48,6 @@ export default function Reset({ user_id }) {
             };
             await signIn("credentials", options);
             Router.push("/");
-            setError("");
-            setLoading(false);
         } catch (error) {
             setLoading(false);
             setSuccess("");
