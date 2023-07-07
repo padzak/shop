@@ -14,6 +14,8 @@ import DotSpinner from '@/components/loaders/dotLoader';
 import jwt from 'jsonwebtoken';
 import Router from 'next/router';
 import { redirect } from 'next/dist/server/api-utils';
+import { getSession } from 'next-auth/react';
+import { req } from 'next/dist/server/api-utils';
 
 export default function Reset({ user_id }) {
     const [password, setPassword] = useState("");
@@ -49,9 +51,9 @@ export default function Reset({ user_id }) {
             };
             await signIn("credentials", options);
             Router.push("/");
-            setTimeout(function(){
-                window.location.reload(true);
-            });
+            // setTimeout(function(){ // TODO This part was not working, went with Router.push for now
+            //     window.location.reload(true);
+            // });
         } catch (error) {
             setLoading(false);
             setSuccess("");

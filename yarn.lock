@@ -2994,6 +2994,18 @@ uuid@^9.0.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
   integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
+vanilla-pubsub@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vanilla-pubsub/-/vanilla-pubsub-1.1.2.tgz#19e180f7e01c4e9548a7349a8b2a5587f8848da7"
+  integrity sha512-unLf9tR1qJ90Dwk3BJtEORtRslVJhDMUIS7DKmbOBCFgAoAOLkdlCZpRHJAjD+N/mibr8p7GlpC98coaG4NrBg==
+
+vanilla-store@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/vanilla-store/-/vanilla-store-0.4.0.tgz#e01a6d1a6829dc3800c2cffcd612f99b8088949c"
+  integrity sha512-qjnM9GE1Q3KSuUjqKRWJXxMo7IUQid5cxwPRPcSxlSEOt/NDC2qd3OpZWhawG+vfHIC3IrDPUFlMRwi9DPmRxQ==
+  dependencies:
+    vanilla-pubsub "^1.1.2"
+
 webidl-conversions@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
