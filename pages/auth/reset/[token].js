@@ -127,8 +127,17 @@ export async function getServerSideProps(context) {
         };
     }
     const token = query.token;
-    const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
-    return {
-        props: { user_id: user_id.id, }
+    try {
+        const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
+        return {
+            props: { user_id: user_id.id, }
+        };
+    }
+    catch (error) {
+        return {
+            redirect: {
+                destination: '/auth/forgot',
+            },
+        };
     }
 }
