@@ -5,6 +5,13 @@ $success-color: #6cc070; // #00c48c
 $error-color: #ed4337;
 $light-error-color: #fd010169;
 
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-style: normal;
+}
+
 .btn_primary {
     display: flex;
     align-items: center;

@@ -5,6 +5,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { useSession, signIn, signOut } from "next-auth/react"
 import axios from 'axios';
+import Main from '@/components/home/main';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,15 +16,20 @@ export default function Home() {
     flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
   }
   
-  return (<div>
+  return (
+  <>
     <Header country={country}/>
-    { session ? "you are logged in" : "you are not logged in" }
+    <div className={styles.home}>
+      <div className={styles.container}>
+        <Main />
+      </div>
+    </div>  
     <Footer country={country}/>
-  </div>
+  </>
   )
 }
 
-// Below code includes polling location from ipregistry API and passing it to Home  
+// Below code includes polling location from ipregistry API and passing it to Home instead of hardcoding it
 
 // export default function Home({ country }) {
 //   return (<div>
