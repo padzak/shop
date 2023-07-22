@@ -26,8 +26,10 @@
         background: #fff;
         border-radius: 10px;
         box-shadow: $shadow-1;
-        overflow: auto;
-        height: 300px;
+        overflow: hidden; // for some reason this has to be added to each swiper style file separately
+        height: 300px !important;
+        border-radius: 10px !important;
+        box-shadow: $shadow-1 !important;
     }
     .offers {
         grid-area: offers;
