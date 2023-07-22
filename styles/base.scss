@@ -59,14 +59,14 @@ $light-error-color: #fd010169;
 }
 
 .swiper-slide {
-    text-align: center;
+    // text-align: center;
     font-size: 18px;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     background: #fff;
     height: auto;
-    padding-top: 120px;
+    // padding-top: 120px;
     /* Center slide text vertically */
     // display: flex;
     // margin-top: 100px;
@@ -86,4 +86,5 @@ $light-error-color: #fd010169;
     margin-right: auto;
     // margin-top: 100px;
 }
+
   
