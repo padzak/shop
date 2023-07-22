@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-export default function App() {
+export default function MainSwiper() {
   return (
     <>
       <Swiper
