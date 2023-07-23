@@ -145,6 +145,31 @@ $light-error-color: #fd010169;
     max-width: 550px;
     transform: translateX(25%);
     flex-shrink: 1.5;
+
+    span {
+        position: absolute;
+        color: #fff;
+        &:first-of-type {
+            bottom: 10px;
+            width: 70%;
+            height: 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: $yellow-color-transparent;
+        }
+        &:last-of-type {
+            font-style: italic;
+            width: 30%;
+            top: 5px;
+            right: 5px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: $redish-color-transparent;
+        }
+    }
     
     .swiper-pagination {
         display: none;
