@@ -29,4 +29,33 @@ export const offersList = [
         price: "666",
         discount: "66",
     },
-]    
+];
+
+export const menuList = [
+    {
+        name: "Women's Fashion",
+        icon: "",
+        link: "",
+        subMenu: [
+            {
+                name: "",
+                link: "",
+            },
+        ],
+        brands: [],
+        images: [],
+    },
+    {
+        name: "Men's Fashion",
+        icon: "",
+        link: "",
+        subMenu: [
+            {
+                name: "",
+                link: "",
+            },
+        ],
+        brands: [],
+        images: [],
+    },
+];
