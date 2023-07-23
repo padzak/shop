@@ -33,10 +33,13 @@
     }
     .offers {
         grid-area: offers;
+        overflow: hidden;
         background: #fff;
         border-radius: 10px;
         box-shadow: $shadow-1;
         height: 220px;
+        background-image: url("https://img.freepik.com/premium-vector/beautiful-colorful-gradient-background_492281-1165.jpg?w=2000");
+        background-position: -200px -275px;
     }
     .user {
         grid-area: user;

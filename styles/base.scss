@@ -92,7 +92,8 @@ $light-error-color: #fd010169;
     // margin-top: 100px;
 }
 
-.mainSwiper {
+.mainSwiper,
+.offersSwiper {
     .swiper-pagination-bullet {
         width: 8px !important;
         color: red !important;
@@ -123,6 +124,12 @@ $light-error-color: #fd010169;
 
     .swiper-button-next {
         right: -13px;
+    }
+}
+
+.offersSwiper {
+    .swiper-pagination {
+        display: none;
     }
 }
   
