@@ -1,4 +1,4 @@
-import Menu from './menu';
+import Menu from './Menu';
 import Offers from './Offers';
 import styles from './styles.module.scss'
 import MainSwiper from './Swiper';
