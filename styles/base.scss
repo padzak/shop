@@ -108,7 +108,8 @@ $light-error-color: #fd010169;
 }
 
 .mainSwiper,
-.offersSwiper {
+.offersSwiper, 
+.userSwiper {
     .swiper-pagination-bullet {
         width: 8px !important;
         color: red !important;
