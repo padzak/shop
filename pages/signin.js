@@ -17,6 +17,7 @@ import {
 import axios from 'axios';
 import DotSpinner from '@/components/loaders/dotLoader';
 import Router from 'next/router';
+import { signInProviders } from '@/data/user';
 
 const initialValues = {
     login_email: "",
@@ -185,7 +186,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
                                                 <div key={provider.name}>
                                                     <button className={styles.social__btn} onClick={() => signIn(provider.id)}>
                                                     {/* <img src={`../public/images/icons/${provider.id}.png`} /> */}
-                                                    <img src="https://img.freepik.com/darmowe-ikony/szukaj_318-265146.jpg" />
+                                                    <img src={signInProviders.google} />
                                                     Sign in with {provider.name}
                                                     </button>
                                                 </div>
