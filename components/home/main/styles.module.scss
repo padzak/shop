@@ -88,18 +88,19 @@
             padding: 1rem;
         }
         &__info {
-            position: absolute;
-            top: 1rem;
+            position: relative;
+            top: 0rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             img {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                box-shadow: $shadow-1;
+              width: 100px;
+              height: 100px;
+              object-fit: cover;
+              border-radius: 50%;
+              box-shadow: $shadow-1;
             }
             h4 {
                 margin-top: 10px;
@@ -127,6 +128,8 @@
             }
         }
         &__links {
+            position: relative;
+            top: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
