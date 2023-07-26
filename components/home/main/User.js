@@ -17,12 +17,12 @@ export default function User() {
     const { data: session } = useSession();
     return (
         <div className={styles.user}>
-            <img  src="" alt=""/>
+            <img  src={defaultUser.header} alt=""/>
             <div className={styles.user__container}>
                 {
                     session ? (
                         <div className={styles.user__info}>
-                            <img src={session.user?.image} alt=""/>
+                            <img className={styles.user__header} src={session.user?.image} alt=""/>
                             <h4>{session.user.name}</h4>
                         </div>
                     ) : (
