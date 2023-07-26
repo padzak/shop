@@ -9,6 +9,7 @@ import Main from '@/components/home/main';
 
 const inter = Inter({ subsets: ['latin'] })
 
+// TODO change for ipregistry in prod
 export default function Home() {
   const { data: session } = useSession();
   let country = {
