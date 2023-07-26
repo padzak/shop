@@ -28,7 +28,7 @@ export default function User() {
                     ) : (
                         <div className={styles.user__info}> 
                             <img src={defaultUser.image} alt=""/>
-                            <div className={styles.user__info_buttons}>
+                            <div className={styles.user__info__buttons}>
                                 <button>Register</button>
                                 <button>Login</button>
                             </div>
