@@ -40,6 +40,11 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    color: #424141;
+                    svg {
+                        fill: #8c8484;
+                        stroke: #8c8484;
+                    }
                 }
             }
         }

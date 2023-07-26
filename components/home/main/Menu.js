@@ -22,19 +22,21 @@ export default function Menu() {
                     {menuList.map((item, i) => (
                         // TODO fix legacy behavior
                         // eslint-disable-next-line react/jsx-key
-                        <Link legacyBehavior href={item.link}>
-                            <a>
-                                {
-                                    ( i == 0 ? (
-                                        <GiLargeDress />
-                                    ) : i == 1 ? (
-                                        <GiClothes />
-                                    ) : "")
+                        <li>
+                            <Link legacyBehavior href={item.link}>
+                                <a>
+                                    {
+                                        ( i == 0 ? (
+                                            <GiLargeDress />
+                                        ) : i == 1 ? (
+                                            <GiClothes />
+                                        ) : "")
 
-                                }
-                                <span>{item.name}</span>
-                            </a>
-                        </Link>
+                                    }
+                                    <span>{item.name}</span>
+                                </a>
+                            </Link>
+                        </li>
                     ))}
                 </div>
             </ul>
