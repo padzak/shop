@@ -76,12 +76,15 @@ export default function User() {
                         grabCursor={true}
                         navigation={true}
                         loop={true}
-                        modules={[EffectCards, Navigation]}
+                        // TODO update swiper to work properly with effect cards
+                        // modules={[EffectCards, Navigation]}
                         className="userSwiper"
                         style={{
                             maxWidth: "180px",
-                            height: "240px",
-                            marginTop: "1rem",
+                            // position: "relative",
+                            // bottom: "10px"
+                            // height: "240px",
+                            // marginTop: "-10rem",
                         }}
                     >
                         {userSwiperArray.map((item) => (
