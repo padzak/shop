@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import { logo } from "@/data/links";
 
 export default function Links() {
     return (
@@ -10,7 +11,7 @@ export default function Links() {
                 <ul>
                     {
                         i===0 ? (
-                            <img src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f2b060c7a92408bac811_logo.svg" />
+                            <img src={logo} />
                             ) : (
                                 <b>{link.heading}</b>
                             )
