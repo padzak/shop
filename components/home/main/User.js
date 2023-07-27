@@ -81,10 +81,9 @@ export default function User() {
                         className="userSwiper"
                         style={{
                             maxWidth: "180px",
-                            // position: "relative",
-                            // bottom: "10px"
-                            // height: "240px",
-                            // marginTop: "-10rem",
+                            position: "relative",
+                            height: "240px",
+                            marginTop: "4rem",
                         }}
                     >
                         {userSwiperArray.map((item) => (
