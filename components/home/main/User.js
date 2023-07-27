@@ -69,7 +69,7 @@ export default function User() {
                     <img
                         src="https://assets.stickpng.com/images/5a5a6d2414d8c4188e0b088d.png"
                         alt=""
-                        className={styles.new}
+                        className={styles.user__header}
                     />
                     <Swiper
                         effect={"cards"}
@@ -96,6 +96,11 @@ export default function User() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    <img
+                        src="../../../images/userHeader.jpg"
+                        alt=""
+                        className={styles.user__footer}
+                    />
                 </div>
             </div>
         </div>
