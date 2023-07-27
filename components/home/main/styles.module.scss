@@ -7,6 +7,7 @@
       "menu swiper user"
       "menu offers user";
     .menu {
+        overflow: hidden;
         grid-area: menu;
         background: #fff;
         border-radius: 10px;
@@ -51,10 +52,21 @@
     }
     .header {
         grid-area: header;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: $shadow-1;
         height: 40px;
+        display: flex;
+        align-items: center;
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            li {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                font-size: 19px;
+                color: $blue-color;
+            }
+        }
     }
     .swiper {
         grid-area: swiper;
