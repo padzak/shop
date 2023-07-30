@@ -147,7 +147,9 @@ $light-error-color: #fd010169;
     max-width: 550px;
     transform: translateX(25%);
     flex-shrink: 1.5;
-
+    @media (max-width: 1185px) {
+        transform: translateX(1%);
+    }
     span {
         position: absolute;
         color: #fff;
