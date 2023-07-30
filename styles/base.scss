@@ -150,6 +150,9 @@ $light-error-color: #fd010169;
     @media (max-width: 1185px) {
         transform: translateX(1%);
     }
+    @media (max-width: 710px) {
+        transform: translateX(0%);
+    }
     span {
         position: absolute;
         color: #fff;
