@@ -13,4 +13,12 @@
         background: $yellow-color;
         margin-bottom: 10px;
     }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 1rem;
+        @media (max-width: 600px) {
+            justify-content: center;
+        }
+    }
 }
