@@ -9,6 +9,21 @@
     @media (max-width: 1470px) {
         grid-template-columns: 1fr 3fr;
     }
+    @media (max-width: 1185px) {
+        grid-template-areas:
+            "menu swiper"
+            "menu offers";
+    }
+    @media (max-width: 840px) {
+        grid-template-columns: 80px 3fr;
+    }
+    @media (max-width: 710px) {
+        grid-template-areas:
+            "menu"
+            "swiper"
+            "offers";
+        grid-template-columns: 1fr;
+    }
     .menu {
         overflow: hidden;
         grid-area: menu;
@@ -26,6 +41,9 @@
                 align-items: center;
                 justify-content: center;
             }
+        }
+        @media (max-width: 1185px) {
+            height: 530px;
         }
         &__header {
             width: 100%;
@@ -77,6 +95,9 @@
         height: 40px;
         display: flex;
         align-items: center;
+        @media (max-width: 1185px) {
+            display: none !important;
+        }
         ul {
             display: flex;
             align-items: center;
