@@ -6,6 +6,9 @@
       "menu header header"
       "menu swiper user"
       "menu offers user";
+    @media (max-width: 1470px) {
+        grid-template-columns: 1fr 3fr;
+    }
     .menu {
         overflow: hidden;
         grid-area: menu;
@@ -97,6 +100,9 @@
         border-radius: 10px;
         box-shadow: $shadow-1;
         height: 530px;
+        @media (max-width: 1470px) {
+            display: none;
+        }
         &__header {
             position: absolute;
         }
