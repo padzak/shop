@@ -22,7 +22,7 @@ export default function Menu() {
                     {menuList.map((item, i) => (
                         // TODO fix legacy behavior
                         // eslint-disable-next-line react/jsx-key
-                        <li>
+                        <li className={styles.menu__list}>
                             <Link legacyBehavior href={item.link}>
                                 <a>
                                     {
