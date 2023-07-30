@@ -23,6 +23,19 @@
             "swiper"
             "offers";
         grid-template-columns: 1fr;
+        .menu {
+            width: 100% !important;
+            height: fit-content !important;
+            padding: 5px;
+            &__list {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(-1px);
+            }
+        }
     }
     .menu {
         overflow: hidden;
@@ -96,6 +109,7 @@
         display: flex;
         align-items: center;
         @media (max-width: 1185px) {
+            height: 0;
             display: none !important;
         }
         ul {
