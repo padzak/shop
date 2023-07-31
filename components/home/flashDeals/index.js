@@ -20,7 +20,7 @@ export default function FlashDeals() {
                 <Countdown />
             </div>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={6}
                 spaceBetween={30}
                 navigation={true}
                 modules={[Navigation]}
