@@ -20,11 +20,28 @@ export default function FlashDeals() {
                 <Countdown />
             </div>
             <Swiper
-                slidesPerView={6}
+                slidesPerView={1}
                 spaceBetween={30}
                 navigation={true}
                 modules={[Navigation]}
                 className="flashDealsSwiper"
+                breakpoints={{
+                    450: {
+                        slidesPerView: 2,
+                    },
+                    630: {
+                        slidesPerView: 3,
+                    },
+                    840: {
+                        slidesPerView: 4,
+                    },
+                    1000: {
+                        slidesPerView: 5,
+                    },
+                    1250: {
+                        slidesPerView: 6,
+                    },
+                }}
             >
                 <div className={styles.flashDeals__list}>
                     {flashDealsArray.map((item, i) => (
