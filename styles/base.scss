@@ -245,4 +245,10 @@ $light-error-color: #fd010169;
     .swiper-button-prev {
         top: 35%;
     }
+    @media (max-width: 450px) {
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: grid !important;
+        }
+    }
 }
