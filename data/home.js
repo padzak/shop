@@ -106,6 +106,7 @@ export const userSwiperArray = [
       discount: "11",
       link: "",
       sold: "30",
+      lowest30DaysPrice: "91",
     },
     {
       image:
@@ -114,6 +115,7 @@ export const userSwiperArray = [
       discount: "25",
       link: "",
       sold: "61",
+      lowest30DaysPrice: "73",
     },
     {
       image:
@@ -122,6 +124,7 @@ export const userSwiperArray = [
       discount: "36",
       link: "",
       sold: "12",
+      lowest30DaysPrice: "254",
     },
     {
       image:
@@ -130,6 +133,7 @@ export const userSwiperArray = [
       discount: "20",
       link: "",
       sold: "96",
+      lowest30DaysPrice: "1687",
     },
     {
       image:
@@ -138,6 +142,7 @@ export const userSwiperArray = [
       discount: "8",
       link: "",
       sold: "12",
+      lowest30DaysPrice: "126",
     },
     {
       image:
@@ -146,6 +151,7 @@ export const userSwiperArray = [
       discount: "7",
       link: "",
       sold: "82",
+      lowest30DaysPrice: "65",
     },
     {
       image:
@@ -154,6 +160,7 @@ export const userSwiperArray = [
       discount: "9",
       link: "",
       sold: "52",
+      lowest30DaysPrice: "41",
     },
     {
       image:
@@ -162,5 +169,6 @@ export const userSwiperArray = [
       discount: "35",
       link: "",
       sold: "49",
+      lowest30DaysPrice: "288",
     },
   ];
