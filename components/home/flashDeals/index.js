@@ -17,7 +17,7 @@ export default function FlashDeals() {
         <div className={styles.flashDeals}>
             <div className={styles.flashDeals__header}>
                 <h1>FLASH SALE <MdFlashOn /></h1>
-                <Countdown />
+                <Countdown date={new Date(2023, 8, 1)}/>
             </div>
             <Swiper
                 slidesPerView={1}
