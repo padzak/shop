@@ -22,3 +22,20 @@
         }
     }
 }
+
+.card {
+    height: 420px;
+    width: 283px;
+    &__image {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        cursor: pointer;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
