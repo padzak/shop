@@ -22,7 +22,7 @@ export function calculateDiff(timestampMs) {
 }
 
 function getRemainingSeconds(nowDayjs, timestampDayjs) {
-    const diff = timestampDayjs.diff(nowDayjs, 'second');
+    const diff = timestampDayjs.diff(nowDayjs, 'second') % 60;
     return padWithZeros(diff, 2);
 }
 
@@ -38,7 +38,7 @@ function getRemainingHours(nowDayjs, timestampDayjs) {
 
 function getRemainingDays(nowDayjs, timestampDayjs) {
     const diff = timestampDayjs.diff(nowDayjs, 'day');
-    return padWithZeros(diff, 2);
+    return diff.toString();
 }
 
 function formatNumber(number) {
