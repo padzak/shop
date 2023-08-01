@@ -18,25 +18,37 @@ export function calculateDiff(timestampMs) {
         minutes: getRemainingMinutes(nowDayjs, timestampDayjs),
         hours: getRemainingHours(nowDayjs, timestampDayjs),
         days: getRemainingDays(nowDayjs, timestampDayjs),
-    };  
+    };
 }
 
 function getRemainingSeconds(nowDayjs, timestampDayjs) {
     const diff = timestampDayjs.diff(nowDayjs, 'second');
-    return diff < 10 ? `0${diff}` : diff;
+    return padWithZeros(diff, 2);
 }
 
 function getRemainingMinutes(nowDayjs, timestampDayjs) {
     const diff = timestampDayjs.diff(nowDayjs, 'minute') % 60;
-    return diff < 10 ? `0${diff}` : diff;
+    return padWithZeros(diff, 2);
 }
 
 function getRemainingHours(nowDayjs, timestampDayjs) {
     const diff = timestampDayjs.diff(nowDayjs, 'hour') % 24;
-    return diff < 10 ? `0${diff}` : diff;
+    return padWithZeros(diff, 2);
 }
 
 function getRemainingDays(nowDayjs, timestampDayjs) {
     const diff = timestampDayjs.diff(nowDayjs, 'day');
-    return diff < 10 ? `0${diff}` : diff;
+    return padWithZeros(diff, 2);
+}
+
+function formatNumber(number) {
+    return number < 10 ? `0${number}` : number.toString();
+}
+
+function padWithZeros(number, length) {
+    const numberString = number.toString();
+    if (numberString.length >= length) {
+        return numberString;
+    }
+    return "0".repeat(length - numberString.length) + numberString;
 }
