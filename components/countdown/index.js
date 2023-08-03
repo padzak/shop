@@ -34,14 +34,14 @@ export default function Countdown({ date }) {
                 ))
             }
             <b>:</b>
-            <span>4</span>
-            <span>5</span>
+            <span>{timeLeft?.hours.slice(0,1)}</span>
+            <span>{timeLeft?.hours.slice(1,2)}</span>
             <b>:</b>
-            <span>1</span>
-            <span>0</span>
+            <span>{timeLeft?.minutes.slice(0,1)}</span>
+            <span>{timeLeft?.minutes.slice(1,2)}</span>
             <b>:</b>
-            <span>1</span>
-            <span>0</span>
+            <span>{timeLeft?.seconds.slice(0,1)}</span>
+            <span>{timeLeft?.seconds.slice(1,2)}</span>
         </div>
     );
 }
