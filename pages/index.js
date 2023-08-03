@@ -7,6 +7,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import axios from 'axios';
 import Main from '@/components/home/main';
 import FlashDeals from '@/components/home/flashDeals';
+import Category from '@/components/home/category';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,9 @@ export default function Home() {
       <div className={styles.container}>
         <Main />
         <FlashDeals />
+        <div className={styles.home__category}>
+          <Category header="Top Sellers" />
+        </div>
       </div>
     </div>  
     <Footer country={country}/>
