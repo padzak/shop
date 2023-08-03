@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { useState, useEffect } from 'react';
-import { calculateDiff } from "./utils";
+import { calculateDiff } from "./countdownUtils";
 
 const remainingTime = {
     seconds: "00",
