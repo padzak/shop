@@ -41,8 +41,8 @@ export default function Home() {
 
         </div>
         <ProductSwiper header="" products={women_swiper} />
-        <ProductSwiper header="For Gamers" products={gamingSwiper} />
-        <ProductSwiper header="House Improvements" products={homeImprovSwiper} />
+        <ProductSwiper header="For Gamers" products={gamingSwiper} bg="#5a31f4"/>
+        <ProductSwiper header="House Improvements" products={homeImprovSwiper} bg="#2f82ff"/>
       </div>
     </div>  
     <Footer country={country}/>

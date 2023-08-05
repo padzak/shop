@@ -5,11 +5,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
-export default function ProductSwiper({ header, products }) {
+export default function ProductSwiper({ header, products, bg }) {
     return (
         <div className={styles.productSwiper}>
             {
-                header && <div className={styles.header}>{ header }</div>
+                header && <div
+                            className={styles.header}
+                            style={{ background: `${bg ? bg : ""}` }}
+                            >
+                                { header }
+                            </div>
             }
             <Swiper
                 slidesPerView={2}
