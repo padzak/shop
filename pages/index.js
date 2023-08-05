@@ -28,7 +28,7 @@ export default function Home() {
         <Main />
         <FlashDeals />
         <div className={styles.home__category}>
-          <Category header="Top Sellers" products={women_dresses}/>
+          <Category header="Top Sellers" products={women_dresses} background="#5a31f4"/>
         </div>
       </div>
     </div>  
