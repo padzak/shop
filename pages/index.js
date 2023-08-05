@@ -9,6 +9,7 @@ import Main from '@/components/home/main';
 import FlashDeals from '@/components/home/flashDeals';
 import Category from '@/components/home/category';
 import { women_accessories, women_dresses, women_shoes } from '@/data/home';
+import { useMediaQuery } from "react-responsive";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,8 @@ export default function Home() {
     name: 'Poland',
     flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
   }
-  
+  const isMedium = useMediaQuery({ query: "(max-width: 850px)" });
+
   return (
   <>
     <Header country={country}/>
@@ -29,8 +31,12 @@ export default function Home() {
         <FlashDeals />
         <div className={styles.home__category}>
           <Category header="Dresses" products={women_dresses} background="#5a31f4"/>
-          <Category header="Women Shoes" products={women_shoes} background="#666"/>
-          <Category header="Women Accessories" products={women_accessories} background="#3c811f"/>
+          {
+            !isMedium && (
+              <Category header="Shoes" products={women_shoes} background="#666"/>
+            )
+          }
+          <Category header="Accessories" products={women_accessories} background="#3c811f"/>
 
         </div>
       </div>
