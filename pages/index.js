@@ -8,7 +8,7 @@ import axios from 'axios';
 import Main from '@/components/home/main';
 import FlashDeals from '@/components/home/flashDeals';
 import Category from '@/components/home/category';
-import { women_accessories, women_dresses, women_shoes, women_swiper } from '@/data/home';
+import { gamingSwiper, homeImprovSwiper, women_accessories, women_dresses, women_shoes, women_swiper } from '@/data/home';
 import { useMediaQuery } from "react-responsive";
 import ProductSwiper from '@/components/productSwiper';
 
@@ -41,6 +41,8 @@ export default function Home() {
 
         </div>
         <ProductSwiper header="" products={women_swiper} />
+        <ProductSwiper header="For Gamers" products={gamingSwiper} />
+        <ProductSwiper header="House Improvements" products={homeImprovSwiper} />
       </div>
     </div>  
     <Footer country={country}/>

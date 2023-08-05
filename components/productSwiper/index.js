@@ -42,7 +42,9 @@ export default function ProductSwiper({ header, products }) {
                                 </div>
                                 <div className={styles.product__infos}>
                                     <h1>{product.name.length > 30 ? `${product.name.slice(0,30)}...` : product.name}</h1>
-                                    <span>{product.price} PLN</span>
+                                    {
+                                        product.price && <span>{product.price} PLN</span>
+                                    }
                                 </div>
                             </div>
                         </SwiperSlide>
