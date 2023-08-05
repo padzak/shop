@@ -12,7 +12,9 @@ export default function Category({ header, products, background }) {
                 {
                     products.map((product, index) => (
                         // eslint-disable-next-line react/jsx-key
-                        <img src={product.image} /*alt={product.name}*/ alt="" />
+                        <div className={styles.product}>
+                            <img src={product.image} /*alt={product.name}*/ alt="" />
+                        </div>
                     ))
                 }
             </div>
