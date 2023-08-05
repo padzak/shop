@@ -8,6 +8,7 @@ import axios from 'axios';
 import Main from '@/components/home/main';
 import FlashDeals from '@/components/home/flashDeals';
 import Category from '@/components/home/category';
+import { women_dresses } from '@/data/home';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +28,7 @@ export default function Home() {
         <Main />
         <FlashDeals />
         <div className={styles.home__category}>
-          <Category header="Top Sellers" />
+          <Category header="Top Sellers" products={women_dresses}/>
         </div>
       </div>
     </div>  
