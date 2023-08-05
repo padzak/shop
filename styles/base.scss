@@ -252,3 +252,20 @@ $light-error-color: #fd010169;
         }
     }
 }
+
+.productSwiper {
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: #fff !important;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #666;
+        box-shadow: $shadow-1;
+        &::after {
+            transform: scale(0.6);
+        }
+    }
+}

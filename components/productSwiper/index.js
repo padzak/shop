@@ -17,6 +17,23 @@ export default function ProductSwiper({ header, products }) {
                 navigation={true}
                 modules={[Navigation]}
                 className="productSwiper"
+                breakpoints={{
+                    450: {
+                        slidesPerView: 2,
+                    },
+                    630: {
+                        slidesPerView: 3,
+                    },
+                    840: {
+                        slidesPerView: 4,
+                    },
+                    1000: {
+                        slidesPerView: 5,
+                    },
+                    1250: {
+                        slidesPerView: 6,
+                    },
+                }}
             >
                 {
                     products.map((product) => (
