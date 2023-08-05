@@ -27,7 +27,7 @@ export default function ProductSwiper({ header, products }) {
                                     <img src={product.image} alt="" />
                                 </div>
                                 <div className={styles.product__infos}>
-                                    <h1>{product.name.length > 35 ? `${product.name.slice(0,35)}...` : product.name}</h1>
+                                    <h1>{product.name.length > 30 ? `${product.name.slice(0,30)}...` : product.name}</h1>
                                     <span>{product.price} PLN</span>
                                 </div>
                             </div>
