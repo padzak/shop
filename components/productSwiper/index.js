@@ -12,15 +12,12 @@ export default function ProductSwiper({ header, products }) {
                 header && <div className={styles.header}>{ header }</div>
             }
             <Swiper
-                slidesPerView={6}
+                slidesPerView={2}
                 spaceBetween={10}
                 navigation={true}
                 modules={[Navigation]}
                 className="productSwiper"
                 breakpoints={{
-                    450: {
-                        slidesPerView: 2,
-                    },
                     630: {
                         slidesPerView: 3,
                     },
