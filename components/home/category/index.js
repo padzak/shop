@@ -9,7 +9,12 @@ export default function Category({ header, products }) {
                 <BsArrowRightCircle />
             </div>
             <div className={styles.category__products}>
-
+                {
+                    products.map((product, index) => (
+                        // eslint-disable-next-line react/jsx-key
+                        <img src={product.image} /*alt={product.name}*/ alt="" />
+                    ))
+                }
             </div>
         </div>
     );
