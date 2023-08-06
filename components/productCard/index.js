@@ -40,10 +40,12 @@ export default function ProductCard({ product }) {
                     </div>
                 </Link>
                 {
-                    product.subProducts[active].discount && (
+                    product.subProducts[active].discount ? (
                     <div className={styles.product__discount}>
                         {product.subProducts[active].discount}%
                     </div>
+                ) : (
+                    ""
                 )}
                 <div className={styles.product__infos}>
                     <h1>

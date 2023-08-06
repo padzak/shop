@@ -4,6 +4,7 @@
     height: 500px;
     &__infos {
         width: 100%;
+        margin-top: 1px;
         h1 {
             font-size: 13px;
             font-weight: normal;
@@ -24,6 +25,7 @@
             width: 20px;
             height: 20px;
             object-fit: cover;
+            border-radius: 50%;
             box-shadow: $shadow-1;
             cursor: pointer;
             outline-offset: 2px;
