@@ -13,7 +13,15 @@ export default function ProductCard({ images }) {
         swiperRef.current.swiper.autoplay.stop();
     }, [swiperRef]);
     return (
-        <div className={styles.swiper}>
+        <div 
+            className={styles.swiper}
+            onMouseEnter={() => {
+                swiperRef.current.swiper.autoplay.start();
+            }}
+            onMouseLeave={() => {
+                swiperRef.current.swiper.autoplay.stop();
+            }}
+        >
             <Swiper
                 ref={swiperRef}
                 centeredSlides={true}
