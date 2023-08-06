@@ -17,12 +17,9 @@ import Product from "../models/Product";
 const inter = Inter({ subsets: ['latin'] })
 
 // TODO change for ipregistry in prod
-export default function Home() {
+export default function Home({ country, products }) {
+  console.log("Products: ", products);
   const { data: session } = useSession();
-  let country = {
-    name: 'Poland',
-    flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
-  }
   const isMedium = useMediaQuery({ query: "(max-width: 850px)" });
 
   return (
@@ -52,19 +49,9 @@ export default function Home() {
   )
 }
 
-// Below code includes polling location from ipregistry API and passing it to Home instead of hardcoding it
-
-// export default function Home({ country }) {
-//   return (<div>
-//     <Header country={country}/>
-//     <Footer country={country}/>
-//   </div>
-//   )
-// }
-
 export async function getServerSideProps() {
   db.connectDb();
-  let product = await Product.find().sort({ createdAt: -1 }).lean();
+  let products = await Product.find().sort({ createdAt: -1 }).lean();
   let data = await axios
   .get('https://api.ipregistry.co/66.165.2.7?key=yfq1uw24gda2l0fv')
   .then((res) =>{
@@ -75,7 +62,12 @@ export async function getServerSideProps() {
   });
   return  {
     props: {
-      country: { name: data.name, flag: data.flag.emojitwo },
+      products: JSON.parse(JSON.stringify(products)),
+      // country: { name: data.name, flag: data.flag.emojitwo }, // includes location from ipregistry API to be passed to Home instead of hardcoding it
+      country: {
+        name: 'Poland',
+        flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
+      },
     },
   }
 }
