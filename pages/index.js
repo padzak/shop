@@ -13,6 +13,7 @@ import { useMediaQuery } from "react-responsive";
 import ProductSwiper from '@/components/productSwiper';
 import db from '@/utils/db';
 import Product from "../models/Product";
+import ProductCard from '@/components/productCard';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,8 +41,17 @@ export default function Home({ country, products }) {
 
         </div>
         <ProductSwiper header="" products={women_swiper} />
-        <ProductSwiper header="For Gamers" products={gamingSwiper} bg="#5a31f4"/>
-        <ProductSwiper header="House Improvements" products={homeImprovSwiper} bg="#2f82ff"/>
+        <div className={styles.product}>
+          {
+            products.map((product) => (
+              <ProductCard product={product} key={product._id}/>
+            ))
+          }
+        </div>
+
+        {/* <ProductSwiper header="For Gamers" products={gamingSwiper} bg="#5a31f4"/>
+        <ProductSwiper header="House Improvements" products={homeImprovSwiper} bg="#2f82ff"/> */}
+
       </div>
     </div>  
     <Footer country={country}/>
@@ -60,7 +70,7 @@ export async function getServerSideProps() {
   .catch((err) => {
     console.log(err);
   });
-  return  {
+  return {
     props: {
       products: JSON.parse(JSON.stringify(products)),
       // country: { name: data.name, flag: data.flag.emojitwo }, // includes location from ipregistry API to be passed to Home instead of hardcoding it
