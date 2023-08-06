@@ -57,10 +57,10 @@ export default function ProductCard({ product }) {
                     <div className={styles.product__colors}>
                         {
                             styless && styless.map((style, i) => 
-                                styles.image ? (
+                                style.image ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img 
-                                    src={styles.image}
+                                    src={style.image}
                                     className={i == active && styles.active}
                                     onMouseOver={() => {
                                         setImages(product.subProducts[i].images);
@@ -70,16 +70,14 @@ export default function ProductCard({ product }) {
                                     key={i}
                                 />
                             ) : (
-                                <span 
+                                <span
                                     style={{ backgroundCOlor: `${style.color}` }}
                                     key={i}
                                     onMouseOver={() => {
                                         setImages(product.subProducts[i].images);
                                         setActive(i);
                                     }}
-                                >
-
-                                </span>
+                                ></span>
                             )
                         )}
                     </div>
