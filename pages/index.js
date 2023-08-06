@@ -11,6 +11,8 @@ import Category from '@/components/home/category';
 import { gamingSwiper, homeImprovSwiper, women_accessories, women_dresses, women_shoes, women_swiper } from '@/data/home';
 import { useMediaQuery } from "react-responsive";
 import ProductSwiper from '@/components/productSwiper';
+import db from '@/utils/db';
+import Product from "../models/Product";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -60,18 +62,20 @@ export default function Home() {
 //   )
 // }
 
-// export async function getServerSideProps() {
-//   let data = await axios
-//   .get('https://api.ipregistry.co/66.165.2.7?key=yfq1uw24gda2l0fv')
-//   .then((res) =>{
-//     return res.data.location.country;
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-//   return  {
-//     props: {
-//       country: { name: data.name, flag: data.flag.emojitwo },
-//     },
-//   }
-// }
+export async function getServerSideProps() {
+  db.connectDb();
+  let product = await Product.find().sort({ createdAt: -1 }).lean();
+  let data = await axios
+  .get('https://api.ipregistry.co/66.165.2.7?key=yfq1uw24gda2l0fv')
+  .then((res) =>{
+    return res.data.location.country;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  return  {
+    props: {
+      country: { name: data.name, flag: data.flag.emojitwo },
+    },
+  }
+}
