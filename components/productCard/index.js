@@ -39,6 +39,51 @@ export default function ProductCard({ product }) {
                         <ProductSwiper images={images} />
                     </div>
                 </Link>
+                {
+                    product.subProducts[active].discount && (
+                    <div className={styles.product__discount}>
+                        {product.subProducts[active].discount}%
+                    </div>
+                )}
+                <div className={styles.product__infos}>
+                    <h1>{ product.name.length > 45 ? `${product.name.substring(0,45)}...` : product.name }</h1>
+                    <span>
+                        {
+                            prices.length===1 ? 
+                                `${prices[0]} PLN` : 
+                                `${prices[0]} - ${prices[prices.length - 1]} PLN`
+                        }
+                    </span>
+                    <div className={styles.product__colors}>
+                        {
+                            styless && styless.map((style, i) => 
+                                styles.image ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img 
+                                    src={styles.image}
+                                    className={i == active && styles.active}
+                                    onMouseOver={() => {
+                                        setImages(product.subProducts[i].images);
+                                        setActive(i);
+                                    }}
+                                    alt=""
+                                    key={i}
+                                />
+                            ) : (
+                                <span 
+                                    style={{ backgroundCOlor: `${style.color}` }}
+                                    key={i}
+                                    onMouseOver={() => {
+                                        setImages(product.subProducts[i].images);
+                                        setActive(i);
+                                    }}
+                                >
+
+                                </span>
+                            )
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );
