@@ -38,7 +38,7 @@ export default function ProductSwiper({ header, products, bg }) {
                 }}
             >
                 {
-                    products.map((product) => (
+                    products?.map((product) => (
                         // eslint-disable-next-line react/jsx-key
                         <SwiperSlide>
                             <div className={styles.product}>

@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import ProductSwiper from '../productSwiper';
+import ProductSwiper from './ProductSwiper';
 
 export default function ProductCard({ product }) {
     const [active, setActive] = useState(0);
