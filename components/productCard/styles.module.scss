@@ -30,16 +30,16 @@
             &:hover {
                 outline: 1px solid #000;
             }
-            .active {
-                outline: 1px solid #000;
-            }
-            span {
-                width: 21px;
-                height: 21px;
-                border-radius: 50%;
-                box-shadow: $shadow-1;
-                overflow: hidden;
-            }
+        }
+        .active {
+            outline: 1px solid #000;
+        }
+        span {
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            box-shadow: $shadow-1;
+            overflow: hidden;
         }
     }
     &__discount {

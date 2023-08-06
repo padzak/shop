@@ -46,7 +46,13 @@ export default function ProductCard({ product }) {
                     </div>
                 )}
                 <div className={styles.product__infos}>
-                    <h1>{ product.name.length > 45 ? `${product.name.substring(0,45)}...` : product.name }</h1>
+                    <h1>
+                        {
+                            product.name.length > 45 ?
+                                `${product.name.substring(0,45)}...` :
+                                product.name
+                        }
+                    </h1>
                     <span>
                         {
                             prices.length===1 ? 
