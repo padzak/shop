@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -9,6 +9,9 @@ import { Autoplay } from 'swiper/modules';
 
 export default function ProductCard({ images }) {
     const swiperRef = useRef(null);
+    useEffect(() => {
+        swiperRef.current.swiper.autoplay.stop();
+    }, [swiperRef]);
     return (
         <div className={styles.swiper}>
             <Swiper

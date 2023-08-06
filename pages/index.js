@@ -41,7 +41,7 @@ export default function Home({ country, products }) {
 
         </div>
         <ProductSwiper header="" products={women_swiper} />
-        <div className={styles.product}>
+        <div className={styles.products}>
           {
             products.map((product) => (
               <ProductCard product={product} key={product._id}/>
