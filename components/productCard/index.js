@@ -8,33 +8,34 @@ export default function ProductCard({ product }) {
     const [images, setImages] = useState(product.subProducts[active]?.images);
     const [prices, setPrices] = useState((
         product.subProducts[active]?.sizes
-        ?.map((size) => { 
+        .map((size) => { 
             return size.price; 
         }))
-        ?.sort((a,b) => {
+        .sort((a,b) => {
             return a - b;
         })
     );
-    const [styless, setStyless] = useState(product.subProducts.map((product) => {
-        return product.color;
-    }));
+    const [styless, setStyless] = useState(
+            product.subProducts.map((product) => {
+            return product.color;
+        })
+    );
     useEffect(() => {
-        setImages(product.subProducts[active]?.images);
+        setImages(product.subProducts[active].images);
         setPrices(
-            product.subProducts[active]?.sizes
-            ?.map((size) => {
-                return size.price;
+          product.subProducts[active]?.sizes
+            .map((s) => {
+              return s.price;
             })
-            ?.sort((a,b) => {
-                return a - b;
+            .sort((a, b) => {
+              return a - b;
             })
         );
-    }, [active]);
-    console.log(images, prices, styless);
+      }, [active, product]);
     return (
         <div className={styles.product}>
             <div className={styles.product__container}>
-                <Link href={`/product/${product.slug}?style${active}`}>
+                <Link href={`/product/${product.slug}?style=${active}`}>
                     <div>
                         <ProductSwiper images={images} />
                     </div>
