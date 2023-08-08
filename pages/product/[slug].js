@@ -2,7 +2,7 @@ import styles from '../../styles/product.module.scss'
 import db from '../../utils/db'
 import Product from '@/models/Product';
 
-export default function product() {
+export default function product({ product }) {
     return (
         <div>[SLUG]</div>
     );
@@ -48,7 +48,7 @@ console.log("product", slug, style, size);
 
     return {
         props: {
-
+            product: JSON.parse(JSON.stringify(newProduct)),
         },
     }
 }
