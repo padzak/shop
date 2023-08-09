@@ -5,6 +5,7 @@ import Product from '@/models/Product';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Category from '@/models/Category';
+import SubCategory from '@/models/SubCategory';
 
 export default function product({ product }) {
     return (
@@ -40,6 +41,7 @@ console.log("product", slug, style, size);
     // ------------
     let product = await Product.findOne({ slug })
         .populate({path: 'category', model: Category})
+        .populate({path: 'subCategories._id', model: SubCategory})
         .lean();
     let subProduct = product.subProducts[style];
     let prices = subProduct?.sizes
