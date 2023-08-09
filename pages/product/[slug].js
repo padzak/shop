@@ -17,7 +17,9 @@ export async function getServerSideProps(context) {
 console.log("product", slug, style, size);
     db.connectDb();
     // ------------
-    let product = await Product.findOne({ slug }).lean();
+    let product = await Product.findOne({ slug })
+        .populate({path: 'category', model: Category})
+        .lean();
     let subProduct = product.subProducts[style];
     let prices = subProduct?.sizes
     .map((size) => {
