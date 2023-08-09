@@ -17,6 +17,11 @@ export default function product({ product }) {
                 <div className={styles.product__container}>
                     <div className={styles.path}>
                         Home / {product.category.name}
+                        {
+                            product.subCategories.map((subCategory) => {
+                                <span> / {subCategory.name}</span>
+                            })
+                        }
                     </div>
                 </div>
             </div>
