@@ -1,10 +1,26 @@
+import Head from 'next/head';
 import styles from '../../styles/product.module.scss'
 import db from '../../utils/db'
 import Product from '@/models/Product';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import Category from '@/models/Category';
 
 export default function product({ product }) {
     return (
-        <div>[SLUG]</div>
+        <>
+            <Head>
+                <title>{product.name}</title>
+            </Head>
+            <Header country=""/>
+            <div className={styles.product}>
+                <div className={styles.product__container}>
+                    <div className={styles.path}>
+                        Home / {product.category.name}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 
