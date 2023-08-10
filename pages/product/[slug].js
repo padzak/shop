@@ -30,7 +30,7 @@ export default function product({ product }) {
                     </div>
                     <div className={styles.product__ml}>
                         <MainSwiper images={product.images} activeImage={activeImage} />
-                        <Infos product={product} />
+                        <Infos product={product} setActiveImage={setActiveImage} />
                     </div>
                 </div>
             </div>
