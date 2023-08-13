@@ -1,0 +1,24 @@
+.infos {
+    color: #666;
+    background: #fff;
+    @media (max-width: 840px) {
+        padding-top: 1rem !important;
+    }
+    @media (max-width: 460px) {
+        max-width: 340px;
+    }
+    &__name {
+        font-size: 14px;
+        font-weight: normal;
+    }
+    &__sku {
+        font-size: 12px;
+        font-weight: normal;
+    }
+    &__rating {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 14px;
+    }
+}
