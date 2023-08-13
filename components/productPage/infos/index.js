@@ -20,7 +20,15 @@ export default function Infos({ product }) {
                     }
                 </div>
                 <div className={styles.infos__price}>
-                
+                    {
+                        product.priceRange ? <h2>{product.priceRange}</h2> : <h1>{product.price}</h1>
+                    }
+                    {
+                        product.discount > 0 ? <h3>
+                            <span>{product.priceBefore}</span>
+                            <span>(-{product.discount}%)</span>
+                        </h3> : <></>
+                    }
                 </div>
             </div>
         </div>
