@@ -30,10 +30,10 @@ export default function Infos({ product }) {
                     {
                         product.discount > 0 ? (
                             <h3>
-                                <span>{product.priceBefore}</span>
+                                <span>30-day lowest price: {product.priceBefore}</span>
                                 <span>(-{product.discount}%)</span>
                             </h3>
-                        ) : ( 
+                        ) : (
                             ""
                         )
                     }
