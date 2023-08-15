@@ -26,7 +26,8 @@ export default function Infos({ product }) {
                 </div>
                 <div className={styles.infos__price}>
                     {
-                        product.priceRange ? (
+                        !size
+                        ? (
                             <h2>{product.priceRange}</h2>
                         ) : (
                             <h1>{product.price}</h1>
