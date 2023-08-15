@@ -38,6 +38,16 @@ export default function Infos({ product }) {
                         )
                     }
                 </div>
+                <div className={styles.infos__shipping}>
+                    {
+                        product.shipping
+                        ? (
+                            `+${product.shipping} PLN shipping fee`
+                        ) : (
+                            "Free shipping"
+                        )
+                    }
+                </div>
             </div>
         </div>
     );
