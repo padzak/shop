@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function Infos({ product }) {
     const router = useRouter();
-    const [size, setSize] = useState(router.query.size || 0);
+    const [size, setSize] = useState(router.query.size);
     return (
         <div className={styles.infos}>
             <div className={styles.infos__container}>
@@ -54,13 +54,12 @@ export default function Infos({ product }) {
                 </span>
                 <span>
                     {
-                        product.quantity
-                        // size 
-                        // ? (
-                        //     product.quantity
-                        // ) : (
-                        //     product.sizes.reduce((start, next) => start + next.quantity, 0)
-                        // )
+                        size
+                        ? (
+                            product.quantity
+                        ) : (
+                            product.sizes.reduce((start, next) => start + next.qty, 0)
+                        )
                     } items available
                 </span>
             </div>
