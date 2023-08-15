@@ -75,6 +75,37 @@ console.log("product", slug, style, size);
         ? (subProduct.sizes[size].price - (subProduct.sizes[size].price * subProduct.discount / 100)).toFixed(2)
         : subProduct.sizes[size].price.toFixed(2),
         priceBefore: subProduct.sizes[size].price,
+        quantity: subProduct.sizes[size].qty,
+        ratings: [
+            {
+              percentage: calculatePercentage("5"),
+            },
+            {
+              percentage: calculatePercentage("4"),
+            },
+            {
+              percentage: calculatePercentage("3"),
+            },
+            {
+              percentage: calculatePercentage("2"),
+            },
+            {
+              percentage: calculatePercentage("1"),
+            },
+          ],
+          reviews: product.reviews.reverse(),
+          allSizes: product.subProducts
+            .map((p) => {
+              return p.sizes;
+            })
+            .flat()
+            .sort((a, b) => {
+              return a.size - b.size;
+            })
+            .filter(
+              (element, index, array) =>
+                array.findIndex((el2) => el2.size === element.size) === index
+            ),
     };
     // ------------
     db.disconnectDb();
