@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import { Rating } from '@mui/material';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -60,8 +61,27 @@ export default function Infos({ product }) {
                         ) : (
                             product.sizes.reduce((start, next) => start + next.qty, 0)
                         )
-                    } items available
+                    } items available.
                 </span>
+                <div className={styles.infos__sizes}>
+                    <h4>Select a size: </h4>
+                    <div className={styles.infos__sizes_wrap}>
+                        {
+                            product.sizes.map((size, index) => {
+                                <Link 
+                                    href={`/product/${product.slug}?style=${router.query.style}&size=${index}`} 
+                                    key={index}
+                                >
+                                    <div>
+                                        {
+                                            size.size
+                                        }
+                                    </div>
+                                </Link>
+                            })
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );
