@@ -68,12 +68,20 @@ console.log("product", slug, style, size);
         colors: product.subProducts.map((subProduct) => {
             return subProduct.color;
         }),
-        priceRange: prices?.length > 1
-        ? `From ${prices[0]} to ${prices[prices.length - 1]}`
-        : '',
+        priceRange: 
+            subProduct.discount
+            ? (
+                `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} 
+                to ${(prices[prices.length - 1] - prices[prices.length - 1] / subProduct.discount).toFixed(2)}` // TODO Correct this
+            ) : (
+                `From ${prices[0]} to ${prices[prices.length - 1]}`
+            ),
         price: subProduct.discount > 0
-        ? (subProduct.sizes[size].price - (subProduct.sizes[size].price * subProduct.discount / 100)).toFixed(2)
-        : subProduct.sizes[size].price.toFixed(2),
+        ? (
+            (subProduct.sizes[size].price - (subProduct.sizes[size].price * subProduct.discount / 100)).toFixed(2)
+        ) : (
+            subProduct.sizes[size].price.toFixed(2)
+        ),
         priceBefore: subProduct.sizes[size].price,
         quantity: subProduct.sizes[size].qty,
         ratings: [
