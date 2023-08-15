@@ -108,6 +108,18 @@ console.log("product", slug, style, size);
             ),
     };
     // ------------
+    function calculatePercentage(num) {
+        return (
+            (product.reviews.reduce((a, review) => {
+            return (
+                a +
+                (review.rating == Number(num) || review.rating == Number(num) + 0.5)
+            );
+            }, 0) *
+            100) /
+            product.reviews.length
+        ).toFixed(1);
+    };
     db.disconnectDb();
 
     return {
