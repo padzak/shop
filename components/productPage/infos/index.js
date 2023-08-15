@@ -67,18 +67,22 @@ export default function Infos({ product }) {
                     <h4>Select a size: </h4>
                     <div className={styles.infos__sizes_wrap}>
                         {
-                            product.sizes.map((size, index) => {
-                                <Link 
-                                    href={`/product/${product.slug}?style=${router.query.style}&size=${index}`} 
+                            product.sizes.map((size, index) => (
+                                <Link
+                                    href={`/product/${product.slug}?style=${router.query.style}&size=${index}`}
                                     key={index}
                                 >
-                                    <div>
-                                        {
-                                            size.size
-                                        }
+                                    <div
+                                        className={`
+                                            ${styles.infos__sizes_size}
+                                            ${index == router.query.size && styles.active_size}
+                                        `}
+                                        onClick={() => setSize(size.size)}
+                                    >
+                                        {size.size}
                                     </div>
                                 </Link>
-                            })
+                            ))
                         }
                     </div>
                 </div>
