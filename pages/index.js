@@ -19,10 +19,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 // TODO change for ipregistry in prod
 export default function Home({ country, products }) {
-  console.log("Products: ", products);
   const { data: session } = useSession();
   const isMedium = useMediaQuery({ query: "(max-width: 850px)" });
-
   return (
   <>
     <Header country={country}/>

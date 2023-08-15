@@ -1,7 +1,11 @@
 import styles from './styles.module.scss';
 import { Rating } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export default function Infos({ product }) {
+    const router = useRouter();
+    const [size, setSize] = useState(router.query.size || 0);
     return (
         <div className={styles.infos}>
             <div className={styles.infos__container}>
@@ -38,7 +42,7 @@ export default function Infos({ product }) {
                         )
                     }
                 </div>
-                <div className={styles.infos__shipping}>
+                <span className={styles.infos__shipping}>
                     {
                         product.shipping
                         ? (
@@ -47,7 +51,18 @@ export default function Infos({ product }) {
                             "Free shipping"
                         )
                     }
-                </div>
+                </span>
+                <span>
+                    {
+                        product.quantity
+                        // size 
+                        // ? (
+                        //     product.quantity
+                        // ) : (
+                        //     product.sizes.reduce((start, next) => start + next.quantity, 0)
+                        // )
+                    } items available
+                </span>
             </div>
         </div>
     );
