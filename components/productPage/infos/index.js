@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-export default function Infos({ product }) {
+export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
     return (
@@ -94,6 +94,8 @@ export default function Infos({ product }) {
                                 className={`
                                     ${index == router.query.style ? styles.active_color : ""}
                                 `}
+                                onMouseOver={() => setActiveImage(product.subProducts[index].images[0].url)}
+                                onMouseLeave={() => setActiveImage("")}
                                 key={index}
                             >
                                 <Link
