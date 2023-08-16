@@ -20,9 +20,9 @@ export default function Infos({ product }) {
                         readOnly
                         style={{ color: "#FACF19"}}
                     />
-                    {product.numReviews} {
+                    ({product.numReviews} {
                         product.numReviews > 1 ? "reviews" : "review"
-                    }
+                    })
                 </div>
                 <div className={styles.infos__price}>
                     {
@@ -86,6 +86,24 @@ export default function Infos({ product }) {
                             ))
                         }
                     </div>
+                </div>
+                <div className={styles.product__colors}>
+                    {
+                        product.colors && product.colors.map((color, index) => (
+                            <span 
+                                className={`
+                                    ${index == router.query.style ? styles.active_color : ""}
+                                `}
+                                key={index}
+                            >
+                                <Link
+                                    href={`/product/${product.slug}?style=${index}`}
+                                >
+                                    <img src={color.image} alt={product.name} />
+                                </Link>
+                            </span>
+                        ))
+                    }
                 </div>
             </div>
         </div>
