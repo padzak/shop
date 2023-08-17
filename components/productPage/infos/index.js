@@ -87,7 +87,7 @@ export default function Infos({ product, setActiveImage }) {
                         }
                     </div>
                 </div>
-                <div className={styles.product__colors}>
+                <div className={styles.infos__colors}>
                     {
                         product.colors && product.colors.map((color, index) => (
                             <span 
