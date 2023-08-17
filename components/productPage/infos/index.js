@@ -94,7 +94,7 @@ export default function Infos({ product, setActiveImage }) {
                                 className={`
                                     ${index == router.query.style ? styles.active_color : ""}
                                 `}
-                                onMouseOver={() => setActiveImage(product.subProducts[index].images[0].url)}
+                                onMouseOver={() => setActiveImage(product.subProducts[index].images[0].url)} // TODO a fix here is needed, as the active image is not updating on mouse over / mouse leave
                                 onMouseLeave={() => setActiveImage("")}
                                 key={index}
                             >
