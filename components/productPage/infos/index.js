@@ -2,11 +2,22 @@ import styles from './styles.module.scss';
 import { Rating } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
+import { TbMinus, TbPlus } from 'react-icons/tb';
 
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
+    const [qty, setQty] = useState(1);
+    useEffect(() => {
+        setSize("");
+        setQty(1);
+    }, [router.query.style]);
+    useEffect(() => {
+        if (qty > product.quantity) {
+            setQty(product.quantity);
+        }
+    }, [router.query.size]);
     return (
         <div className={styles.infos}>
             <div className={styles.infos__container}>
@@ -106,6 +117,23 @@ export default function Infos({ product, setActiveImage }) {
                             </span>
                         ))
                     }
+                </div>
+                <div className={styles.infos__qty}>
+                    <button
+                        onClick={() => {
+                            qty > 1 && setQty((prev) => prev - 1)
+                        }}
+                    >
+                        <TbMinus />
+                    </button>
+                    <span>{qty}</span>
+                    <button
+                        onClick={() => {
+                            qty < product.quantity && setQty((prev) => prev + 1)
+                        }}
+                    >
+                        <TbPlus />
+                    </button>
                 </div>
             </div>
         </div>
