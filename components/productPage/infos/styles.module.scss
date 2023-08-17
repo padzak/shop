@@ -91,7 +91,10 @@
                 height: 100%;
                 object-fit: cover;
             }
-
+            &:hover {
+                outline: 1px solid #666;
+                outline-offset: 2px;
+            }
         }
     }
 }
@@ -103,4 +106,9 @@
         #e3eeff 99%,
         #e3eeff 100%
     );
+}
+
+.active_color {
+    outline: 1px solid #666;
+    outline-offset: 2px;
 }
