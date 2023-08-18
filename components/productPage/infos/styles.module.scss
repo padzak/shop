@@ -97,6 +97,28 @@
             }
         }
     }
+    &__qty {
+        margin-top: 1rem;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            svg {
+                transform: scale(0.9);
+            }
+            span {
+                width: 20px;
+                text-align: center;
+            }
+        }
+    }
 }
 
 .active_size {
