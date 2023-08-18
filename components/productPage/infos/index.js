@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { use, useEffect, useState } from 'react';
 import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
-
+import Share from '../share';
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -151,6 +151,7 @@ export default function Infos({ product, setActiveImage }) {
                             <b>Add to Wishlist</b>
                         </button>
                 </div>
+                <Share />
             </div>
         </div>
     );
