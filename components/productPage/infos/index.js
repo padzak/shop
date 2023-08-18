@@ -3,6 +3,7 @@ import { Rating } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { use, useEffect, useState } from 'react';
+import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
 
 export default function Infos({ product, setActiveImage }) {
@@ -134,6 +135,21 @@ export default function Infos({ product, setActiveImage }) {
                     >
                         <TbPlus />
                     </button>
+                </div>
+                <div className={styles.infos__actions}>
+                        <button
+                            disabled={product.quantity < 1}
+                            style={{
+                                cursor: `${product.quantity < 1 ? "not-allowed" : "pointer"}}`
+                            }}
+                        >
+                            <BsHandbagFill />
+                            <b>Add to Cart</b>
+                        </button>
+                        <button>
+                            <BsHeart />
+                            <b>Add to Wishlist</b>
+                        </button>
                 </div>
             </div>
         </div>
