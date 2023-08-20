@@ -49,28 +49,28 @@ export default function InfosAccordion({ details }) {
   };
   console.log("details",details)
   return (
-    <div className={styles.infos__accordian}>
+    <div className={styles.infos__accordion}>
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
-        className={styles.accordian}
+        className={styles.accordion}
       >
         <AccordionSummary
-          className={styles.accordian__summary}
+          className={styles.accordion__summary}
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
           Details
         </AccordionSummary>
         <AccordionDetails>
-          <div className={styles.infos__accordian_grid}>
+          <div className={styles.infos__accordion_grid}>
             <p>{details[0]}</p>
           </div>
         </AccordionDetails>
         <AccordionDetails className="scrollbar">
           {details.slice(1, details.length).map((info) => (
             <div 
-                className={styles.infos__accordian_grid}
+                className={styles.infos__accordion_grid}
                 key={info.name}
             >
               <span>{info.name}:</span>
@@ -82,17 +82,17 @@ export default function InfosAccordion({ details }) {
       <Accordion
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
-        className={styles.accordian}
+        className={styles.accordion}
       >
         <AccordionSummary
-          className={styles.accordian__summary}
+          className={styles.accordion__summary}
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
           Size & Fit
         </AccordionSummary>
         <AccordionDetails>
-          <div className={styles.infos__accordian_grid}></div>
+          <div className={styles.infos__accordion_grid}></div>
         </AccordionDetails>
       </Accordion>
     </div>
