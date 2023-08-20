@@ -6,6 +6,7 @@ import { use, useEffect, useState } from 'react';
 import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
 import Share from '../share';
+import Accordion from '../accordion';
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -152,6 +153,7 @@ export default function Infos({ product, setActiveImage }) {
                         </button>
                 </div>
                 <Share />
+                <Accordion details={[product.description, ...product.details]} />
             </div>
         </div>
     );
