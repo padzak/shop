@@ -7,6 +7,8 @@ import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
 import Share from '../share';
 import InfosAccordion from './InfosAccordion';
+import SimilarSwiper from './SimilarSwiper';
+
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -154,6 +156,7 @@ export default function Infos({ product, setActiveImage }) {
                 </div>
                 <Share />
                 <InfosAccordion details={[product.description, ...product.details]} />
+                <SimilarSwiper />
             </div>
         </div>
     );
