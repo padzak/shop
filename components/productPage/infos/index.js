@@ -6,7 +6,7 @@ import { use, useEffect, useState } from 'react';
 import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
 import Share from '../share';
-import InfosAccordion from '../accordion';
+import InfosAccordion from './InfosAccordion';
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);

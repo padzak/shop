@@ -47,6 +47,7 @@ export default function InfosAccordion({ details }) {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+  console.log("details",details)
   return (
     <div className={styles.infos__accordian}>
       <Accordion
