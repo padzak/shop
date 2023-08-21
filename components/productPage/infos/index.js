@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { use, useEffect, useState } from 'react';
 import { BsHandbagFill, BsHeart } from 'react-icons/bs';
 import { TbMinus, TbPlus } from 'react-icons/tb';
-import Share from '../share';
+import Share from './share';
 import InfosAccordion from './InfosAccordion';
 import SimilarSwiper from './SimilarSwiper';
 
