@@ -18,8 +18,9 @@ export default function product({ product }) {
                 <title>{product.name}</title>
             </Head>
             <Header country=""/>
-            <div className={styles.product__main}>
-                <div className={styles.container}>
+
+            <div className={styles.product}>
+                <div className={styles.product__container}>
                     <div className={styles.path}>
                         Home / {product.category.name}
                         {
@@ -28,7 +29,7 @@ export default function product({ product }) {
                             })
                         }
                     </div>
-                    <div className={styles.product__ml}>
+                    <div className={styles.product__main}>
                         <MainSwiper images={product.images} activeImage={activeImage} />
                         <Infos product={product} setActiveImage={setActiveImage} />
                     </div>
