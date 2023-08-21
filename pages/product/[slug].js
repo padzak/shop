@@ -18,7 +18,7 @@ export default function product({ product }) {
                 <title>{product.name}</title>
             </Head>
             <Header country=""/>
-            <div className={styles.product}>
+            <div className={styles.product__main}>
                 <div className={styles.container}>
                     <div className={styles.path}>
                         Home / {product.category.name}
