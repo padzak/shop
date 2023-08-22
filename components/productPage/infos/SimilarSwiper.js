@@ -15,7 +15,13 @@ export default function SimilarSwiper(  ) {
             slidesPerGroup={3}
             navigation={true}
             modules={[Navigation]}
-            className="swiper similar__swiper"
+            className="swiper similar__swiper products__swiper"
+            breakpoints={{
+                640: {
+                    width: 640,
+                    slidesPerView: 5,
+                }
+            }}
         >
             {
                 similar_products.map((product) => (
