@@ -6,7 +6,7 @@ export default function Reviews({ product }) {
         <div className={styles.reviews}>
             <div className={styles.reviews__container}>
                 <h1>Customer Reviews ({ product.reviews.length })</h1>
-                <div className={styles.reviews__rating}>
+                <div className={styles.reviews__stats}>
                     <div className={styles.reviews__stats_overview}>
                         <span>Average Rating</span>
                         <div className={styles.reviews__stats_overview_rating}></div>
