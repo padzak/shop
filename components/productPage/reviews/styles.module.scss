@@ -4,7 +4,7 @@
         h1 {
             font-size: 25px !important;
         }
-    }
+        }
     &__stats {
         margin-top: 1rem;
         width: 100%;
@@ -24,17 +24,53 @@
         }
         &_overview {
             &_rating {
-                margin-top: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            svg {
+                width: 35px;
+                height: 35px;
+            }
+            }
+        }
+        &_reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-left: 2rem;
+            &_review {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                font-weight: 700;
-                font-size: 20px;
                 svg {
-                    width: 35px;
-                    height: 35px;
-                }                
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                }
+                
+                span {
+                    font-weight: 700;
+                    font-size: 19px;
+                }
             }
         }
+    }
+}
+
+.bar {
+    position: relative;
+    width: 20vw;
+    height: 15px;
+    background: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    &__inner {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        background: #ff4747;
     }
 }

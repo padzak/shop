@@ -34,15 +34,13 @@ export default function Reviews({ product }) {
                                             color: "#FACF19",
                                         }}
                                     />
-                                    <div className={styles.bar} >
-                                        <div 
+                                    <div className={styles.bar}>
+                                        <div
                                             className={styles.bar__inner}
                                             style={{ 
-                                                width: "50%",
+                                                width: `${rating.percentage}%` 
                                             }}
-                                        >
-
-                                        </div>
+                                        ></div>
                                     </div>
                                     <span>{rating.percentage}%</span>
                                 </div>
