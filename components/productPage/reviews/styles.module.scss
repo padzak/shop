@@ -41,6 +41,7 @@
             flex-direction: column;
             gap: 1rem;
             margin-left: 2rem;
+            &__stats {
             &_review {
                 display: flex;
                 align-items: center;
@@ -50,20 +51,22 @@
                     height: 30px;
                     margin-right: 10px;
                 }
-                
                 span {
                     font-weight: 700;
                     font-size: 19px;
                 }
             }
         }
+        }
     }
 }
+
+// TODO - styles for review are sketchy, need to prepare it from scratch
 
 .bar {
     position: relative;
     width: 20vw;
-    height: 15px;
+    height: 5px;
     background: #ccc;
     border-radius: 10px;
     overflow: hidden;
