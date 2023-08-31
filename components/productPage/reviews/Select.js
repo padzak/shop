@@ -7,14 +7,24 @@ export default function Select({ property, text, data }) {
     return (
         <div className={styles.select}>
             <div className={styles.select__header}>
-            <span className={`flex ${styles.select__header_wrap}`} style={{ padding: "0 5px"}}>
+            <span 
+                className={`flex ${styles.select__header_wrap}`} 
+                style={{ padding: "0 5px"}}
+                onMouseOver={() => setVisible(true)}
+                onMouseLeave={() => setVisible(false)}
+            >
                 {
                     property || `Select ${text}`
                 }
                 <IoArrowDown />
             </span>
             {
-                visible && <ul className={styles.select__header_menu}>
+                visible &&
+                <ul
+                    className={styles.select__header_menu}
+                    onMouseOver={() => setVisible(true)}
+                    onMouseLeave={() => setVisible(false)}
+                >
                     {
                         data.map((item, index) => {
                             if (text == "Size") {
