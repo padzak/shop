@@ -8,7 +8,7 @@ export default function Select({ property, text, data, handleChange }) {
         <div className={styles.select}>
             <div className={styles.select__header}>
             <span 
-                className={`flex ${styles.select__header_wrap}`} 
+                className={`${styles.flex} ${styles.select__header_wrap}`} 
                 style={{ padding: "0 5px"}}
                 onMouseOver={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}

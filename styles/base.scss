@@ -51,6 +51,10 @@ $light-error-color: #fd010169;
     gap: 5px;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
 .error {
     color: $error-color;
 }
