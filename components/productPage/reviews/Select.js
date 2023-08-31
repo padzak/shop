@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { IoArrowDown } from 'react-icons/io5';
 import { useState } from 'react';
 
-export default function Select({ property, text, data }) {
+export default function Select({ property, text, data, handleChange }) {
     const [visible, setVisible] = useState(true);
     return (
         <div className={styles.select}>
@@ -29,7 +29,7 @@ export default function Select({ property, text, data }) {
                         data.map((item, index) => {
                             if (text == "Size") {
                                 return (
-                                    <li key={index}>
+                                    <li key={index} onClick={() => handleChange(item.size)}>
                                         <span>{item.size}</span>
                                     </li>
                                 );
