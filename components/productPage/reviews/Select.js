@@ -34,6 +34,18 @@ export default function Select({ property, text, data, handleChange }) {
                                     </li>
                                 );
                             }
+                            if (text == "Style") {
+                                return (
+                                    <li key={index} onClick={() => handleChange(item)}>
+                                        <span style={{
+                                                background: item.color,
+                                            }}
+                                        >
+                                            <img src={item.image} alt="" />
+                                        </span>
+                                    </li>
+                                );
+                            }
                         })
                     }
                 </ul>
