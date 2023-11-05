@@ -5,6 +5,9 @@ import { useState } from 'react';
 export default function AddReview({ product }) {
     const [size, setSize] = useState("");
     const [style, setStyle] = useState("");
+    const handleSize = (size) => {
+        setSize(size);
+    }
     return (
         <div className={styles.reviews__add}>
             <div className={`${styles.flex} ${styles.wrap}`} >

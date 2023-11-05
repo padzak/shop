@@ -3,15 +3,18 @@ import { IoArrowDown } from 'react-icons/io5';
 import { useState } from 'react';
 
 export default function Select({ property, text, data, handleChange }) {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
+    console.log("Data", data)
     return (
         <div className={styles.select}>
-            <div className={styles.select__header}>
+            <div
+                className={styles.select__header}
+                onMouseOver={() => setVisible(true)}
+                onMouseLeave={() => setVisible(false)}
+            >
             <span 
                 className={`${styles.flex} ${styles.select__header_wrap}`} 
                 style={{ padding: "0 5px"}}
-                onMouseOver={() => setVisible(true)}
-                onMouseLeave={() => setVisible(false)}
             >
                 {
                     property || `Select ${text}`
@@ -36,11 +39,14 @@ export default function Select({ property, text, data, handleChange }) {
                             }
                             if (text == "Style") {
                                 return (
-                                    <li key={index} onClick={() => handleChange(item)}>
-                                        <span style={{
-                                                background: item.color,
-                                            }}
-                                        >
+                                    <li
+                                        key={index}
+                                        onClick={() => handleChange(item)}
+                                        style={{
+                                            background: `${item.color}`,
+                                        }}
+                                    >
+                                        <span>
                                             <img src={item.image} alt="" />
                                         </span>
                                     </li>
