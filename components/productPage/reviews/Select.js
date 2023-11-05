@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 export default function Select({ property, text, data, handleChange }) {
     const [visible, setVisible] = useState(false);
-    console.log("Data", data)
     return (
         <div className={styles.select}>
             {text}:

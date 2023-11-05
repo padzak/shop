@@ -1,17 +1,21 @@
 import Select from './Select';
 import styles from './styles.module.scss';
 import { useState } from 'react';
+import { Rating } from '@mui/material';
 
 export default function AddReview({ product }) {
     const [size, setSize] = useState("");
     const [style, setStyle] = useState("");
     const [fit, setFit] = useState("");
+    const [review, setReview] = useState("");
+    const [rating, setRating] = useState();
     const handleSize = (size) => {
         setSize(size);
     }
+
     return (
         <div className={styles.reviews__add}>
-            <div className={`${styles.flex} ${styles.wrap}`} >
+            <div className={styles.reviews__add_wrap}>
                 <div className={styles.flex} style={{ gap: "10px" }}>
                     <Select
                         property={size}
@@ -32,6 +36,24 @@ export default function AddReview({ product }) {
                         handleChange={setFit}
                     />
                 </div>
+                <textarea
+                    name="review"
+                    value={review}
+                    placeholder="Write your review here..."
+                    onChange={(event => setReview(event.target))}
+                ></textarea>
+                <Rating
+                    name="half-rating-read"
+                    defaultValue={0}
+                    value={rating}
+                    onChange={(event) => setRating(event.target.value)}
+                    precision={0.5}
+                    style={{
+                        color: "#facf19",
+                        fontSize: "3rem",
+                    }}
+                />
+                
             </div>
         </div>
     );
