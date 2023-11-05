@@ -17,8 +17,13 @@ export default function Select({ property, text, data, handleChange }) {
                 style={{ padding: "0 5px"}}
             >
                 {
-                    property || `Select ${text}`
-                }
+                    text === "Size" ? (
+                        property || `Select ${text}`
+                    ) : text == "Style" && property.image ? (
+                        <img src={property.image} alt=""/>
+                    ) : (
+                        ""
+                    )}
                 <IoArrowDown />
             </span>
             {
