@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function AddReview({ product }) {
     const [size, setSize] = useState("");
     const [style, setStyle] = useState("");
+    const [fit, setFit] = useState("");
     const handleSize = (size) => {
         setSize(size);
     }
@@ -24,8 +25,15 @@ export default function AddReview({ product }) {
                         data={product.colors.filter((x) => x !== style)}
                         handleChange={setStyle}
                     />
+                    <Select
+                        property={fit}
+                        text="How does it fit"
+                        data={fits.filter((x) => x !== fit)}
+                        handleChange={setFit}
+                    />
                 </div>
             </div>
         </div>
     );
 }
+let fits = ["Too small", "True to size", "Too large"];
