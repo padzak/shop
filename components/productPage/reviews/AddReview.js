@@ -12,7 +12,6 @@ export default function AddReview({ product }) {
         <div className={styles.reviews__add}>
             <div className={`${styles.flex} ${styles.wrap}`} >
                 <div className={styles.flex} style={{ gap: "10px" }}>
-                    Size:
                     <Select
                         property={size}
                         text="Size"
