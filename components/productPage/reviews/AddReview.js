@@ -43,7 +43,7 @@ export default function AddReview({ product }) {
                     name="review"
                     value={review}
                     placeholder="Write your review here..."
-                    onChange={(event => setReview(event.target))}
+                    onChange={(event => setReview(event.target.value))}
                 ></textarea>
                 <Rating
                     name="half-rating-read"
