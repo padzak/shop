@@ -6,6 +6,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Category from '@/models/Category';
 import SubCategory from '@/models/SubCategory';
+import User from '@/models/User';
 import MainSwiper from '@/components/productPage/mainSwiper';
 import { useState } from 'react';
 import Infos from '@/components/productPage/infos';
@@ -51,8 +52,9 @@ console.log("product", slug, style, size);
     db.connectDb();
     // ------------
     let product = await Product.findOne({ slug })
-        .populate({path: 'category', model: Category})
-        .populate({path: 'subCategories._id', model: SubCategory})
+        .populate({path: "category", model: Category})
+        .populate({path: "subCategories._id", model: SubCategory})
+        .populate({ path: "reviews.reviewBy", model: User })
         .lean();
     let subProduct = product.subProducts[style];
     let prices = subProduct?.sizes
@@ -120,16 +122,13 @@ console.log("product", slug, style, size);
     };
     // ------------
     function calculatePercentage(num) {
-        return (
-            (product.reviews.reduce((a, review) => {
-            return (
-                a +
-                (review.rating == Number(num) || review.rating == Number(num) + 0.5)
-            );
-            }, 0) *
-            100) /
-            product.reviews.length
-        ).toFixed(1);
+        return ((
+            product.reviews.reduce((a, review) => {
+                return (
+                    a + (review.rating == Number(num) || review.rating == Number(num) + 0.5)
+                );
+            }, 0) * 100
+        ) / product.reviews.length).toFixed(1);
     };
     db.disconnectDb();
 
