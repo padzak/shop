@@ -2,6 +2,7 @@ import { Pagination } from "@mui/material";
 import { useState } from "react";
 import usePagination from "./Pagination";
 import styles from "./styles.module.scss";
+import Review from "./Review";
 
 export default function Table({ reviews, allSizes, colors }) {
   const [page, setPage] = useState(1);
@@ -17,9 +18,7 @@ export default function Table({ reviews, allSizes, colors }) {
         <div className={styles.table__header}></div>  
         <div className={styles.table__data}>
             {_DATA.currentData().map((review, index) => (
-                <>
-                    <span key={index}>{review.review}</span><br />
-                </>
+                <Review review={review} key={index} />
             ))}
         </div>
         <div className={styles.pagination}>
