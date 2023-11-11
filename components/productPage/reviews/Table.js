@@ -17,8 +17,19 @@ export default function Table({ reviews, allSizes, colors }) {
         <div className={styles.table__header}></div>  
         <div className={styles.table__data}>
             {_DATA.currentData().map((review, index) => (
-                <span key={index}>{review.review}</span>
+                <>
+                    <span key={index}>{review.review}</span><br />
+                </>
             ))}
+        </div>
+        <div className={styles.pagination}>
+            <Pagination
+                count={count}
+                page={page}
+                onChange={handleChange}
+                shape="rounded"
+                size="large"
+            />
         </div>
     </div>
   );
