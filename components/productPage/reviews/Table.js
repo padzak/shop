@@ -3,6 +3,7 @@ import { useState } from "react";
 import usePagination from "./Pagination";
 import styles from "./styles.module.scss";
 import Review from "./Review";
+import TableHeader from "./TableHeader";
 
 export default function Table({ reviews, allSizes, colors }) {
   const [page, setPage] = useState(1);
@@ -15,7 +16,7 @@ export default function Table({ reviews, allSizes, colors }) {
   };
   return (
     <div className={styles.table}>
-        <div className={styles.table__header}></div>  
+        <TableHeader />
         <div className={styles.table__data}>
             {_DATA.currentData().map((review, index) => (
                 <Review review={review} key={index} />
