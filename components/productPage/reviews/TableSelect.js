@@ -24,7 +24,7 @@ export default function TableSelect({ property, text, data, handleChange }) {
                     }}
                 >
                     {
-                        text === "Size" ? (
+                        text === "Rating" ? (
                             property || `Select ${text}`
                         ) : text == "Style" && property.image ? (
                             <img src={property.image} alt=""/>
@@ -32,7 +32,8 @@ export default function TableSelect({ property, text, data, handleChange }) {
                             property
                         ) : (
                             !property && text == "How does it fit" ? "How does it fit" : "Select Style"
-                        )}
+                        )
+                    }
                     <IoArrowDown />
                 </span>
                 {
@@ -44,10 +45,10 @@ export default function TableSelect({ property, text, data, handleChange }) {
                     >
                         {
                             data.map((item, index) => {
-                                if (text == "Size") {
+                                if (text == "Rating") {
                                     return (
-                                        <li key={index} onClick={() => handleChange(item.size)}>
-                                            <span>{item.size}</span>
+                                        <li key={index} onClick={() => handleChange(item.value)}>
+                                            <span>{item.text}</span>
                                         </li>
                                     );
                                 }
