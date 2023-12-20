@@ -68,7 +68,9 @@ export default function TableSelect({ property, text, data, handleChange }) {
                                             }}
                                         >
                                             <span>
-                                                <img src={item.image} alt="" />
+                                                {
+                                                    item.image ? <img src={item.image} alt="" /> : "All"
+                                                }
                                             </span>
                                         </li>
                                     );
