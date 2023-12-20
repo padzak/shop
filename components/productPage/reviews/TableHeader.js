@@ -2,8 +2,9 @@ import styles from "./styles.module.scss";
 import TableSelect from "./TableSelect";
 import { useState } from "react";
 
-export default function TableHeader({ reviews }) {
+export default function TableHeader({ reviews, allSizes }) {
     const [rating, setRating] = useState();
+    const [size, setSize] = useState();
 
     return (
         <div className={styles.table__header}>
@@ -12,6 +13,12 @@ export default function TableHeader({ reviews }) {
             text="Rating"
             data={ratings.filter((x) => x.value !== rating)}
             handleChange={setRating}
+        />
+        <TableSelect
+            property={size}
+            text="Size"
+            data={allSizes.filter((x) => x.size !== size)}
+            handleChange={setSize}
         />
         </div>  
     );

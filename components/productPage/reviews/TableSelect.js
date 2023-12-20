@@ -24,7 +24,7 @@ export default function TableSelect({ property, text, data, handleChange }) {
                     }}
                 >
                     {
-                        text === "Rating" ? (
+                        text === "Rating" || text === "Size" ? (
                             property || `Select ${text}`
                         ) : text == "Style" && property.image ? (
                             <img src={property.image} alt=""/>
@@ -49,6 +49,13 @@ export default function TableSelect({ property, text, data, handleChange }) {
                                     return (
                                         <li key={index} onClick={() => handleChange(item.value)}>
                                             <span>{item.text}</span>
+                                        </li>
+                                    );
+                                }
+                                if (text == "Size") {
+                                    return (
+                                        <li key={index} onClick={() => handleChange(item.size)}>
+                                            <span>{item.size}</span>
                                         </li>
                                     );
                                 }

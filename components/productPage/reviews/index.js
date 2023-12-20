@@ -65,7 +65,7 @@ export default function Reviews({ product }) {
                         </button>
                     )
                 }
-                <Table reviews={product.reviews} />
+                <Table reviews={product.reviews} allSizes={product.allSizes}/>
             </div>
         </div>
     );
