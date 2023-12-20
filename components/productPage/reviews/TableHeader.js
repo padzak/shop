@@ -6,6 +6,7 @@ export default function TableHeader({ reviews, allSizes, colors }) {
     const [rating, setRating] = useState();
     const [size, setSize] = useState();
     const [style, setStyle] = useState();
+    const [order, setOrder] = useState();
 
     return (
         <div className={styles.table__header}>
@@ -26,6 +27,12 @@ export default function TableHeader({ reviews, allSizes, colors }) {
             text="Style"
             data={colors.filter((x) => x !== style)}
             handleChange={setStyle}
+        />
+        <TableSelect
+            property={order}
+            text="Order"
+            data={orderOptions.filter((x) => x !== order)}
+            handleChange={setOrder}
         />
         </div>  
     );
@@ -51,5 +58,20 @@ const ratings = [
     {
         text: "1 star",
         value: 1,
+    },
+];
+
+const orderOptions = [
+    {
+        text: "Recommended",
+        value: "Recommended",
+    },
+    {
+        text: "Most recent to oldest",
+        value: "Most recent to oldest",
+    },
+    {
+        text: "Oldest to most recent",
+        value: "Oldest to most recent",
     },
 ];

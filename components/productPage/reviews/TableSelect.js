@@ -24,14 +24,12 @@ export default function TableSelect({ property, text, data, handleChange }) {
                     }}
                 >
                     {
-                        text === "Rating" || text === "Size" ? (
+                        text === "Rating" || text === "Size" || text === "Order" ? (
                             property || `Select ${text}`
                         ) : text == "Style" && property?.image ? (
                             <img src={property?.image} alt=""/>
-                        ) : text == "How does it fit" && property ? (
-                            property
                         ) : (
-                            !property && text == "How does it fit" ? "How does it fit" : "Select Style"
+                            "Select Style"
                         )
                     }
                     <IoArrowDown />
@@ -42,6 +40,7 @@ export default function TableSelect({ property, text, data, handleChange }) {
                         className={styles.select__header_menu}
                         onMouseOver={() => setVisible(true)}
                         onMouseLeave={() => setVisible(false)}
+                        style={{width: text==="Order" && "200px"}}
                     >
                         {
                             data.map((item, index) => {
@@ -74,10 +73,14 @@ export default function TableSelect({ property, text, data, handleChange }) {
                                         </li>
                                     );
                                 }
-                                if (text == "How does it fit") {
+                                if (text == "Order") {
                                     return (
-                                        <li key={index} onClick={() => handleChange(item)}>
-                                            <span>{item}</span>
+                                        <li
+                                            key={index}
+                                            onClick={() => handleChange(item)}
+                                            style={{width: text==="Order" && "200px"}}
+                                        >
+                                            <span>{item.text}</span>
                                         </li>
                                     );
                                 }
