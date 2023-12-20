@@ -31,7 +31,7 @@ export default function TableHeader({ reviews, allSizes, colors }) {
         <TableSelect
             property={order}
             text="Order"
-            data={orderOptions.filter((x) => x !== order)}
+            data={orderOptions.filter((x) => x.value !== order)}
             handleChange={setOrder}
         />
         </div>  
@@ -62,6 +62,10 @@ const ratings = [
 ];
 
 const orderOptions = [
+    {
+        text: "All",
+        value: "",
+    },
     {
         text: "Recommended",
         value: "Recommended",

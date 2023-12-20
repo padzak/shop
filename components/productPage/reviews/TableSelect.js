@@ -77,7 +77,7 @@ export default function TableSelect({ property, text, data, handleChange }) {
                                     return (
                                         <li
                                             key={index}
-                                            onClick={() => handleChange(item)}
+                                            onClick={() => handleChange(item.value)}
                                             style={{width: text==="Order" && "200px"}}
                                         >
                                             <span>{item.text}</span>
