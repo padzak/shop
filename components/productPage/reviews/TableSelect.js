@@ -13,7 +13,7 @@ export default function TableSelect({ property, text, data, handleChange }) {
                 onMouseLeave={() => setVisible(false)}
                 style={{
                     background: `${
-                        text == "Style" && property.color && `${property.color}`
+                        text == "Style" && property?.color && `${property?.color}`
                     }`,
                 }}
             >
@@ -26,8 +26,8 @@ export default function TableSelect({ property, text, data, handleChange }) {
                     {
                         text === "Rating" || text === "Size" ? (
                             property || `Select ${text}`
-                        ) : text == "Style" && property.image ? (
-                            <img src={property.image} alt=""/>
+                        ) : text == "Style" && property?.image ? (
+                            <img src={property?.image} alt=""/>
                         ) : text == "How does it fit" && property ? (
                             property
                         ) : (

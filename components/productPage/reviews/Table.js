@@ -16,7 +16,7 @@ export default function Table({ reviews, allSizes, colors }) {
   };
   return (
     <div className={styles.table}>
-        <TableHeader reviews={reviews} allSizes={allSizes}/>
+        <TableHeader reviews={reviews} allSizes={allSizes} colors={colors}/>
         <div className={styles.table__data}>
             {_DATA.currentData().map((review, index) => (
                 <Review review={review} key={index} />
