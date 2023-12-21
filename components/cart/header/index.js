@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles.module.scss";
+import styles from "./styles.module.scss";
 import { logo } from '@/data/links';
 import { MdPlayArrow } from "react-icons/md";
 
