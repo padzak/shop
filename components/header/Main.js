@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import { RiSearch2Line } from 'react-icons/ri';
 import { FaOpencart } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { logo } from '@/data/links';
 
 export default function Main() {
     const cart = useSelector((state) => ({ ...state }));
@@ -12,7 +13,7 @@ export default function Main() {
             <div className={styles.main__container}>
                 <Link legacyBehavior href="/">
                     <a className={styles.logo}>
-                        <img src="https://global-uploads.webflow.com/5e157547d6f791d34ea4e2bf/6087f2b060c7a92408bac811_logo.svg"/>
+                        <img src={logo}/>
                     </a>
                 </Link>
                 <div className={styles.search}>
