@@ -14,6 +14,8 @@ export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
     const [qty, setQty] = useState(1);
+    const [error, setError] = useState("");
+
     useEffect(() => {
         setSize("");
         setQty(1);
@@ -24,11 +26,42 @@ export default function Infos({ product, setActiveImage }) {
         }
     }, [router.query.size]);
     const addToCartHandler = async () => {
-        console.log("addToCartHandler query", `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`);
+        if (!router.query.size) {
+            setError("Please Select a size");
+            return;
+        }
         const { data } = await axios.get(
             `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
         );
-        console.log("data ---->", data);
+        if (qty > data.quantity) {
+            setError(
+                "The Quantity you have choosed is more than in stock. Try and lower the Qty"
+            );
+        } else if (data.quantity < 1) {
+            setError("This Product is out of stock.");
+            return;
+        } else {
+            let _uid = `${data._id}_${product.style}_${router.query.size}`;
+            let exist = cart.cartItems.find((p) => p._uid === _uid);
+            if (exist) {
+                let newCart = cart.cartItems.map((p) => {
+                    if (p._uid == exist._uid) {
+                        return { ...p, qty: qty };
+                    }
+                return p;
+                });
+                dispatch(updateCart(newCart));
+            } else {
+                dispatch(
+                addToCart({
+                    ...data,
+                    qty,
+                    size: data.size,
+                    _uid,
+                })
+              );
+            }
+        }
     };
     return (
         <div className={styles.infos}>
@@ -163,6 +196,9 @@ export default function Infos({ product, setActiveImage }) {
                             <b>Add to Wishlist</b>
                         </button>
                 </div>
+                {
+                    error && <span className={styles.error}>{error}</span>
+                }
                 <Share />
                 <InfosAccordion details={[product.description, ...product.details]} />
                 <SimilarSwiper />
