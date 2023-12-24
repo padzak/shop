@@ -66,6 +66,7 @@ console.log("product", slug, style, size);
     });
     let newProduct = {
         ...product,
+        style,
         images: subProduct?.images,
         sizes: subProduct?.sizes,
         discount: subProduct?.discount,

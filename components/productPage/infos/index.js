@@ -8,6 +8,7 @@ import { TbMinus, TbPlus } from 'react-icons/tb';
 import Share from './share';
 import InfosAccordion from './InfosAccordion';
 import SimilarSwiper from './SimilarSwiper';
+import axios from 'axios';
 
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
@@ -22,6 +23,13 @@ export default function Infos({ product, setActiveImage }) {
             setQty(product.quantity);
         }
     }, [router.query.size]);
+    const addToCartHandler = async () => {
+        console.log("addToCartHandler query", `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`);
+        const { data } = await axios.get(
+            `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
+        );
+        console.log("data ---->", data);
+    };
     return (
         <div className={styles.infos}>
             <div className={styles.infos__container}>
@@ -145,6 +153,7 @@ export default function Infos({ product, setActiveImage }) {
                             style={{
                                 cursor: `${product.quantity < 1 ? "not-allowed" : "pointer"}}`
                             }}
+                            onClick={() => addToCartHandler()}
                         >
                             <BsHandbagFill />
                             <b>Add to Cart</b>
