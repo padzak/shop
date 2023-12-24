@@ -12,8 +12,27 @@ router.get(async (req, res) => {
         const style = req.query.style || 0;
         const size = req.query.size || 0;
         const product = await Product.findById(id).lean();
-        
-        console.log(id, style, size);
+
+        // TODO - add discount per size as well? 
+        let discount = product.subProducts[style].discount;
+        let priceBefore = product.subProducts[style].sizes[size].price;
+        let price = discount ? priceBefore - priceBefore * discount / 100 : priceBefore;
+        db.disconnectDb();
+        return res.json({
+            _id: product._id,
+            style: Number(style),
+            name: product.name,
+            description: product.description,
+            slug: product.slug,
+            sku: product.subProducts[style].sku,
+            brand: product.brand,
+            shipping: product.brand,
+            images: product.subProducts[style].images,
+            color: product.subProducts[style].color,
+            price,
+            priceBefore,
+            quantity: product.subProducts[style].sizes[size].qty,
+        })
     } catch(error) {
         return res.statusCode(500).json({message: error.message});
     }
