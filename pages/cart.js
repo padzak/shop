@@ -3,7 +3,7 @@ import Header from "../components/cart/header";
 import styles from "../styles/cart.module.scss";
 
 export default function Cart() {
-    const cart = [];
+  const { cart } = useSelector((state) => ({ ...state }));
   return (
     <>
       <div>

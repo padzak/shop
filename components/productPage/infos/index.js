@@ -9,13 +9,16 @@ import Share from './share';
 import InfosAccordion from './InfosAccordion';
 import SimilarSwiper from './SimilarSwiper';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, updateCart } from '@/store/cartSlice';
 
 export default function Infos({ product, setActiveImage }) {
     const router = useRouter();
+    const dispatch = useDispatch();
     const [size, setSize] = useState(router.query.size);
     const [qty, setQty] = useState(1);
     const [error, setError] = useState("");
-
+    const { cart } = useSelector((state) => ({ ...state }));
     useEffect(() => {
         setSize("");
         setQty(1);
@@ -41,6 +44,7 @@ export default function Infos({ product, setActiveImage }) {
             setError("This Product is out of stock.");
             return;
         } else {
+            // Generate a unique id for the product combining the product id, style and size
             let _uid = `${data._id}_${product.style}_${router.query.size}`;
             let exist = cart.cartItems.find((p) => p._uid === _uid);
             if (exist) {
