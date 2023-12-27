@@ -15,7 +15,6 @@ export default function Cart() {
             {
                 cart.cartItems.length > 1 ? (
                     <div className={styles.cart__container}>
-                      DUPA {cart.cartItems.length}
                       <div className={styles.cart__products}>
                         {cart.cartItems.map((product) => (
                           <Product
