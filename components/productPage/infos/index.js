@@ -38,18 +38,20 @@ export default function Infos({ product, setActiveImage }) {
         );
         if (qty > data.quantity) {
             setError(
-                "The Quantity you have choosed is more than in stock. Try and lower the Qty"
+                "The Quantity you have chosen is more than in stock. Try and lower the Qty"
             );
         } else if (data.quantity < 1) {
             setError("This Product is out of stock.");
             return;
         } else {
             // Generate a unique id for the product combining the product id, style and size
+            // referring to _id for data structure safety - it is represented in the DB like that
             let _uid = `${data._id}_${product.style}_${router.query.size}`;
             let exist = cart.cartItems.find((p) => p._uid === _uid);
             if (exist) {
                 let newCart = cart.cartItems.map((p) => {
                     if (p._uid == exist._uid) {
+                        // Quantity of a specific product is updated here - quantity is overwritten with the newly provided number
                         return { ...p, qty: qty };
                     }
                 return p;
