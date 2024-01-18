@@ -36,6 +36,25 @@ export default function Product({ product }) {
                             { product.price && ( <span>{product.price.toFixed(2)}</span> )}
                             <MdOutlineKeyboardArrowRight />
                         </div>
+                        <div className={styles.product__priceQty}>
+                            <div className={styles.product__priceQty__price}>
+                                <span className={styles.price}>
+                                    {product.price.toFixed(2) * product.qty} PLN
+                                </span>
+                                {
+                                    product.price !== product.priceBefore && (
+                                        <span className={styles.priceBefore}>
+                                            {product.priceBefore.toFixed(2)} PLN
+                                        </span>
+                                )}
+                                { product.discount > 0 && ( <span className={styles.discount}> -{product.discount}%</span> )}
+                            </div>
+                            <div className={styles.product__priceQty__qty}>
+                                <button disabled={product.qty < 2}>-</button>
+                                <span>{product.qty}</span>
+                                <button disabled={product.qty == product.quantity}>+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
