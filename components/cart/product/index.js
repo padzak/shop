@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { storeImg } from "@/data/links";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export default function Product({ product }) {
     return (
@@ -29,7 +30,12 @@ export default function Product({ product }) {
                                 <AiOutlineDelete />
                             </div>
                         </div>
-                        
+                        <div className={styles.product__style}>
+                            <img src={product.color.image} alt=""/>
+                            { product.size && ( <span>{product.size}</span> )}
+                            { product.price && ( <span>{product.price.toFixed(2)}</span> )}
+                            <MdOutlineKeyboardArrowRight />
+                        </div>
                     </div>
                 </div>
             </div>
