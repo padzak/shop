@@ -37,7 +37,7 @@ export default function Product({ product }) {
                             <MdOutlineKeyboardArrowRight />
                         </div>
                         <div className={styles.product__priceQty}>
-                            <div className={styles.product__priceQty__price}>
+                            <div className={styles.product__priceQty_price}>
                                 <span className={styles.price}>
                                     {product.price.toFixed(2) * product.qty} PLN
                                 </span>
@@ -49,11 +49,20 @@ export default function Product({ product }) {
                                 )}
                                 { product.discount > 0 && ( <span className={styles.discount}> -{product.discount}%</span> )}
                             </div>
-                            <div className={styles.product__priceQty__qty}>
+                            <div className={styles.product__priceQty_qty}>
                                 <button disabled={product.qty < 2}>-</button>
                                 <span>{product.qty}</span>
                                 <button disabled={product.qty == product.quantity}>+</button>
                             </div>
+                            <div className={styles.product__shipping}>
+                                { product.shipping ? `Shipping: ${product.shipping} PLN` : `Free Shipping` }
+                            </div>
+                            {
+                                product.quantity < 1 &&
+                                <div className={styles.notAvailable}>
+                                    Out of stock. Add to your wishist to get notified when it's back.
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
