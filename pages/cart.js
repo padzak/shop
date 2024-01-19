@@ -3,29 +3,34 @@ import Header from "../components/cart/header";
 import styles from "../styles/cart.module.scss";
 import { useSelector } from "react-redux";
 import Product from "@/components/cart/product";
+import CartHeader from "@/components/cart/cartHeader";
+import Checkout from "@/components/cart/checkout";
 
 export default function Cart() {
   const { cart } = useSelector((state) => ({ ...state }));
   return (
     <>
-      <div>
-        <Header country="" />
-        <div className={styles.cart}>
-          <div className={styles.cart__container}>
-            {cart.cartItems.length > 0 ? (
-              <div className={styles.cart__container}>
-                <div className={styles.cart__products}>
-                  {cart.cartItems.map((product) => (
-                    <Product product={product} key={product._uid} />
-                  ))}
-                </div>
+      <Header country="" />
+      <div className={styles.cart}>
+          {cart.cartItems.length > 0 ? (
+            <div className={styles.cart__container}>
+              <CartHeader cartItems={cart.cartItems} />
+              <div className={styles.cart__products}>
+                {cart.cartItems.map((product) => (
+                  <Product product={product} key={product._uid} />
+                ))}
               </div>
-            ) : (
-              <Empty />
-            )}
-          </div>
+              <Checkout
+                subtotal="44444"
+                shippingFee=""
+                total="44444"
+                selected={[]}
+              />
+            </div>
+          ) : (
+            <Empty />
+          )}
         </div>
-      </div>
     </>
   );
 }
