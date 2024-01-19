@@ -13,280 +13,279 @@ $error-color: #ed4337;
 $light-error-color: #fd010169;
 
 .container {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 1rem;
-    font-style: normal;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-style: normal;
 }
 
 .btn_primary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: $blue-color;
-    color: #fff;
-    width: 100%;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: $blue-color;
+  color: #fff;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .btn_outlined {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: $grey-color;
-    color: $blue-color;
-    width: 100%;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: $grey-color;
+  color: $blue-color;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .error {
-    color: $error-color;
+  color: $error-color;
 }
 
 .success {
-    color: $success-color;
+  color: $success-color;
 }
 
 //----------- Swipers ------------
 .swiper {
-    width: 100%;
-    height: 100%;
-    &:hover {
-        .swiper-button-prev, .swiper-button-next {
-            display: flex;
-        }
+  width: 100%;
+  height: 100%;
+  &:hover {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
     }
+  }
 }
 
 .swiper-slide {
-    // text-align: center;
-    font-size: 18px;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    height: auto;
-    /* Center slide text vertically - just in case, usually "display: flex !important;" is sufficient */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    // padding-top: 120px;
-
-
+  // text-align: center;
+  font-size: 18px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  height: auto;
+  /* Center slide text vertically - just in case, usually "display: flex !important;" is sufficient */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  // padding-top: 120px;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .swiper {
-    margin-left: auto;
-    margin-right: auto;
-    // margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  // margin-top: 100px;
 }
 
 .mainSwiper,
-.offersSwiper, 
+.offersSwiper,
 .userSwiper,
 .flashDealsSwiper {
-    .swiper-pagination-bullet {
-        width: 8px !important;
-        color: red !important;
-        border-radius: 5px !important;
+  .swiper-pagination-bullet {
+    width: 8px !important;
+    color: red !important;
+    border-radius: 5px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 5px !important;
+  }
 
-    }
-    .swiper-pagination-bullet-active {
-        background: #fff !important;
-        width: 10px !important;
-        height: 10px !important;
-        border-radius: 5px !important;
-    }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fff !important;
+    transform: scale(0.5) !important;
+    width: 50px !important;
+    height: 80px !important;
+    transition: 0.2s;
+    background: rgba(102, 102, 102, 0.7) !important;
+    border-radius: 5px;
+    display: none;
+  }
 
-    .swiper-button-prev, .swiper-button-next {
-        color: #fff !important;
-        transform: scale(0.5) !important;
-        width: 50px !important;
-        height: 80px !important;
-        transition: 0.2s;
-        background: rgba(102, 102, 102, 0.7) !important;
-        border-radius: 5px;
-        display: none;
-    }
+  .swiper-button-prev {
+    left: -13px;
+  }
 
-    .swiper-button-prev {
-        left: -13px;
-    }
-
-    .swiper-button-next {
-        right: -13px;
-    }
+  .swiper-button-next {
+    right: -13px;
+  }
 }
 
 .offersSwiper {
-    max-width: 550px;
-    transform: translateX(25%);
-    flex-shrink: 1.5;
-    @media (max-width: 1185px) {
-        transform: translateX(1%);
+  max-width: 550px;
+  transform: translateX(25%);
+  flex-shrink: 1.5;
+  @media (max-width: 1185px) {
+    transform: translateX(1%);
+  }
+  @media (max-width: 710px) {
+    transform: translateX(0%);
+  }
+  span {
+    position: absolute;
+    color: #fff;
+    &:first-of-type {
+      bottom: 10px;
+      width: 70%;
+      height: 25px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: $yellow-color-transparent;
     }
-    @media (max-width: 710px) {
-        transform: translateX(0%);
+    &:last-of-type {
+      font-style: italic;
+      width: 30%;
+      top: 5px;
+      right: 5px;
+      height: 25px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: $reddish-color-transparent;
+      // box-shadow: $shadow-1;
     }
-    span {
-        position: absolute;
-        color: #fff;
-        &:first-of-type {
-            bottom: 10px;
-            width: 70%;
-            height: 25px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            background-color: $yellow-color-transparent;
-        }
-        &:last-of-type {
-            font-style: italic;
-            width: 30%;
-            top: 5px;
-            right: 5px;
-            height: 25px;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            background-color: $reddish-color-transparent;
-            // box-shadow: $shadow-1;
-        }
-    }
-    
-    .swiper-pagination {
-        display: none;
-    }
+  }
 
-    .swiper {
-        width: 100%;
-        height: 100%;
-      }
-      
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        
-        /* Center slide text vertically */
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        // width:  !important;
-        height: 90% !important;
-        border-radius: 10px !important;
-        margin-top: 0.6rem !important;
-        box-shadow: $shadow-1;
-        &:hover {
-            transform: scale(1.03);
-            transition: 0.2s;
-        }
-    }
+  .swiper-pagination {
+    display: none;
+  }
 
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover !important;
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    // width:  !important;
+    height: 90% !important;
+    border-radius: 10px !important;
+    margin-top: 0.6rem !important;
+    box-shadow: $shadow-1;
+    &:hover {
+      transform: scale(1.03);
+      transition: 0.2s;
     }
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+  }
 }
 
 .userSwiper {
-    position: relative;
-    margin-left: 2rem;
-    .swiper-slide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-      img {
-        height: 240px !important;
-      }
+  position: relative;
+  margin-left: 2rem;
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    img {
+      height: 240px !important;
     }
+  }
 }
 
 .flashDealsSwiper {
-    .swiper-slide {
-        img {
-            border-radius: 0 !important;
-            height: 320px !important;
-        }
+  .swiper-slide {
+    img {
+      border-radius: 0 !important;
+      height: 320px !important;
     }
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 35%;
+  }
+  @media (max-width: 450px) {
     .swiper-button-next,
     .swiper-button-prev {
-        top: 35%;
+      display: grid !important;
     }
-    @media (max-width: 450px) {
-        .swiper-button-next,
-        .swiper-button-prev {
-            display: grid !important;
-        }
-    }
+  }
 }
 
 .productSwiper {
-    .swiper-button-next,
-    .swiper-button-prev {
-        background: #fff !important;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        color: #666;
-        box-shadow: $shadow-1;
-        &::after {
-            transform: scale(0.6);
-        }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: #fff !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #666;
+    box-shadow: $shadow-1;
+    &::after {
+      transform: scale(0.6);
     }
+  }
 }
 
 .similar_swiper {
-    max-width: 550px;
-    .swiper-pagination {
-        display: none !important;
+  max-width: 550px;
+  .swiper-pagination {
+    display: none !important;
+  }
+  img {
+    width: 100px;
+    height: 160px;
+    object-fit: cover;
+    cursor: pointer;
+    @media (min-width: 461px) {
+      width: 150px;
+      height: 200px;
     }
-    img {
-        width: 100px;
-        height: 160px;
-        object-fit: cover;
-        cursor: pointer;
-        @media (min-width: 461px) {
-            width: 150px;
-            height: 200px;
-        }
-    }
+  }
 }
