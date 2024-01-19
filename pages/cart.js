@@ -12,7 +12,7 @@ export default function Cart() {
         <Header country="" />
         <div className={styles.cart}>
           <div className={styles.cart__container}>
-            {cart.cartItems.length > 1 ? (
+            {cart.cartItems.length > 0 ? (
               <div className={styles.cart__container}>
                 <div className={styles.cart__products}>
                   {cart.cartItems.map((product) => (

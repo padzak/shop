@@ -4,11 +4,29 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { updateCart } from "@/store/cartSlice";
 
 export default function Product({ product }) {
   const { cart } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
-  const updateQty = (type) => {};
+  const updateQty = (type) => {
+    let newCart = cart.cartItems.map((item) => {
+      if (item._uid == product._uid) {
+        return {
+          ...item,
+          qty: type == "minus" ? item.qty - 1 : item.qty + 1,
+        };
+      }
+      return item;
+    });
+    dispatch(updateCart(newCart));
+  };
+  const removeProduct = (id) => {
+    let newCart = cart.cartItems.filter((item) => {
+      return item._uid != id;
+    });
+    dispatch(updateCart(newCart));
+  };
   return (
     <>
       <div className={`${styles.card} ${styles.product}`}>
@@ -30,7 +48,10 @@ export default function Product({ product }) {
               <div style={{ zIndex: "2" }}>
                 <BsHeart />
               </div>
-              <div style={{ zIndex: "2" }}>
+              <div
+                style={{ zIndex: "2" }}
+                onClick={() => removeProduct(product._uid)}
+              >
                 <AiOutlineDelete />
               </div>
             </div>
