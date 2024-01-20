@@ -13,7 +13,7 @@ export default function Checkout({ subtotal, shippingFee, total, selected }) {
           <span>Shipping</span>
           <span>{shippingFee} PLN</span>
         </div>
-        <div className={styles.cart__checkout_line}>
+        <div className={styles.cart__checkout_total}>
           <span>Total</span>
           <span>{total} PLN</span>
         </div>
