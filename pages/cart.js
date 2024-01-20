@@ -2,11 +2,13 @@ import Empty from "@/components/cart/empty";
 import Header from "../components/cart/header";
 import styles from "../styles/cart.module.scss";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import Product from "@/components/cart/product";
 import CartHeader from "@/components/cart/cartHeader";
 import Checkout from "@/components/cart/checkout";
 
 export default function Cart() {
+  const [selected, setSelected] = useState([]);
   const { cart } = useSelector((state) => ({ ...state }));
   return (
     <>
