@@ -14,29 +14,34 @@ export default function Cart() {
     <>
       <Header country="" />
       <div className={styles.cart}>
-          {cart.cartItems.length > 0 ? (
-            <div className={styles.cart__container}>
-              <CartHeader cartItems={cart.cartItems} />
-              <div className={styles.cart__products}>
-                {cart.cartItems.map((product) => (
-                  <Product
-                    product={product}
-                    key={product._uid}
-                    selected={selected}
-                    setSelected={setSelected} />
-                ))}
-              </div>
-              <Checkout
-                subtotal="44444"
-                shippingFee=""
-                total="44444"
-                selected={[]}
-              />
+        {cart.cartItems.length > 0 ? (
+          <div className={styles.cart__container}>
+            <CartHeader
+              cartItems={cart.cartItems}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <div className={styles.cart__products}>
+              {cart.cartItems.map((product) => (
+                <Product
+                  product={product}
+                  key={product._uid}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+              ))}
             </div>
-          ) : (
-            <Empty />
-          )}
-        </div>
+            <Checkout
+              subtotal="44444"
+              shippingFee=""
+              total="44444"
+              selected={[]}
+            />
+          </div>
+        ) : (
+          <Empty />
+        )}
+      </div>
     </>
   );
 }
