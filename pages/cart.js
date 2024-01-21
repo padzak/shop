@@ -19,7 +19,11 @@ export default function Cart() {
               <CartHeader cartItems={cart.cartItems} />
               <div className={styles.cart__products}>
                 {cart.cartItems.map((product) => (
-                  <Product product={product} key={product._uid} />
+                  <Product
+                    product={product}
+                    key={product._uid}
+                    selected={selected}
+                    setSelected={setSelected} />
                 ))}
               </div>
               <Checkout

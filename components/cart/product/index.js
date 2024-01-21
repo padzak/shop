@@ -5,9 +5,15 @@ import { BsHeart } from "react-icons/bs";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart } from "@/store/cartSlice";
+import { useEffect, useState } from "react";
 
-export default function Product({ product }) {
+export default function Product({ product, selected, setSelected }) {
   const { cart } = useSelector((state) => ({ ...state }));
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    const check = selected.find((item) => item._uid == product._uid);
+    setActive(check);
+  }, [product._uid, selected]);
   const dispatch = useDispatch();
   const updateQty = (type) => {
     let newCart = cart.cartItems.map((item) => {
@@ -27,6 +33,14 @@ export default function Product({ product }) {
     });
     dispatch(updateCart(newCart));
   };
+  const handleSelected = () => {
+    if (active) {
+      setSelected(selected.filter((item) => item._uid !== product._uid));
+    }
+    else {
+      setSelected([...selected, product]);
+    }
+  };
   return (
     <>
       <div className={`${styles.card} ${styles.product}`}>
@@ -36,7 +50,7 @@ export default function Product({ product }) {
           OFFICIAL STORE
         </div>
         <div className={styles.product__image}>
-          <div className={styles.checkbox}></div>
+          <div className={`${styles.checkbox} ${active ? styles.active : ""}`} onClick={() => handleSelected()}></div>
           <img src={product.images[0].url} alt="" />
           <div className={styles.col}>
             <div className={styles.grid}>
