@@ -18,8 +18,17 @@ export default function Checkout({ subtotal, shippingFee, total, selected }) {
           <span>{total} PLN</span>
         </div>
         <div className={styles.submit}>
-            <button className={styles.submit__button} disabled={!selected}>Checkout</button>
-        </div>  
+          <button
+            className={styles.submit__button}
+            disabled={selected.length == 0}
+            style={{
+              background: `${selected.length == 0 ? "#ccc" : ""}`,
+              cursor: `${selected.length == 0 ? "not-allowed" : "pointer"}`,
+            }}
+          >
+            Checkout
+          </button>
+        </div>
       </div>
     </>
   );
