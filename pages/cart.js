@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import Product from "@/components/cart/product";
 import CartHeader from "@/components/cart/cartHeader";
 import Checkout from "@/components/cart/checkout";
+import PaymentMethods from "@/components/cart/paymentMethods";
+import ProductSwiper from "@/components/productSwiper";
+import { women_swiper } from "@/data/home";
 
 export default function Cart() {
   const [selected, setSelected] = useState([]);
@@ -49,10 +52,12 @@ export default function Cart() {
               total={total}
               selected={selected}
             />
+            <PaymentMethods />
           </div>
         ) : (
           <Empty />
         )}
+        <ProductSwiper products={women_swiper} />
       </div>
     </>
   );
