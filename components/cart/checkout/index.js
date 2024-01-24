@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-export default function Checkout({ subtotal, shippingFee, total, selected }) {
+export default function Checkout({ subtotal, shippingFee, total, selected, addToCartHandler }) {
   return (
     <>
       <div className={`${styles.cart__checkout} ${styles.card}`}>
@@ -25,6 +25,7 @@ export default function Checkout({ subtotal, shippingFee, total, selected }) {
               background: `${selected.length == 0 ? "#ccc" : ""}`,
               cursor: `${selected.length == 0 ? "not-allowed" : "pointer"}`,
             }}
+            onClick={addToCartHandler}
           >
             Checkout
           </button>
