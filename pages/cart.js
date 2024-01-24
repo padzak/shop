@@ -25,6 +25,10 @@ export default function Cart() {
     setTotal((selected.reduce((a, c) => a + c.price * c.qty, 0) + Number(shippingFee)).toFixed(2));
   }, [selected, shippingFee]);
 
+  const saveCartToDbHandler = async () => {
+
+  };
+
   return (
     <>
       <Header country="" />
@@ -51,6 +55,7 @@ export default function Cart() {
               shippingFee={shippingFee}
               total={total}
               selected={selected}
+              addToCartHandler={saveCartToDbHandler}
             />
             <PaymentMethods />
           </div>
