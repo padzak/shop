@@ -1,6 +1,6 @@
 import { createRouter } from "next-connect";
 import Product from "../../../models/Product";
-import Product from "../../../models/User";
+import User from "../../../models/User";
 import nextConnect from "next-connect";
 import db from "../../../utils/db";
 import Cart from "@/models/Cart";
