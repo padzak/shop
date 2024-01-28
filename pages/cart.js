@@ -24,17 +24,22 @@ export default function Cart() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setShippingFee(selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2));
+    setShippingFee(
+      selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2)
+    );
     setSubtotal(selected.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2));
-    setTotal((selected.reduce((a, c) => a + c.price * c.qty, 0) + Number(shippingFee)).toFixed(2));
+    setTotal(
+      (
+        selected.reduce((a, c) => a + c.price * c.qty, 0) + Number(shippingFee)
+      ).toFixed(2)
+    );
   }, [selected, shippingFee]);
 
   const saveCartToDbHandler = async () => {
-    if(session) {
-      const res = saveCart(selected);
+    if (session) {
+      const res = saveCart(selected, session.user.id);
       router.push("/checkout");
-    }
-    else {
+    } else {
       signIn();
     }
   };
