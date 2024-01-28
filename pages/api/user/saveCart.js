@@ -28,7 +28,7 @@ router.post(async (req, res) => {
         color: cart[i].color.color,
         image: cart[i].color.image,
       };
-      tempProduct.image = subProduct.images[0];
+      tempProduct.image = subProduct.images[0].url;
       tempProduct.qty = Number(cart[i].qty);
       tempProduct.size = cart[i].size;
       let price = Number(
