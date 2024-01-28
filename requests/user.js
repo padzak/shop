@@ -8,6 +8,6 @@ export const saveCart = async (cart, user_id) => {
         });
         return data;
     } catch(error) {
-        return response.data.error.message;
+        return error.message;
     }
 }

@@ -55,7 +55,7 @@ router.post(async (req, res) => {
 
     db.disconnectDb();
   } catch (error) {
-    return res.statusCode(500).json({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 });
 
