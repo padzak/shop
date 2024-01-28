@@ -15,7 +15,7 @@ router.post(async (req, res) => {
     let user = await User.findById(user_id);
     let existingCart = await Cart.findOne({ user: user_id });
     if (existingCart) {
-      await existingCart.remove();
+        await Cart.deleteOne({ user: user_id });
     }
 
     for (let i = 0; i < cart.length; i++) {
