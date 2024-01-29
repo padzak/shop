@@ -5,10 +5,11 @@ import User from "@/models/User";
 import Cart from "@/models/Cart";
 import db from "@/utils/db";
 
-export default function checkout() {
+export default function checkout({ cart }) {
     return (
         <div>
             <h1>Checkout</h1>
+            { JSON.stringify(cart) }
         </div>
     )
 }
