@@ -19,6 +19,7 @@ export default function Checkout({ cart, user }) {
             <Shipping
                 selectedAddress={selectedAddress}
                 setSelectedAddress={setSelectedAddress}
+                user={user}
             />
         </div>
       </div>
