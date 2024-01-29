@@ -86,3 +86,7 @@ However, the provided solutions are not working and the author removed them with
 # yup-phone
 
 Check why it's not working in components/cart/shipping
+
+# shipping input
+
+For some reason the span takes the whole page width
