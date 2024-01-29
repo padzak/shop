@@ -5,6 +5,7 @@ import User from "@/models/User";
 import Cart from "@/models/Cart";
 import db from "@/utils/db";
 import Header from "@/components/cart/header";
+import Shipping from "@/components/checkout/shipping";
 
 export default function checkout({ cart }) {
   return (
@@ -12,7 +13,7 @@ export default function checkout({ cart }) {
       <Header />
       <div className={styles.checkout}>
         <div className={styles.checkout__side}>
-
+            <Shipping />
         </div>
       </div>
     </>
