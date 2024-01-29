@@ -41,3 +41,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Mock Data
 
 Several .json files present in the ./data directory
+
+
+## Issues
+redux-persist failed to create sync storage. falling back to memory storage..
+
+the following error is thrown when loading the page not when running the server.   
+
+redux-persist failed to create sync storage. falling back to noop storage.
+
+REASON the redux store is only configured for the client side only. It should also be integrated to work on the server side as well.
+
+next-redux-wrapper has not been implemented
+
+one another solution is to install reduxjs-toolkit-persist
+
+_ store / index.js
+import storageSession from "reduxjs-toolkit-persist/lib/storage/session";
+
+const persistConfig = {   key: "persist-store",   storage: storageSession, };
