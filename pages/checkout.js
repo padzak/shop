@@ -6,23 +6,29 @@ import Cart from "@/models/Cart";
 import db from "@/utils/db";
 import Header from "@/components/cart/header";
 import Shipping from "@/components/checkout/shipping";
+import { useState } from "react";
 
-export default function checkout({ cart }) {
+export default function Checkout({ cart }) {
+    const [selectedAddress, setSelectedAddress] = useState();
+
   return (
     <>
       <Header />
       <div className={styles.checkout}>
         <div className={styles.checkout__side}>
-            <Shipping />
+            <Shipping
+                selectedAddress={selectedAddress}
+                setSelectedAddress={setSelectedAddress}
+            />
         </div>
       </div>
     </>
   );
 }
 
-export async function getServerSideProps(Context) {
+export async function getServerSideProps(context) {
   db.connectDb();
-  const session = await getSession(Context);
+  const session = await getSession(context);
   const user = await User.findById(session.user.id);
   const cart = await Cart.findOne({ user: user._id });
   db.disconnectDb();
