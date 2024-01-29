@@ -79,4 +79,5 @@ However, the provided solutions are not working and the author removed them with
 
 # Session
 
-Shouldn't user session be checked not to be null?
+1. Shouldn't user session be checked not to be null?
+2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
