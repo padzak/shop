@@ -8,7 +8,7 @@ import Header from "@/components/cart/header";
 import Shipping from "@/components/checkout/shipping";
 import { useState } from "react";
 
-export default function Checkout({ cart }) {
+export default function Checkout({ cart, user }) {
     const [selectedAddress, setSelectedAddress] = useState();
 
   return (
@@ -42,6 +42,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       cart: JSON.parse(JSON.stringify(cart)),
+      user: JSON.parse(JSON.stringify(user)),
     },
   };
 }
