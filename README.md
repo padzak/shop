@@ -44,7 +44,7 @@ Several .json files present in the ./data directory
 
 
 ## Issues
-redux-persist failed to create sync storage. falling back to memory storage..
+# redux-persist failed to create sync storage. falling back to memory storage..
 
 the following error is thrown when loading the page not when running the server.   
 
@@ -60,3 +60,14 @@ _ store / index.js
 import storageSession from "reduxjs-toolkit-persist/lib/storage/session";
 
 const persistConfig = {   key: "persist-store",   storage: storageSession, };
+
+# connect ECONNREFUSED ::1:49921 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) 
+
+Error: connect ECONNREFUSED ::1:49921
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+  errno: -61,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '::1',
+  port: 49921
+}
