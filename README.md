@@ -82,3 +82,7 @@ However, the provided solutions are not working and the author removed them with
 1. Shouldn't user session be checked not to be null?
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
 3. Is fetching user data within checkout.js getServerSideProps() safe?
+
+# yup-phone
+
+Check why it's not working in components/cart/shipping
