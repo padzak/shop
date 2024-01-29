@@ -4,33 +4,37 @@ import { getSession } from "next-auth/react";
 import User from "@/models/User";
 import Cart from "@/models/Cart";
 import db from "@/utils/db";
+import Header from "@/components/cart/header";
 
 export default function checkout({ cart }) {
-    return (
-        <div>
-            <h1>Checkout</h1>
-            { JSON.stringify(cart) }
+  return (
+    <>
+      <Header />
+      <div className={styles.checkout}>
+        <div className={styles.checkout__side}>
+
         </div>
-    )
+      </div>
+    </>
+  );
 }
 
 export async function getServerSideProps(Context) {
-    db.connectDb();
-    const session = await getSession(Context);
-    const user = await User.findById(session.user.id);
-    const cart = await Cart.findOne({ user: user._id });
-    db.disconnectDb();
+  db.connectDb();
+  const session = await getSession(Context);
+  const user = await User.findById(session.user.id);
+  const cart = await Cart.findOne({ user: user._id });
+  db.disconnectDb();
 
-    if (!cart)
-    {
-        return {
-            redirect: "/cart",
-        }
-    }
-
+  if (!cart) {
     return {
-        props: {
-            cart: JSON.parse(JSON.stringify(cart)),
-        },
-    }
+      redirect: "/cart",
+    };
+  }
+
+  return {
+    props: {
+      cart: JSON.parse(JSON.stringify(cart)),
+    },
+  };
 }
