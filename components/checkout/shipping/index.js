@@ -83,15 +83,15 @@ export default function Shipping({
       <Formik
         enableReinitialize
         initialValues={{
-          firstName: "",
-          lastName: "",
-          phoneNumber: "",
-          state: "",
-          city: "",
-          zipCode: "",
-          address1: "",
-          address2: "",
-          country: "",
+            firstName,
+            lastName,
+            phoneNumber,
+            state,
+            city,
+            zipCode,
+            address1,
+            address2,
+            country,
         }}
         validationSchema={validate}
       >
