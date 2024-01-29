@@ -9,3 +9,11 @@ export default function checkout() {
         </div>
     )
 }
+
+export async function getServerSideProps(Context) {
+    const session = await getSession(Context);
+
+    return {
+        props: {},
+    }
+}
