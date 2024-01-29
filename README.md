@@ -76,3 +76,7 @@ Error: connect ECONNREFUSED ::1:49921
 
 The cart is not refreshed when data on site is updated. All the logic is provided within updateCart.js and cart.js files. 
 However, the provided solutions are not working and the author removed them without any further comment.
+
+# Session
+
+Shouldn't user session be checked not to be null?
