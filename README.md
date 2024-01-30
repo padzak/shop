@@ -89,4 +89,5 @@ Check why it's not working in components/cart/shipping
 
 # shipping input
 
-For some reason the span takes the whole page width
+1. For some reason the span takes the whole page width
+2. Input fields are not highlighted on error
