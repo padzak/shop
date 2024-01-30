@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import ShippingInput from "@/components/inputs/shippingInput";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { countries } from "@/data/countries";
 // import "yup-phone";
 
 const initialValues = {
@@ -48,7 +50,7 @@ export default function Shipping({
     phoneNumber: Yup.string()
       .required("Phone number is required.")
       .matches(phoneRegExp, "Invalid phone number format")
-    //   .phone()
+      //   .phone()
       .min(3, "Phone number must be at least 3 characters long.")
       .max(30, "Phone number must be less than 20 characters long."),
     state: Yup.string()
@@ -75,7 +77,7 @@ export default function Shipping({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setShipping({ ...shipping, [name]: value })
+    setShipping({ ...shipping, [name]: value });
   };
 
   return (
@@ -83,25 +85,51 @@ export default function Shipping({
       <Formik
         enableReinitialize
         initialValues={{
-            firstName,
-            lastName,
-            phoneNumber,
-            state,
-            city,
-            zipCode,
-            address1,
-            address2,
-            country,
+          firstName,
+          lastName,
+          phoneNumber,
+          state,
+          city,
+          zipCode,
+          address1,
+          address2,
+          country,
         }}
         validationSchema={validate}
       >
         {(formik) => (
           <Form>
-            <ShippingInput
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="demo-simple-select-helper-label">
+                Country
+              </InputLabel>
+
+              <Select
+                labelId="demo-simple-select-helper-label"
+                id="demo-simple-select-helper"
+                value={country}
+                name="country"
+                onChange={handleChange}
+              >
+                {countries.map((country) => (
+                  <MenuItem key={country.name} value={country.name}>
+                    {country.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <div className={styles.col}>
+              <ShippingInput
                 name="firstName"
                 placeholder="First Name"
                 onChange={handleChange}
-            />
+              />
+              <ShippingInput
+                name="lastName"
+                placeholder="Last Name"
+                onChange={handleChange}
+              />
+            </div>
           </Form>
         )}
       </Formik>
