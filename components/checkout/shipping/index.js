@@ -99,7 +99,7 @@ export default function Shipping({
       >
         {(formik) => (
           <Form>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
+            <FormControl className={styles.select}>
               <InputLabel id="demo-simple-select-helper-label">
                 Country
               </InputLabel>
@@ -110,6 +110,7 @@ export default function Shipping({
                 value={country}
                 name="country"
                 onChange={handleChange}
+                className={styles.select}
               >
                 {countries.map((country) => (
                   <MenuItem key={country.name} value={country.name}>
@@ -129,6 +130,37 @@ export default function Shipping({
                 placeholder="Last Name"
                 onChange={handleChange}
               />
+              <ShippingInput
+                name="state"
+                placeholder="State"
+                onChange={handleChange}
+              />
+              <ShippingInput
+                name="city"
+                placeholder="City"
+                onChange={handleChange}
+              />
+              <ShippingInput
+                name="phoneNumber"
+                placeholder="Phone Number"
+                onChange={handleChange}
+              />
+              <ShippingInput
+                name="zipCode"
+                placeholder="Post / Zip Code"
+                onChange={handleChange}
+              />
+              <ShippingInput
+                name="address1"
+                placeholder="Address Line 1"
+                onChange={handleChange}
+              />
+              <ShippingInput
+                name="address2"
+                placeholder="Address Line 2"
+                onChange={handleChange}
+              />
+              <button type="submit">Save Address</button>
             </div>
           </Form>
         )}

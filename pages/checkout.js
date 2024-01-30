@@ -14,7 +14,7 @@ export default function Checkout({ cart, user }) {
   return (
     <>
       <Header />
-      <div className={styles.checkout}>
+      <div className={`${styles.container} ${styles.checkout}`}>
         <div className={styles.checkout__side}>
             <Shipping
                 selectedAddress={selectedAddress}
