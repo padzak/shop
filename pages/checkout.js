@@ -22,6 +22,7 @@ export default function Checkout({ cart, user }) {
                 user={user}
             />
         </div>
+        <div className={styles.checkout__side}></div>
       </div>
     </>
   );

@@ -89,5 +89,5 @@ Check why it's not working in components/cart/shipping
 
 # shipping input
 
-1. For some reason the span takes the whole page width
-2. Input fields are not highlighted on error
+1. Fix grid display in checkout.module.scss
+2. Add indication that specific fields are required
