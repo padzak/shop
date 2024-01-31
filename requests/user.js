@@ -12,10 +12,10 @@ export const saveCart = async (cart, user_id) => {
     }
 }
 
-export const saveAddress = async (shipping, user_id) => {
+export const saveAddress = async (address, user_id) => {
     try {
         const {data} = await axios.post('/api/user/saveAddress', {
-            shipping,
+            address,
             user_id,
         });
         return data;

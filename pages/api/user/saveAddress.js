@@ -10,7 +10,7 @@ const router = createRouter();
 router.post(async (req, res) => {
   try {
     db.connectDb();
-    const { shipping, user_id } = req.body;
+    const { address, user_id } = req.body;
     db.disconnectDb();
   } catch (error) {
     return res.status(500).json({ message: error.message });
