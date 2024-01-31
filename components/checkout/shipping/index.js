@@ -81,6 +81,12 @@ export default function Shipping({
     setShipping({ ...shipping, [name]: value });
   };
 
+  const saveShippingHandler = async () => {
+    const res = await saveAddress(shipping, user._id);
+    setAddresses([...addresses, res]);
+    setSelectedAddress(res);
+  }
+
   return (
     <div className={styles.shipping}>
       <Formik
@@ -97,6 +103,9 @@ export default function Shipping({
           country,
         }}
         validationSchema={validate}
+        onSubmit={() => {
+          saveShippingHandler();
+        }}
       >
         {(formik) => (
           <Form>
