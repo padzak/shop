@@ -91,6 +91,7 @@ Check why it's not working in components/cart/shipping
 
 1. Fix grid display in checkout.module.scss
 2. Add indication that specific fields are required
+3. Check if all the shipping data is properly pushed to the database (state?) 
 
 # endpoints 
 
