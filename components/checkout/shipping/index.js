@@ -7,6 +7,8 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { countries } from "@/data/countries";
 import SingularSelect from "@/components/selects/SingularSelect";
 import { saveAddress } from "@/requests/user";
+import { FaIdCard, FaMapMarkerAlt } from "react-icons/fa";
+import { GiPhone } from "react-icons/gi";
 // import "yup-phone";
 
 const initialValues = {
@@ -84,12 +86,47 @@ export default function Shipping({
 
   const saveShippingHandler = async () => {
     const res = await saveAddress(shipping, user._id);
+    console.log("address response", res);
     setAddresses([...addresses, res]);
     setSelectedAddress(res);
-  }
+  };
 
   return (
     <div className={styles.shipping}>
+      <div className={styles.addresses}>
+        {addresses.map((address) => (
+          <div
+            className={`${styles.address} ${
+              address == selectedAddress && styles.active
+            }`}
+            key={address._id}
+          >
+            <div className={styles.address__side}>
+              <img src={user.image} alt="userImg" />
+            </div>
+            <div className={styles.address__col}>
+              <span>
+                <FaIdCard />
+                {address.firstName}{" "}
+                {address.lastName}
+              </span>
+              <span>
+                <GiPhone />
+                {address.phoneNumber}
+              </span>
+            </div>
+            <div styles={styles.address__col}>
+              <span>
+                <FaMapMarkerAlt />
+                {address.address1}
+              </span>
+              <span>
+                {address.address2}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
       <Formik
         enableReinitialize
         initialValues={{
