@@ -9,6 +9,9 @@ import SingularSelect from "@/components/selects/SingularSelect";
 import { saveAddress } from "@/requests/user";
 import { FaIdCard, FaMapMarkerAlt } from "react-icons/fa";
 import { GiPhone } from "react-icons/gi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { IoMdArrowDropupCircle } from "react-icons/io";
+
 // import "yup-phone";
 
 const initialValues = {
@@ -29,9 +32,10 @@ export default function Shipping({
   setSelectedAddress,
   user,
 }) {
+  console.log("user", user);
   const [addresses, setAddresses] = useState(user?.addresses || []);
   const [shipping, setShipping] = useState(initialValues);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(user?.addresses.length == 0);
 
   const {
     firstName,
@@ -98,9 +102,7 @@ export default function Shipping({
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div
-            className={`${styles.address} ${
-              address.active && styles.active
-            }`}
+            className={`${styles.address} ${address.active && styles.active}`}
             key={address._id}
           >
             <div className={styles.address__side}>
@@ -109,8 +111,7 @@ export default function Shipping({
             <div className={styles.address__col}>
               <span>
                 <FaIdCard />
-                {address.firstName}{" "}
-                {address.lastName}
+                {address.firstName} {address.lastName}
               </span>
               <span>
                 <GiPhone />
@@ -122,22 +123,33 @@ export default function Shipping({
                 <FaMapMarkerAlt />
                 {address.address1}
               </span>
+              <span>{address.address2}</span>
               <span>
-                {address.address2}
+                {address.city}, {address.state}, {address.country}{" "}
               </span>
-              <span>{address.city}, {address.state}, {address.country} </span>
               <span>{address.zipCode}</span>
             </div>
-            <span className={styles.active__text} style={{display: `${!address.active !== address && 'none'}`}}>Active</span>
+            <span
+              className={styles.active__text}
+              style={{ display: `${!address.active !== address && "none"}` }}
+            >
+              Active
+            </span>
           </div>
         ))}
       </div>
-      <button className={styles.hide_show}>
-        { 
-        visible 
-        }
+      <button className={styles.hide_show} onClick={() => setVisible(!visible)}>
+        {visible ? (
+          <span>
+            <IoMdArrowDropupCircle style={{ fontSize: "2rem", fill: "#222" }} />
+          </span>
+        ) : (
+          <span>
+            Add new address <AiOutlinePlus />
+          </span>
+        )}
       </button>
-      <Formik
+{ visible &&      <Formik
         enableReinitialize
         initialValues={{
           firstName,
@@ -209,7 +221,7 @@ export default function Shipping({
             </div>
           </Form>
         )}
-      </Formik>
+      </Formik>}
     </div>
   );
 }
