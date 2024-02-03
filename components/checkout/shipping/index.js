@@ -31,6 +31,8 @@ export default function Shipping({
 }) {
   const [addresses, setAddresses] = useState(user?.addresses || []);
   const [shipping, setShipping] = useState(initialValues);
+  const [visible, setVisible] = useState(false);
+
   const {
     firstName,
     lastName,
@@ -97,7 +99,7 @@ export default function Shipping({
         {addresses.map((address) => (
           <div
             className={`${styles.address} ${
-              address == selectedAddress && styles.active
+              address.active && styles.active
             }`}
             key={address._id}
           >
@@ -123,10 +125,18 @@ export default function Shipping({
               <span>
                 {address.address2}
               </span>
+              <span>{address.city}, {address.state}, {address.country} </span>
+              <span>{address.zipCode}</span>
             </div>
+            <span className={styles.active__text} style={{display: `${!address.active !== address && 'none'}`}}>Active</span>
           </div>
         ))}
       </div>
+      <button className={styles.hide_show}>
+        { 
+        visible 
+        }
+      </button>
       <Formik
         enableReinitialize
         initialValues={{
