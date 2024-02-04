@@ -102,7 +102,7 @@ export default function Shipping({
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div
-            className={`${styles.address} ${address.active && styles.active}`}
+            className={`${styles.address} ${!selectedAddress ? address.active && styles.active : selectedAddress == address && styles.active}`}
             key={address._id}
           >
             <div className={styles.address__side}>
