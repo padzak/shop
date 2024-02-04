@@ -22,3 +22,14 @@ export const saveAddress = async (address) => {
         return error.response.data.message;
     }
 }
+
+export const changeActiveAddress = async (id) => {
+    try {
+        const {data} = await axios.put('/api/user/manageAddress', {
+            id,
+        });
+        return data;
+    } catch(error) {
+        return error.response.data.message;
+    }
+}

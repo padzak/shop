@@ -6,7 +6,7 @@ import ShippingInput from "@/components/inputs/shippingInput";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { countries } from "@/data/countries";
 import SingularSelect from "@/components/selects/SingularSelect";
-import { saveAddress } from "@/requests/user";
+import { saveAddress, changeActiveAddress } from "@/requests/user";
 import { FaIdCard, FaMapMarkerAlt } from "react-icons/fa";
 import { GiPhone } from "react-icons/gi";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -32,6 +32,7 @@ export default function Shipping({
   setSelectedAddress,
   user,
   addresses,
+  setAddresses,
 }) {
   const [shipping, setShipping] = useState(initialValues);
   const [visible, setVisible] = useState(user?.addresses.length ? false : true);
@@ -91,9 +92,12 @@ export default function Shipping({
 
   const saveShippingHandler = async () => {
     const res = await saveAddress(shipping);
-    console.log("address response", res);
-    setAddresses([...addresses, res]);
-    setSelectedAddress(res);
+    setAddresses(res.addresses);
+  };
+
+  const changeActiveHandler = async (id) => {
+    const res = await changeActiveAddress(id);
+    setAddresses(res.addresses);
   };
 
   return (
@@ -101,12 +105,9 @@ export default function Shipping({
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div
-            className={`${styles.address} ${
-              !selectedAddress
-                ? address.active && styles.active
-                : selectedAddress == address && styles.active
-            }`}
+            className={`${styles.address} ${address.active && styles.active}`}
             key={address._id}
+            onClick={() => changeActiveHandler(address._id)}
           >
             <div className={styles.address__side}>
               <img src={user.image} alt="userImg" />
@@ -134,9 +135,9 @@ export default function Shipping({
             </div>
             <span
               className={styles.active__text}
-              style={{ display: `${!selectedAddress
-                ? !address.active && "none"
-                : selectedAddress !== address && "none"}` }}
+              style={{
+                display: `${!address.active && "none"}`,
+              }}
             >
               Active
             </span>

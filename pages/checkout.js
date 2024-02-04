@@ -10,23 +10,17 @@ import { useState, useEffect } from "react";
 
 export default function Checkout({ cart, user }) {
   const [addresses, setAddresses] = useState(user?.addresses || []);
-  const [selectedAddress, setSelectedAddress] = useState();
-  useEffect(() => {
-    let check = addresses.find((address) => address.active == true);
-    if (check) {
-      setSelectedAddress(check);
-    }
-  }, [addresses]);
+
   return (
     <>
       <Header />
       <div className={`${styles.container} ${styles.checkout}`}>
         <div className={styles.checkout__side}>
           <Shipping
-            selectedAddress={selectedAddress}
-            setSelectedAddress={setSelectedAddress}
+
             user={user}
             addresses={addresses}
+            setAddresses={setAddresses}
           />
         </div>
         <div className={styles.checkout__side}></div>

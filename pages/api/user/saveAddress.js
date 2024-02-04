@@ -14,12 +14,15 @@ router.post(async (req, res) => {
     db.connectDb();
     const { address } = req.body;
     const user = User.findById(req.user);
-    await user.updateOne({
-      $push: {
-        addresses: address,
+    let newUserData = await user.updateOne(
+      {
+        $push: {
+          addresses: address,
+        },
       },
-    });
-    res.json(address);
+      { new: true }
+    );
+    res.json({ addresses: newUserData.addresses });
     db.disconnectDb();
   } catch (error) {
     return res.status(500).json({ message: error.message });
