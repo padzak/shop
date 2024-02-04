@@ -72,17 +72,19 @@ Error: connect ECONNREFUSED ::1:49921
   port: 49921
 }
 
-## Cart updates
-
+## Cart 
+### Update
 The cart is not refreshed when data on site is updated. All the logic is provided within updateCart.js and cart.js files. 
 However, the provided solutions are not working and the author removed them without any further comment.
+
+### Save cart
+Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 
 ## Session
 
 1. Shouldn't user session be checked not to be null?
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
 3. Is fetching user data within checkout.js getServerSideProps() safe?
-
 
 ## shipping input
 
@@ -99,5 +101,5 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 ## middleware
 
-1.Check which approach is actually better
+1. Check which approach to middleware/auth.js is actually better 
 2. middleware/auth.js has to be tested before production

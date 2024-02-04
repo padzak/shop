@@ -4,18 +4,21 @@ import User from "../../../models/User";
 import nextConnect from "next-connect";
 import db from "../../../utils/db";
 import Cart from "@/models/Cart";
+import auth from "@/middleware/auth";
 
 const router = createRouter();
+router.use(auth);
 
 router.post(async (req, res) => {
+  console.log("user", req.user);
   try {
     db.connectDb();
-    const { cart, user_id } = req.body;
+    const { cart } = req.body;
     let products = [];
-    let user = await User.findById(user_id);
-    let existingCart = await Cart.findOne({ user: user_id });
+    let user = await User.findById(req.user);
+    let existingCart = await Cart.findOne({ user: user._id });
     if (existingCart) {
-        await Cart.deleteOne({ user: user_id });
+        await Cart.deleteOne({ user: user._id });
     }
 
     for (let i = 0; i < cart.length; i++) {
@@ -50,7 +53,7 @@ router.post(async (req, res) => {
     await new Cart({
       products,
       cartTotal,
-      user: user_id,
+      user: user._id,
     }).save();
 
     db.disconnectDb();

@@ -9,18 +9,18 @@ import Shipping from "@/components/checkout/shipping";
 import { useState } from "react";
 
 export default function Checkout({ cart, user }) {
-    const [selectedAddress, setSelectedAddress] = useState();
+  const [selectedAddress, setSelectedAddress] = useState();
 
   return (
     <>
       <Header />
       <div className={`${styles.container} ${styles.checkout}`}>
         <div className={styles.checkout__side}>
-            <Shipping
-                selectedAddress={selectedAddress}
-                setSelectedAddress={setSelectedAddress}
-                user={user}
-            />
+          <Shipping
+            selectedAddress={selectedAddress}
+            setSelectedAddress={setSelectedAddress}
+            user={user}
+          />
         </div>
         <div className={styles.checkout__side}></div>
       </div>
