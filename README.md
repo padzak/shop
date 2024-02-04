@@ -37,16 +37,15 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 ## Mock Data
 
 Several .json files present in the ./data directory
 
-
 # Issues
+
 ## redux-persist failed to create sync storage. falling back to memory storage..
 
-the following error is thrown when loading the page not when running the server.   
+the following error is thrown when loading the page not when running the server.
 
 redux-persist failed to create sync storage. falling back to noop storage.
 
@@ -56,29 +55,48 @@ next-redux-wrapper has not been implemented
 
 one another solution is to install reduxjs-toolkit-persist
 
-_ store / index.js
+\_ store / index.js
 import storageSession from "reduxjs-toolkit-persist/lib/storage/session";
 
-const persistConfig = {   key: "persist-store",   storage: storageSession, };
+const persistConfig = { key: "persist-store", storage: storageSession, };
 
-## connect ECONNREFUSED ::1:49921 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) 
+## connect ECONNREFUSED ::1:49921 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16)
 
 Error: connect ECONNREFUSED ::1:49921
-    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
-  errno: -61,
-  code: 'ECONNREFUSED',
-  syscall: 'connect',
-  address: '::1',
-  port: 49921
+at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
+errno: -61,
+code: 'ECONNREFUSED',
+syscall: 'connect',
+address: '::1',
+port: 49921
 }
 
-## Cart 
+## Cart
+
 ### Update
-The cart is not refreshed when data on site is updated. All the logic is provided within updateCart.js and cart.js files. 
+
+The cart is not refreshed when data on site is updated. All the logic is provided within updateCart.js and cart.js files.
 However, the provided solutions are not working and the author removed them without any further comment.
 
 ### Save cart
+
 Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
+
+### Checkout
+
+Check what's causing issues with active address styling
+
+`style={`${styles.address} ${
+!selectedAddress
+? address.active && styles.active
+: selectedAddress == address && styles.active
+}`}`
+
+and
+
+`style={{ display: `${!selectedAddress
+? !address.active && "none"
+: selectedAddress == address && styles.active}` }}`
 
 ## Session
 
@@ -90,16 +108,17 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 
 1. Fix grid display in checkout.module.scss
 2. Add indication that specific fields are required
-3. Check if all the shipping data is properly pushed to the database - address1 and address2 are not pushed (state?)  
+3. Check if all the shipping data is properly pushed to the database - address1 and address2 are not pushed (state?)
 
 ### yup-phone
+
 Check why it's not working in components/cart/shipping
 
-## endpoints 
+## endpoints
 
 Inspect all the endpoints and database updates there. I don't like how it looks right now.
 
 ## middleware
 
-1. Check which approach to middleware/auth.js is actually better 
+1. Check which approach to middleware/auth.js is actually better
 2. middleware/auth.js has to be tested before production
