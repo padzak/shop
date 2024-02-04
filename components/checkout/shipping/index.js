@@ -102,7 +102,11 @@ export default function Shipping({
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div
-            className={`${styles.address} ${!selectedAddress ? address.active && styles.active : selectedAddress == address && styles.active}`}
+            className={`${styles.address} ${
+              !selectedAddress
+                ? address.active && styles.active
+                : selectedAddress == address && styles.active
+            }`}
             key={address._id}
           >
             <div className={styles.address__side}>
@@ -131,7 +135,9 @@ export default function Shipping({
             </div>
             <span
               className={styles.active__text}
-              style={{ display: `${!address.active !== address && "none"}` }}
+              style={{ display: `${!selectedAddress
+                ? !address.active && "none"
+                : selectedAddress == address && styles.active}` }}
             >
               Active
             </span>
