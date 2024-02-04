@@ -100,3 +100,4 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 ## middleware
 
 1.Check which approach is actually better
+2. middleware/auth.js has to be tested before production
