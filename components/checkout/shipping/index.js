@@ -59,7 +59,7 @@ export default function Shipping({
       .max(20, "Last name must be at most 20 characters"),
     phoneNumber: Yup.string()
       .required("Phone number is required.")
-      .matches(phoneRegExp, "Invalid phone number format")
+      // .matches(phoneRegExp, "Invalid phone number format")
       //   .phone()
       .min(3, "Phone number must be at least 3 characters long.")
       .max(30, "Phone number must be less than 20 characters long."),

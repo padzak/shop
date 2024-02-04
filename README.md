@@ -43,8 +43,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Several .json files present in the ./data directory
 
 
-## Issues
-# redux-persist failed to create sync storage. falling back to memory storage..
+# Issues
+## redux-persist failed to create sync storage. falling back to memory storage..
 
 the following error is thrown when loading the page not when running the server.   
 
@@ -61,7 +61,7 @@ import storageSession from "reduxjs-toolkit-persist/lib/storage/session";
 
 const persistConfig = {   key: "persist-store",   storage: storageSession, };
 
-# connect ECONNREFUSED ::1:49921 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) 
+## connect ECONNREFUSED ::1:49921 at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) 
 
 Error: connect ECONNREFUSED ::1:49921
     at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1494:16) {
@@ -72,27 +72,27 @@ Error: connect ECONNREFUSED ::1:49921
   port: 49921
 }
 
-# Cart updates
+## Cart updates
 
 The cart is not refreshed when data on site is updated. All the logic is provided within updateCart.js and cart.js files. 
 However, the provided solutions are not working and the author removed them without any further comment.
 
-# Session
+## Session
 
 1. Shouldn't user session be checked not to be null?
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
 3. Is fetching user data within checkout.js getServerSideProps() safe?
 
-# yup-phone
 
-Check why it's not working in components/cart/shipping
-
-# shipping input
+## shipping input
 
 1. Fix grid display in checkout.module.scss
 2. Add indication that specific fields are required
 3. Check if all the shipping data is properly pushed to the database - address1 and address2 are not pushed (state?)  
 
-# endpoints 
+### yup-phone
+Check why it's not working in components/cart/shipping
+
+## endpoints 
 
 Inspect all the endpoints and database updates there. I don't like how it looks right now.
