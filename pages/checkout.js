@@ -6,11 +6,17 @@ import Cart from "@/models/Cart";
 import db from "@/utils/db";
 import Header from "@/components/cart/header";
 import Shipping from "@/components/checkout/shipping";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Checkout({ cart, user }) {
+  const [addresses, setAddresses] = useState(user?.addresses || []);
   const [selectedAddress, setSelectedAddress] = useState();
-
+  useEffect(() => {
+    let check = addresses.find((address) => address.active == true);
+    if (check) {
+      setSelectedAddress(check);
+    }
+  }, [addresses]);
   return (
     <>
       <Header />
@@ -20,6 +26,7 @@ export default function Checkout({ cart, user }) {
             selectedAddress={selectedAddress}
             setSelectedAddress={setSelectedAddress}
             user={user}
+            addresses={addresses}
           />
         </div>
         <div className={styles.checkout__side}></div>

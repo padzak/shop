@@ -31,9 +31,8 @@ export default function Shipping({
   selectedAddress,
   setSelectedAddress,
   user,
+  addresses,
 }) {
-  console.log("user", user);
-  const [addresses, setAddresses] = useState(user?.addresses || []);
   const [shipping, setShipping] = useState(initialValues);
   const [visible, setVisible] = useState(user?.addresses.length ? false : true);
 
@@ -137,7 +136,7 @@ export default function Shipping({
               className={styles.active__text}
               style={{ display: `${!selectedAddress
                 ? !address.active && "none"
-                : selectedAddress == address && styles.active}` }}
+                : selectedAddress !== address && "none"}` }}
             >
               Active
             </span>

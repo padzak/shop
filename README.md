@@ -82,22 +82,6 @@ However, the provided solutions are not working and the author removed them with
 
 Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 
-### Checkout
-
-Check what's causing issues with active address styling
-
-`style={`${styles.address} ${
-!selectedAddress
-? address.active && styles.active
-: selectedAddress == address && styles.active
-}`}`
-
-and
-
-`style={{ display: `${!selectedAddress
-? !address.active && "none"
-: selectedAddress == address && styles.active}` }}`
-
 ## Session
 
 1. Shouldn't user session be checked not to be null?
