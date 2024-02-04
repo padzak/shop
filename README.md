@@ -96,3 +96,7 @@ Check why it's not working in components/cart/shipping
 ## endpoints 
 
 Inspect all the endpoints and database updates there. I don't like how it looks right now.
+
+## middleware
+
+1.Check which approach is actually better
