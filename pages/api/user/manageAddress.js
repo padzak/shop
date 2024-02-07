@@ -40,4 +40,25 @@ router.put(async (req, res) => {
   }
 });
 
+router.delete(async (req, res) => {
+  try {
+    db.connectDb();
+    const { id } = req.body;
+    let user = await User.findById(req.user);
+    await user.updateOne(
+      {
+        $pull: { addresses: { _id: id } },
+      },
+      { new: true }
+    );
+    db.disconnectDb();
+    res.json({
+      message: "Address deleted successfully",
+      addresses: user.addresses.filter((a) => a._id != id),
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+});
+
 export default router.handler();
