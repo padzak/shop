@@ -15,7 +15,7 @@ export default async (req, res, next) => {
       return res.status(401).json({ message: "You are not authenticated" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error " + error.message });
   }
 };
 

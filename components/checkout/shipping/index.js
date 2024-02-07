@@ -6,11 +6,12 @@ import ShippingInput from "@/components/inputs/shippingInput";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { countries } from "@/data/countries";
 import SingularSelect from "@/components/selects/SingularSelect";
-import { saveAddress, changeActiveAddress } from "@/requests/user";
+import { saveAddress, changeActiveAddress, deleteAddress } from "@/requests/user";
 import { FaIdCard, FaMapMarkerAlt } from "react-icons/fa";
 import { GiPhone } from "react-icons/gi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoMdArrowDropupCircle } from "react-icons/io";
+import { CiSquareRemove } from 'react-icons/ci';
 
 // import "yup-phone";
 
@@ -100,6 +101,11 @@ export default function Shipping({
     setAddresses(res.addresses);
   };
 
+  const deleteHandler = async (id) => {
+    const res = await deleteAddress(id);
+    setAddresses(res.addresses);
+  };
+
   return (
     <div className={styles.shipping}>
       <div className={styles.addresses}>
@@ -109,6 +115,9 @@ export default function Shipping({
             key={address._id}
             onClick={() => changeActiveHandler(address._id)}
           >
+            <div className={styles.address__delete} onClick={() => deleteHandler(address._id)}>
+              <CiSquareRemove />
+            </div>
             <div className={styles.address__side}>
               <img src={user.image} alt="userImg" />
             </div>
