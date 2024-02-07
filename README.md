@@ -94,6 +94,7 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 2. Add indication that specific fields are required
 3. Check if all the shipping data is properly pushed to the database - address1 and address2 are not pushed (state?)
 4. Why lessons with shipping input (no. ~100-108) have address field in user objects in the database? (I settled for addresses and don't know why)
+5. Add confirmation modal before deleting a specific user address
 
 ### yup-phone
 
