@@ -6,12 +6,16 @@ import ShippingInput from "@/components/inputs/shippingInput";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { countries } from "@/data/countries";
 import SingularSelect from "@/components/selects/SingularSelect";
-import { saveAddress, changeActiveAddress, deleteAddress } from "@/requests/user";
+import {
+  saveAddress,
+  changeActiveAddress,
+  deleteAddress,
+} from "@/requests/user";
 import { FaIdCard, FaMapMarkerAlt } from "react-icons/fa";
 import { GiPhone } from "react-icons/gi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoMdArrowDropupCircle } from "react-icons/io";
-import { CiSquareRemove } from 'react-icons/ci';
+import { CiSquareRemove } from "react-icons/ci";
 
 // import "yup-phone";
 
@@ -110,46 +114,50 @@ export default function Shipping({
     <div className={styles.shipping}>
       <div className={styles.addresses}>
         {addresses.map((address) => (
-          <div
-            className={`${styles.address} ${address.active && styles.active}`}
-            key={address._id}
-            onClick={() => changeActiveHandler(address._id)}
-          >
-            <div className={styles.address__delete} onClick={() => deleteHandler(address._id)}>
+          <div style={{ position: "relative" }} key={address._id}>
+            <div
+              className={styles.address__delete}
+              onClick={() => deleteHandler(address._id)}
+            >
               <CiSquareRemove />
             </div>
-            <div className={styles.address__side}>
-              <img src={user.image} alt="userImg" />
-            </div>
-            <div className={styles.address__col}>
-              <span>
-                <FaIdCard />
-                {address.firstName} {address.lastName}
-              </span>
-              <span>
-                <GiPhone />
-                {address.phoneNumber}
-              </span>
-            </div>
-            <div styles={styles.address__col}>
-              <span>
-                <FaMapMarkerAlt />
-                {address.address1}
-              </span>
-              <span>{address.address2}</span>
-              <span>
-                {address.city}, {address.state}, {address.country}{" "}
-              </span>
-              <span>{address.zipCode}</span>
-            </div>
-            <span
-              className={styles.active__text}
-              style={{
-                display: `${!address.active && "none"}`,
-              }}
+            <div
+              className={`${styles.address} ${address.active && styles.active}`}
+              onClick={() => changeActiveHandler(address._id)}
             >
-              Active
-            </span>
+              <div className={styles.address__side}>
+                <img src={user.image} alt="userImg" />
+              </div>
+              <div className={styles.address__col}>
+                <span>
+                  <FaIdCard />
+                  {address.firstName} {address.lastName}
+                </span>
+                <span>
+                  <GiPhone />
+                  {address.phoneNumber}
+                </span>
+              </div>
+              <div styles={styles.address__col}>
+                <span>
+                  <FaMapMarkerAlt />
+                  {address.address1}
+                </span>
+                <span>{address.address2}</span>
+                <span>
+                  {address.city}, {address.state}, {address.country}{" "}
+                </span>
+                <span>{address.zipCode}</span>
+              </div>
+              <span
+                className={styles.active__text}
+                style={{
+                  display: `${!address.active && "none"}`,
+                }}
+              >
+                Active
+              </span>
+            </div>
           </div>
         ))}
       </div>

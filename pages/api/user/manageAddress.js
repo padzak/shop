@@ -14,8 +14,6 @@ router.put(async (req, res) => {
     const { id } = req.body;
     let user = await User.findById(req.user);
     let user_addresses = user.addresses;
-    console.log("user", user);
-    console.log("user_addresses", user_addresses);
     let addresses = [];
     for (let i = 0; i < user_addresses.length; i++) {
       let temp_address = {};
@@ -43,8 +41,8 @@ router.put(async (req, res) => {
 router.delete(async (req, res) => {
   try {
     db.connectDb();
-    const { id } = req.body;
-    let user = await User.findById(req.user);
+    const { id } = req.query;
+    const user = await User.findById(req.user);
     await user.updateOne(
       {
         $pull: { addresses: { _id: id } },
@@ -52,10 +50,7 @@ router.delete(async (req, res) => {
       { new: true }
     );
     db.disconnectDb();
-    res.json({
-      message: "Address deleted successfully",
-      addresses: user.addresses.filter((a) => a._id != id),
-    });
+    res.json({ addresses: user.addresses.filter((a) => a._id != id) });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
