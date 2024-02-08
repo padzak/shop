@@ -101,6 +101,7 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 ### payment
 
 1. Add proper images for payment methods
+2. Payment method remains highlighted after deselect (check in payment component and setPaymentMethod in checkout.js)
 
 
 ## yup-phone
