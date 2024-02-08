@@ -112,6 +112,9 @@ export default function Shipping({
 
   return (
     <div className={styles.shipping}>
+      <div className={styles.header}>
+        <h2>Shipping Information</h2>
+      </div>
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div style={{ position: "relative" }} key={address._id}>
