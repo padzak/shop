@@ -21,12 +21,24 @@ export default function Payment({ paymentMethod, setPaymentMethod }) {
             id={method.id}
             checked={paymentMethod == method.id}
           />
-          <img src={`../../../images/checkout/${method.id}.webp`} alt={method.name} />
-        <div className={styles.payment__item_col}>
+          <img
+            src={`../../../images/checkout/${method.id}.webp`}
+            alt={method.name}
+          />
+          <div className={styles.payment__item_col}>
             <p>Pay with {method.name}</p>
-            <span>{method.images.length > 0
-            ? method.images.map((img) => (<img key={img} src={`../../../images/payment/${img}.webp`} alt="" />)) : method.description}</span>
-        </div>
+            <span>
+              {method.images.length > 0
+                ? method.images.map((img) => (
+                    <img
+                      key={img}
+                      src={`../../../images/payment/${img}.webp`}
+                      alt=""
+                    />
+                  ))
+                : method.description}
+            </span>
+          </div>
         </label>
       ))}
     </div>
