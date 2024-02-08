@@ -8,10 +8,11 @@ import Header from "@/components/cart/header";
 import Shipping from "@/components/checkout/shipping";
 import { useState, useEffect } from "react";
 import Products from "@/components/checkout/products";
+import Payment from "@/components/checkout/payment";
 
 export default function Checkout({ cart, user }) {
   const [addresses, setAddresses] = useState(user?.addresses || []);
-
+  const [paymentMethod, setPaymentMethod] = useState("");
   return (
     <>
       <Header />
@@ -24,7 +25,9 @@ export default function Checkout({ cart, user }) {
           />
         <Products cart={cart} />
         </div>
-        <div className={styles.checkout__side}></div>
+        <div className={styles.checkout__side}>
+          <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
+        </div>
       </div>
     </>
   );
