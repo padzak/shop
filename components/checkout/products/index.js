@@ -36,6 +36,12 @@ export default function Products({ cart }) {
             </div>
           </div>
         ))}
+        <div className={styles.products__total}>
+                Subtotal: <b>{(cart.cartTotal).toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD'
+                    })}</b>
+        </div>
       </div>
     </div>
   );
