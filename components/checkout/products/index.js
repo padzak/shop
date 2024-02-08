@@ -1,5 +1,5 @@
-import styles from "./index.module.css";
+import styles from "./styles.module.scss";
 
-export default function Cart({ cart }) {
+export default function Products({ cart }) {
     return <div>Cart</div>
 }
