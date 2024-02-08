@@ -88,7 +88,9 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
 3. Is fetching user data within checkout.js getServerSideProps() safe?
 
-## shipping input
+## Checkout
+
+### shipping input
 
 1. Fix grid display in checkout.module.scss
 2. Add indication that specific fields are required
@@ -96,7 +98,12 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 4. Why lessons with shipping input (no. ~100-108) have address field in user objects in the database? (I settled for addresses and don't know why)
 5. Add confirmation modal before deleting a specific user address
 
-### yup-phone
+### payment
+
+1. Add proper images for payment methods
+
+
+## yup-phone
 
 Check why it's not working in components/cart/shipping
 
