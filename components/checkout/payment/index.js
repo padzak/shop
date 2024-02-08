@@ -26,8 +26,8 @@ export default function Payment({ paymentMethod, setPaymentMethod }) {
             alt={method.name}
           />
           <div className={styles.payment__item_col}>
-            <p>Pay with {method.name}</p>
-            <span>
+            <span>Pay with {method.name}</span>
+            <p>
               {method.images.length > 0
                 ? method.images.map((img) => (
                     <img
@@ -37,7 +37,7 @@ export default function Payment({ paymentMethod, setPaymentMethod }) {
                     />
                   ))
                 : method.description}
-            </span>
+            </p>
           </div>
         </label>
       ))}
