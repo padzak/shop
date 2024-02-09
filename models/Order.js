@@ -121,5 +121,5 @@ const orderSchema = new mongoose.Schema(
 
 const Order = mongoose.models.Order
   ? mongoose.models.Order
-  : mongoose.model("Order", categorySchema);
+  : mongoose.model("Order", orderSchema);
 export default Order;
