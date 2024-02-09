@@ -119,3 +119,4 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 ## coupons
 
 1. Test if coupons are working properly - vid 113
+2. Check pushing the same order with and without a coupon
