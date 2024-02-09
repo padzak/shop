@@ -71,6 +71,9 @@ address: '::1',
 port: 49921
 }
 
+## Pages
+1. Check all the errors within [id].js, [slug].js pages
+
 ## Cart
 
 ### Update
