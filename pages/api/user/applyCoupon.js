@@ -13,24 +13,25 @@ router.use(auth);
 router.post(async (req, res) => {
   try {
     db.connectDb();
-    const { address } = req.body;
+    const { coupon } = req.body;
     const user = User.findById(req.user);
     const checkCoupon = await Coupon.findOne({ coupon });
     if (checkCoupon == null) {
-      return res.status(400).json({ message: "Invalid coupon" });
+      return res.json({ message: "Invalid coupon" });
     }
     const { cartTotal } = await Cart.findOne({ user: req.user });
     let totalAfterDiscount =
       cartTotal - (cartTotal * checkCoupon.discount) / 100;
 
-    await Cart.findOneAndUpdate(
-      { user: req.user },
-      { totalAfterDiscount },
-      { new: true }
-    );
+    await Cart.findOneAndUpdate({ user: user._id }, { totalAfterDiscount });
+
+    res.json({
+      totalAfterDiscount: totalAfterDiscount.toFixed(2),
+      discount: checkCoupon.discount,
+    });
 
     db.disconnectDb();
-    res.json({ totalAfterDiscount, discount: checkCoupon.discount });
+    return res.json({ addresses: user.address });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
