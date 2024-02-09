@@ -9,10 +9,23 @@ import Shipping from "@/components/checkout/shipping";
 import { useState, useEffect } from "react";
 import Products from "@/components/checkout/products";
 import Payment from "@/components/checkout/payment";
+import Summary from "@/components/checkout/summary";
 
 export default function Checkout({ cart, user }) {
   const [addresses, setAddresses] = useState(user?.addresses || []);
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [totalAfterDiscount, setTotalAfterDiscount] = useState("");
+  const [selectedAddress, setSelectedAddress] = useState("");
+
+  useEffect(() => {
+    let check = addresses.find((address) => address.active == true);
+    if (check) {
+      setSelectedAddress(check);
+    } else {
+      setSelectedAddress("");
+    }
+  }, [addresses]);
+
   return (
     <>
       <Header />
@@ -23,10 +36,21 @@ export default function Checkout({ cart, user }) {
             addresses={addresses}
             setAddresses={setAddresses}
           />
-        <Products cart={cart} />
+          <Products cart={cart} />
         </div>
         <div className={styles.checkout__side}>
-          <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
+          <Payment
+            paymentMethod={paymentMethod}
+            setPaymentMethod={setPaymentMethod}
+          />
+          <Summary
+            totalAfterDiscount={totalAfterDiscount}
+            setTotalAfterDiscount={setTotalAfterDiscount}
+            user={user}
+            cart={cart}
+            paymentMethod={paymentMethod}
+            selectedAddress={selectedAddress}
+          />
         </div>
       </div>
     </>
