@@ -1,11 +1,13 @@
-import nc from "next-connect";
-import User from "../../../models/User";
-import Order from "../../../models/Order";
-import db from "../../../utils/db";
-import auth from "../../../middleware/auth";
-const handler = nc().use(auth);
+import { createRouter } from "next-connect";
+import User from "@/models/User";
+import Order from "@/models/Order";
+import db from "@/utils/db";
+import auth from "@/middleware/auth";
 
-handler.post(async (req, res) => {
+const router = createRouter();
+router.use(auth);
+
+router.post(async (req, res) => {
   try {
     db.connectDb();
     const {
@@ -36,4 +38,4 @@ handler.post(async (req, res) => {
   }
 });
 
-export default handler;
+export default router.handler();
