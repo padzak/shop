@@ -115,3 +115,7 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 1. Check which approach to middleware/auth.js is actually better
 2. middleware/auth.js has to be tested before production
+
+## coupons
+
+1. Test if coupons are working properly - vid 113
