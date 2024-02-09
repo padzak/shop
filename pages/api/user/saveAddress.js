@@ -22,8 +22,8 @@ router.post(async (req, res) => {
       },
       { new: true }
     );
-    res.json({ addresses: newUserData.addresses });
     db.disconnectDb();
+    res.json({ addresses: newUserData.addresses });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
