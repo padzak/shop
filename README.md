@@ -126,3 +126,4 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 ## payment
 1. Paypal - developer.paypal.com. Paypal configuration vid 121
+2. Stripe account - dashboard.stripe.com/test/developers (Remember to use TEST for testing!)
