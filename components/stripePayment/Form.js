@@ -23,36 +23,39 @@ export default function Form({ total, order_id }) {
   const [error, setError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardElement),
+        type: "card",
+        card: elements.getElement(CardElement),
     });
+
     if (!error) {
-      try {
-        const { id } = paymentMethod;
-        const res = await axios.post(`/api/order/${order_id}/payWithStripe`, {
-          amount: total,
-          id,
-        });
-        console.log(res);
-        if (res.data.success) {
-          window.location.reload(false);
+        try {
+            const { id } = paymentMethod;
+            const res = await axios.post(`/api/order/${order_id}/payWithStripe`, {
+                amount: total, //* 100, // Assuming amount is in dollars, multiply by 100 for cents
+                id,
+            });
+            console.log(res);
+            if (res.data.success) {
+                window.location.reload(false);
+            }
+        } catch (error) {
+            setError(error.response?.data?.message || error.message);
         }
-      } catch (error) {
-        setError(error);
-      }
     } else {
-      setError(error.message);
+        setError(error.message);
     }
-  };
+};
+
   return (
     <div className={styles.stripe}>
       <form onSubmit={handleSubmit}>
         <CardElement options={CARD_OPTIONS} />
         <button type="submit">PAY</button>
-        {error && <span className={styles}>{error}</span>}
+        {error && <span className={styles.error}>{error}</span>}
       </form>
     </div>
   );
