@@ -45,4 +45,4 @@ router.post(async (req, res) => {
   }
 });
 
-export default handler;
+export default router;
