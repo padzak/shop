@@ -4,7 +4,7 @@ import Order from "@/models/Order";
 import User from "@/models/User";
 import { IoIosArrowForward } from "react-icons/io";
 import db from "../../utils/db";
-import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { PayPalButtons, usePayPalScriptReducer, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 import StripePayment from "@/components/stripePayment";
@@ -20,13 +20,17 @@ function reducer(state, action) {
       return { ...state, loading: false, error: action.payload };
     case "PAY_RESET":
       return { ...state, loading: false, success: false, error: false };
+    default:
+      return state;
   }
 }
-export default function order({
+
+function OrderPage({
   orderData,
   paypal_client_id,
   stripe_public_key,
 }) {
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
   const [dispatch] = useReducer(reducer, {
     loading: true,
     error: "",
@@ -38,9 +42,19 @@ export default function order({
         type: "PAY_RESET",
       });
     } else {
-
+      paypalDispatch({
+        type: "resetOptions",
+        value: {
+          "client-id": paypal_client_id,
+          currency: "USD",
+        },
+      });
+      paypalDispatch({
+        type: "setLoadingStatus",
+        value: "pending",
+      });
     }
-  }, [dispatch, orderData._id]);
+  }, [dispatch, orderData._id, paypalDispatch, paypal_client_id]);
   function createOrderHanlder(data, actions) {
     return actions.order
       .create({
@@ -186,7 +200,7 @@ export default function order({
           </div>
           <div className={styles.order__actions}>
             <div className={styles.order__address}>
-              <h1>Customer's Order</h1>
+              <h1>Customer&apos;s Order</h1>
               <div className={styles.order__address_user}>
                 <div className={styles.order__address_user_infos}>
                   <img src={orderData.user.image} alt="" />
@@ -261,6 +275,14 @@ export default function order({
   );
 }
 
+function OrderPageWrapper(props) {
+  return (
+    <PayPalScriptProvider options={{ "client-id": props.paypal_client_id, currency: 'USD' }}>
+      <OrderPage {...props} />
+    </PayPalScriptProvider>
+  );
+}
+
 export async function getServerSideProps(context) {
   db.connectDb();
   const { query } = context;
@@ -279,3 +301,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+export default OrderPageWrapper;
