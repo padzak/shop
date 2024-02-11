@@ -20,6 +20,7 @@ router.post(async (req, res) => {
       description: "shop",
       payment_method: id,
       confirm: true,
+      return_url: 'http://localhost:3000',
     });
     const order = await Order.findById(order_id);
     if (order) {
@@ -45,4 +46,4 @@ router.post(async (req, res) => {
   }
 });
 
-export default router;
+export default router.handler();
