@@ -126,6 +126,7 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 2. Check pushing the same order with and without a coupon
 
 ## payment
+
 1. Paypal - developer.paypal.com. Paypal configuration vid 121
 2. Stripe account - dashboard.stripe.com/test/developers (Remember to use TEST for testing!)
 3. Fix - API resolved without sending a response for /api/order/create, this may result in stalled requests.
