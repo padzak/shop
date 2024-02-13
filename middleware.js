@@ -6,12 +6,21 @@ export async function middleware(req, res, next) {
 
   const session = await getToken({
     req,
-    secret: process.env.JWT_SECRET,
+    secret: process.env.SECRET,
     secureCookie: process.env.NODE_ENV === "production",
   });
 
-  console.log("see the session", session);
+  // Define protected routes
   if (pathname == "/checkout") {
-    return NextResponse.redirect(`${origin}`);
+    if (!session) return NextResponse.redirect(`${origin}`);
+  }
+  if (pathname == "/order") {
+    if (!session) return NextResponse.redirect(`${origin}`);
+  }
+  if (pathname == "/profile") {
+    if (!session) return NextResponse.redirect(`${origin}`);
+  }
+  if (pathname == "/admin") {
+    if (!session) return NextResponse.redirect(`${origin}`);
   }
 }
