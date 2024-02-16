@@ -24,7 +24,7 @@ export const config = {
 
 router.post(async (req, res) => {
   try {
-    let files = Object.values(req.files);
+    let files = Object.values(req.files).flat();
 
     res.status(200).json(files);
   } catch (err) {
