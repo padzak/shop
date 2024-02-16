@@ -2,6 +2,7 @@ import { createRouter } from "next-connect";
 import cloudinary from "cloudinary";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
+import { imageMiddleware } from "../../../middleware/imgMiddleware";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -14,7 +15,8 @@ router.use(
   fileUpload({
     useTempFiles: true,
   })
-);
+)
+.use(imageMiddleware);
 
 export const config = {
   api: {
