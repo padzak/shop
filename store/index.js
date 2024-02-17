@@ -1,12 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
-import storage  from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
+import expandSidebar from "./ExpandSlice";
+import dialog from "./DialogSlice";
 import { persistReducer, createMigrate } from "redux-persist";
 import cart from "./cartSlice";
 
 const reducers = combineReducers({
   cart,
+  expandSidebar,
+  dialog,
 });
 
 const migrations = {
@@ -26,7 +30,7 @@ const migrations = {
 };
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1, // Increment for each migration
   storage,
   migrate: createMigrate(migrations, { debug: false }), // Set to true to see migration messages
@@ -37,7 +41,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
 
