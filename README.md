@@ -93,6 +93,8 @@ Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 
 ## Checkout
 
+1. Add links to products in checkout (redirect to product page from checkout)
+
 ### shipping input
 
 1. Fix grid display in checkout.module.scss
