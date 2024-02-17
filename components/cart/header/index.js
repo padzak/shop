@@ -14,11 +14,9 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className={styles.header__right}>
-                        <Link href="/browse" legacyBehavior>
-                            <a>
+                        <Link href="/browse" >
                                 Continue Shopping
                                 <MdPlayArrow />
-                            </a>
                         </Link>
                     </div>
                 </div>

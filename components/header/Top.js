@@ -35,7 +35,7 @@ export default function Top({ country }) {
                     </li>
                     <li className={styles.li}>
                         <BsSuitHeart />
-                        <Link href="/profile/wishlist" legacyBehavior>
+                        <Link href="/profile/wishlist" >
                             <span>Wishlist</span>
                         </Link>
                     </li>
