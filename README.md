@@ -134,3 +134,8 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 5. Stripe documentation - https://stripe.com/docs/upgrades/manage-payment-methods
 6. Provide a valid `return_url` in payWithStripe.js endpoint 
 7. Find a better alternative than Stripe - 3,5% fee
+
+## image upload
+
+1. find out if cloudinary is the best option
+2. 
