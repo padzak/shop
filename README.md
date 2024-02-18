@@ -136,6 +136,7 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 5. Stripe documentation - https://stripe.com/docs/upgrades/manage-payment-methods
 6. Provide a valid `return_url` in payWithStripe.js endpoint 
 7. Find a better alternative than Stripe - 3,5% fee
+8. Paypal script provider - check which wrapping of PayPalScriptProvider will be better - currently implemented or one in video 134 2:50
 
 ## image upload
 
