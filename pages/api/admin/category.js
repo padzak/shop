@@ -1,12 +1,14 @@
-import nc from "next-connect";
+import { createRouter } from "next-connect";
 import auth from "../../../middleware/auth";
 import admin from "../../../middleware/admin";
 import Category from "../../../models/Category";
 import db from "../../../utils/db";
 import slugify from "slugify";
-const handler = nc().use(auth).use(admin);
 
-handler.post(async (req, res) => {
+const router = createRouter();
+router.use(auth).use(admin);
+
+router.post(async (req, res) => {
   try {
     const { name } = req.body;
     db.connectDb();
@@ -29,7 +31,7 @@ handler.post(async (req, res) => {
   }
 });
 
-handler.delete(async (req, res) => {
+router.delete(async (req, res) => {
   try {
     const { id } = req.body;
     db.connectDb();
@@ -43,7 +45,8 @@ handler.delete(async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-handler.put(async (req, res) => {
+
+router.put(async (req, res) => {
   try {
     const { id, name } = req.body;
     db.connectDb();
@@ -58,4 +61,4 @@ handler.put(async (req, res) => {
   }
 });
 
-export default handler;
+export default router.handler();
