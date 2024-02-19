@@ -148,3 +148,9 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 ## admin dashboard
 
 1. Check if user._id and order._id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
+
+## admin 
+
+### Categories
+
+1. Create category error is enormous for some reason
