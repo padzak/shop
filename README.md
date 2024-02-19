@@ -85,7 +85,7 @@ However, the provided solutions are not working and the author removed them with
 
 1. Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 2. API resolved without sending a response for /api/user/saveCart, this may result in stalled requests.
-3. Why clicking "Checkout" button redirects to home page?
+3. Why clicking "Checkout" button redirects to home page (or is it a recent page)?
 
 ## Session
 
