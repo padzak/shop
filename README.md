@@ -148,11 +148,6 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 ## admin
 
-### Categories
-
-1. Create category error is enormous for some reason - the enormous error is displayed when user is not authorized
-2. For some reason the errors are stacking up one below another - probably a toastify issue (same goes for successes)
-
 ### admin dashboard
 
 1. Check if user.\_id and order.\_id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
