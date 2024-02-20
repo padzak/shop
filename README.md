@@ -145,12 +145,12 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 1. find out if cloudinary is the best option
 2. 
 
-## admin dashboard
-
-1. Check if user._id and order._id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
-
 ## admin 
 
 ### Categories
 
 1. Create category error is enormous for some reason
+
+### admin dashboard
+
+1. Check if user._id and order._id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
