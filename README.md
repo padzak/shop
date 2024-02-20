@@ -151,3 +151,18 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 ### admin dashboard
 
 1. Check if user.\_id and order.\_id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
+
+## PACKAGES
+
+warning " > @material-ui/core@4.12.4" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning " > @material-ui/core@4.12.4" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/system@4.12.2" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/system@4.12.2" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/utils@4.11.3" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/utils@4.11.3" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/styles@4.11.5" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "@material-ui/core > @material-ui/styles@4.11.5" has incorrect peer dependency "react-dom@^16.8.0 || ^17.0.0".
+warning " > @mui/x-date-pickers@6.19.4" has unmet peer dependency "@mui/system@^5.8.0".
+warning "eslint-config-next > @typescript-eslint/parser > @typescript-eslint/typescript-estree > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+warning " > react-image-magnify@2.7.4" has incorrect peer dependency "react@~0.14.9 || ^15.0.0 || ^16.0.0".
+warning "react-image-magnify > react-cursor-position@2.5.3" has incorrect peer dependency "react@~0.14.9 || ^15.0.0 || ^16.0.0".
