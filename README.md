@@ -149,7 +149,8 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 ### Categories
 
-1. Create category error is enormous for some reason
+1. Create category error is enormous for some reason - the enormous error is displayed when user is not authorized
+2. For some reason the errors are stacking up one below another - probably a toastify issue
 
 ### admin dashboard
 
