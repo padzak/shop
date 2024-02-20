@@ -33,7 +33,7 @@ router.post(async (req, res) => {
 
 router.delete(async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.query;
     db.connectDb();
     await Category.findByIdAndRemove(id);
     db.disconnectDb();
