@@ -152,6 +152,14 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 
 1. Check if user.\_id and order.\_id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
 
+### productCart
+
+1. Buttons are not colored properly (set in products/productCard/styles.module.scss)
+
+### create product
+
+1. pages/admin/dashboard/product/create.js setProduct({}) details and questions can be approached in two different ways (with respect to pages/api/product/[id].js) - check during testing - Video 151 12:52
+
 ## PACKAGES
 
 warning " > @material-ui/core@4.12.4" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
