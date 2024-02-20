@@ -18,7 +18,7 @@ export default function ListItem({
   const input = useRef(null);
   const handleRemove = async (id) => {
     try {
-      const { data } = await axios.delete("/api/admin/subCategory", {
+      const { data } = await axios.delete(`/api/admin/subCategory?id=${id}`, {
         data: { id },
       });
       setSubCategories(data.subCategories);
