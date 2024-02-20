@@ -72,6 +72,7 @@ port: 49921
 }
 
 ## Pages
+
 1. Check all the errors within [id].js, [slug].js pages
 
 ## Cart
@@ -136,22 +137,22 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 3. Fix - API resolved without sending a response for /api/order/create, this may result in stalled requests.
 4. For testing card payments use "4242 4242 4242 4242"
 5. Stripe documentation - https://stripe.com/docs/upgrades/manage-payment-methods
-6. Provide a valid `return_url` in payWithStripe.js endpoint 
+6. Provide a valid `return_url` in payWithStripe.js endpoint
 7. Find a better alternative than Stripe - 3,5% fee
 8. Paypal script provider - check which wrapping of PayPalScriptProvider will be better - currently implemented or one in video 134 2:50
 
 ## image upload
 
 1. find out if cloudinary is the best option
-2. 
+2. Check if delete endpoint for cloudinary works as intended
 
-## admin 
+## admin
 
 ### Categories
 
 1. Create category error is enormous for some reason - the enormous error is displayed when user is not authorized
-2. For some reason the errors are stacking up one below another - probably a toastify issue
+2. For some reason the errors are stacking up one below another - probably a toastify issue (same goes for successes)
 
 ### admin dashboard
 
-1. Check if user._id and order._id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
+1. Check if user.\_id and order.\_id keys in <tr> elements are correct (pages/admin/dashboard/index.js)
