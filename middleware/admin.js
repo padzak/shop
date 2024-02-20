@@ -13,6 +13,6 @@ export default async (req, res, next) => {
   if (user.role == "admin") {
     next();
   } else {
-    res.status(401).json({ message: "Access denied, Admin resourses." });
+    res.status(401).json({ message: "Access denied, Admin resources." });
   }
 };
