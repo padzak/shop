@@ -322,9 +322,6 @@ export default function Create({ parents, categories }) {
               setImages={setDescriptionImages}
               setColorImage={setColorImage}
             />
-           
-       
-          
             */}
             <button
               className={`${styles.btn} ${styles.btn__primary} ${styles.submit_btn}`}
