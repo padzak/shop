@@ -24,7 +24,7 @@ export default function Images({
       if (images.length == 6) {
         dispatch(
           showDialog({
-            header: "Maximu 6 images are allowed.",
+            header: "Maximum 6 images are allowed.",
             msgs: [
               {
                 msg: `Maximum of total six images are allowed.`,
@@ -42,7 +42,7 @@ export default function Images({
       ) {
         dispatch(
           showDialog({
-            header: "Unsopported Format.",
+            header: "Unsupported Format.",
             msgs: [
               {
                 msg: `${img.name} format is unsupported ! only JPEG,PNG,WEBP are allowed.`,
@@ -56,7 +56,7 @@ export default function Images({
       } else if (img.size > 1024 * 1024 * 10) {
         dispatch(
           showDialog({
-            header: "Unsopported Format.",
+            header: "Unsupported Format.",
             msgs: [
               {
                 msg: `${img.name} size is too large, maximum of 10mb allowed.`,
