@@ -162,6 +162,9 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 2. API resolved without sending a response for /api/admin/subCategory?category=, this may result in stalled requests.
 3. http://localhost:3000/admin/dashboard/product/create - throws "Uncaught in promise"
 4. Provide subcategories handling in yup validation (pages/admin/dashboard/product/create.js)
+5. Add validation for providing the same image twice
+6. Provide page version suitable for mobile screen
+7. Add error case for createProduct/colors component to prompt user that color extraction is necessary, when colors array length == 0
 
 ## PACKAGES
 
