@@ -167,6 +167,7 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 7. Add error case for createProduct/colors component to prompt user that color extraction is necessary, when colors array length == 0
 8. Add prompts to on-image buttons (extract colors, etc)
 9. Add tutorial displayed first time with a "remind" button
+10. Pick a product color list - when collapsed, the first item should be the currently selected color, if any
 
 ## PACKAGES
 
