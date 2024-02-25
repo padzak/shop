@@ -1,7 +1,8 @@
 import { getToken } from "next-auth/jwt";
 import User from "../models/User";
 import db from "../utils/db";
-export default async (req, res, next) => {
+
+const adminMiddleware = async (req, res, next) => {
   const token = await getToken({
     req,
     secret: process.env.JWT_SECRET,
@@ -16,3 +17,5 @@ export default async (req, res, next) => {
     res.status(401).json({ message: "Access denied, Admin resources." });
   }
 };
+
+export default adminMiddleware;
