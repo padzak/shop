@@ -22,9 +22,12 @@ export default function Table({ reviews, allSizes, colors }) {
         colors={[{ color: "", image: "" }, ...colors]}
       />
       <div className={styles.table__data}>
-        {_DATA.currentData().map((review, index) => (
-          <Review review={review} key={index} />
-        ))}
+        {_DATA
+          .currentData()
+          .reverse()
+          .map((review, index) => (
+            <Review review={review} key={index} />
+          ))}
       </div>
       <div className={styles.pagination}>
         <Pagination

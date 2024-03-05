@@ -3,9 +3,12 @@ import styles from "./styles.module.scss";
 import { useSession, signIn } from "next-auth/react";
 import AddReview from "./AddReview";
 import Table from "./Table";
+import { useState } from "react";
 
 export default function Reviews({ product }) {
   const { data: session } = useSession();
+  const [rating, setRating] = useState("");
+  const [reviews, setReviews] = useState(product.reviews);
   return (
     <div className={styles.reviews}>
       <div className={styles.reviews__container}>
@@ -58,7 +61,7 @@ export default function Reviews({ product }) {
           </button>
         )}
         <Table
-          reviews={product.reviews}
+          reviews={reviews}
           allSizes={product.allSizes}
           colors={product.colors}
         />
