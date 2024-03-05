@@ -94,6 +94,10 @@ However, the provided solutions are not working and the author removed them with
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
 3. Is fetching user data within checkout.js getServerSideProps() safe?
 
+## Product 
+
+1. Something very wrong with the review stars
+
 ## Checkout
 
 1. Add links to products in checkout (redirect to product page from checkout)
