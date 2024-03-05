@@ -16,25 +16,25 @@ export default function Table({ reviews, allSizes, colors }) {
   };
   return (
     <div className={styles.table}>
-        <TableHeader
-          reviews={reviews}
-          allSizes={[{size: "All"}, ...allSizes]}
-          colors={[{color: "", image: ""}, ...colors]}
+      <TableHeader
+        reviews={reviews}
+        allSizes={[{ size: "All" }, ...allSizes]}
+        colors={[{ color: "", image: "" }, ...colors]}
+      />
+      <div className={styles.table__data}>
+        {_DATA.currentData().map((review, index) => (
+          <Review review={review} key={index} />
+        ))}
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          count={count}
+          page={page}
+          onChange={handleChange}
+          shape="rounded"
+          size="large"
         />
-        <div className={styles.table__data}>
-            {_DATA.currentData().map((review, index) => (
-                <Review review={review} key={index} />
-            ))}
-        </div>
-        <div className={styles.pagination}>
-            <Pagination
-                count={count}
-                page={page}
-                onChange={handleChange}
-                shape="rounded"
-                size="large"
-            />
-        </div>
+      </div>
     </div>
   );
 }
