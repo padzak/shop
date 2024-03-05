@@ -1,7 +1,7 @@
 import { createRouter } from 'next-connect';
-import Product from '../../../models/Product';
+import Product from '../../../../models/Product';
 import nextConnect from 'next-connect';
-import db from '../../../utils/db';
+import db from '../../../../utils/db';
 
 const router = createRouter();
 
