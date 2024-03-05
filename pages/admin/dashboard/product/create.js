@@ -67,7 +67,7 @@ export default function Create({ parents, categories }) {
   const [description_images, setDescription_images] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  console.log(product);
+  console.log("PRODUCT", product);
   useEffect(() => {
     const getParentData = async () => {
       const { data } = await axios.get(`/api/product/${product.parent}`);
@@ -143,17 +143,26 @@ export default function Create({ parents, categories }) {
       });
       const path = "product images";
       let formData = new FormData();
-      formData.append("path", path);
+      if (path) {
+        formData.append("path", path);
+      } else {
+        console.error("Path is undefined");
+      }
       temp.forEach((image) => {
         formData.append("file", image);
       });
+      console.log("FORM DATADATADATA", formData.keys());
       uploaded_images = await uploadImages(formData);
     }
     if (product.color.image) {
       let temp = dataURItoBlob(product.color.image);
       let path = "product style images";
       let formData = new FormData();
-      formData.append("path", path);
+      if (path) {
+        formData.append("path", path);
+      } else {
+        console.error("Path is undefined");
+      }
       formData.append("file", temp);
       let cloudinary_style_img = await uploadImages(formData);
       style_img = cloudinary_style_img[0].url;

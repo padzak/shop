@@ -27,7 +27,9 @@ export const config = {
 };
 
 router.post(async (req, res) => {
+  console.log("post request");
   try {
+    console.log("request", req);
     const { path } = req.body;
     let files = Object.values(req.files).flat();
     let images = [];
