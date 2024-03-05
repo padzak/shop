@@ -24,7 +24,6 @@ export default function Table({ reviews, allSizes, colors }) {
       <div className={styles.table__data}>
         {_DATA
           .currentData()
-          .reverse()
           .map((review, index) => (
             <Review review={review} key={index} />
           ))}
