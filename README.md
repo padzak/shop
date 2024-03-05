@@ -172,6 +172,10 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 9. Add tutorial displayed first time with a "remind" button
 10. Pick a product color list - when collapsed, the first item should be the currently selected color, if any
 
+### orders
+
+1. Check how order data is fetched (pages/admin/dashboard/order.js)
+
 ## PACKAGES
 
 warning " > @material-ui/core@4.12.4" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
