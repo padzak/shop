@@ -98,6 +98,7 @@ However, the provided solutions are not working and the author removed them with
 
 1. Something very wrong with the review stars
 2. check order of reviews - [slug].js, productPage/reviews/Table.js, productPage/reviews/
+3. compare components/productPage/infos/index.js between two projects
 
 ## Checkout
 
