@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCart } from "@/store/cartSlice";
 import DialogModal from "@/components/dialogModal";
 import { showDialog } from "@/store/DialogSlice";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Infos({ product, setActiveImage }) {
   const router = useRouter();
