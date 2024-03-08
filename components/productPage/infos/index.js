@@ -11,6 +11,7 @@ import SimilarSwiper from "./SimilarSwiper";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCart } from "@/store/cartSlice";
+import DialogModal from "@/components/dialogModal";
 
 export default function Infos({ product, setActiveImage }) {
   const router = useRouter();
@@ -106,6 +107,7 @@ export default function Infos({ product, setActiveImage }) {
   };
   return (
     <div className={styles.infos}>
+      <DialogModal type="success" />
       <div className={styles.infos__container}>
         <h1 className={styles.infos__name}>{product.name}</h1>
         <h2 className={styles.infos__sku}>{product.name}</h2>
@@ -216,7 +218,7 @@ export default function Infos({ product, setActiveImage }) {
             <BsHandbagFill />
             <b>Add to Cart</b>
           </button>
-          <button>
+          <button onClick={() => handleWishlist()}>
             <BsHeart />
             <b>Add to Wishlist</b>
           </button>
