@@ -12,14 +12,18 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCart } from "@/store/cartSlice";
 import DialogModal from "@/components/dialogModal";
+import { showDialog } from "@/store/DialogSlice";
 
 export default function Infos({ product, setActiveImage }) {
   const router = useRouter();
   const dispatch = useDispatch();
+  const { data: session } = useSession();
   const [size, setSize] = useState(router.query.size);
   const [qty, setQty] = useState(1);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const { cart } = useSelector((state) => ({ ...state }));
+
   useEffect(() => {
     setSize("");
     setQty(1);
@@ -82,7 +86,7 @@ export default function Infos({ product, setActiveImage }) {
       });
       dispatch(
         showDialog({
-          header: "Product Added to Whishlist Successfully",
+          header: "Product Added to Wishlist Successfully",
           msgs: [
             {
               msg: data.message,
@@ -94,7 +98,7 @@ export default function Infos({ product, setActiveImage }) {
     } catch (error) {
       dispatch(
         showDialog({
-          header: "Whishlist Error",
+          header: "Wishlist Error",
           msgs: [
             {
               msg: error.response.data.message,
