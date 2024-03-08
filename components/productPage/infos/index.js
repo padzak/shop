@@ -69,6 +69,41 @@ export default function Infos({ product, setActiveImage }) {
             }
         }
     };
+      ///---------------------------------
+  const handleWishlist = async () => {
+    try {
+      if (!session) {
+        return signIn();
+      }
+      const { data } = await axios.put("/api/user/wishlist", {
+        product_id: product._id,
+        style: product.style,
+      });
+      dispatch(
+        showDialog({
+          header: "Product Added to Whishlist Successfully",
+          msgs: [
+            {
+              msg: data.message,
+              type: "success",
+            },
+          ],
+        })
+      );
+    } catch (error) {
+      dispatch(
+        showDialog({
+          header: "Whishlist Error",
+          msgs: [
+            {
+              msg: error.response.data.message,
+              type: "error",
+            },
+          ],
+        })
+      );
+    }
+  };
     return (
         <div className={styles.infos}>
             <div className={styles.infos__container}>
