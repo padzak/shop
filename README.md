@@ -74,6 +74,7 @@ port: 49921
 ## Pages
 
 1. Check all the errors within [id].js, [slug].js pages
+2. Loading indicators - www.davidhu.io/react-spinners
 
 ## Cart
 
@@ -100,6 +101,7 @@ However, the provided solutions are not working and the author removed them with
 2. check order of reviews - [slug].js, productPage/reviews/Table.js, productPage/reviews/
 3. compare components/productPage/infos/index.js between two projects
 4. Wishlist - add remove from wishlist functionality. Current API is pathetic
+5. Add items recognition by size to wishlist (currently it distinguishes product styles/colors only - it's impossible to add two different sizes of a same color)
 
 ## Checkout
 
