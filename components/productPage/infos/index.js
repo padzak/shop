@@ -97,6 +97,7 @@ export default function Infos({ product, setActiveImage }) {
         })
       );
     } catch (error) {
+      console.log("error", error);
       dispatch(
         showDialog({
           header: "Wishlist Error",

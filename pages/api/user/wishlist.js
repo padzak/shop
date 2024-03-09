@@ -10,6 +10,8 @@ router.put(async (req, res) => {
   try {
     db.connectDb();
     const { product_id, style } = req.body;
+    console.log("request", req.body);
+    console.log("request user ", req.user);
     const user = await User.findById(req.user);
     const exist = user.wishlist.find(
       (x) => x.product == product_id && x.style == style
