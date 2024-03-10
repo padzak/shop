@@ -75,6 +75,7 @@ port: 49921
 
 1. Check all the errors within [id].js, [slug].js pages
 2. Loading indicators - www.davidhu.io/react-spinners
+3. Check user.addresses (or should it be user.address) in getServerSideProps (pages/profile/address.js f.e.)
 
 
 ## Components

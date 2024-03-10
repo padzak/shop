@@ -41,6 +41,8 @@ export default function Shipping({
 }) {
   const [shipping, setShipping] = useState(initialValues);
   const [visible, setVisible] = useState(user?.addresses.length ? false : true);
+  // TODO: check if this is correct, it was changed to user.address in getServerSideProps() in pages/profile/address.js, but I changed it back to user.addresses (compare different getServerSideProps functions)
+  // const [visible, setVisible] = useState(user?.address.length ? false : true);
 
   const {
     firstName,
