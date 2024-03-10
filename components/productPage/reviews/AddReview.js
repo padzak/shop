@@ -11,6 +11,7 @@ import { uploadImages } from "../../../requests/upload";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import { FaLastfmSquare } from "react-icons/fa";
+
 export default function AddReview({ product, setReviews }) {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();

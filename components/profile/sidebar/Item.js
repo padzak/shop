@@ -36,7 +36,7 @@ export default function Item({ item, visible, index }) {
                       lower: true,
                     })}__${link.filter}`}
                   >
-                    <a>{link.name}</a>
+                    {link.name}
                   </Link>
                 </li>
               ) : (
@@ -53,7 +53,7 @@ export default function Item({ item, visible, index }) {
                       lower: true,
                     })}`}
                   >
-                    <a>{link.name}</a>
+                    {link.name}
                   </Link>
                 </li>
               )}

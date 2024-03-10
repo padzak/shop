@@ -9,7 +9,7 @@ export default function Layout({ session, tab, children }) {
       <Head>
         <title>{session?.user?.name}</title>
       </Head>
-      <Header />
+      <Header country=""/>
       <div className={styles.layout__container}>
         <Sidebar
           data={{
