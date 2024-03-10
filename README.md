@@ -76,6 +76,11 @@ port: 49921
 1. Check all the errors within [id].js, [slug].js pages
 2. Loading indicators - www.davidhu.io/react-spinners
 
+
+## Components
+
+1. Provide country for the <Header /> component (especially in profile/layout)
+
 ## Cart
 
 ### Update
