@@ -6,7 +6,7 @@ import styles from "../../styles/profile.module.scss";
 import { useState } from "react";
 
 export default function Addresses({ user, tab }) {
-  const [addresses, setAddresses] = useState(user.address.addresses);
+  const [addresses, setAddresses] = useState(user.addresses.addresses);
   console.log("ADRES MORDO", user)
   return (
     <Layout session={user.user} tab={tab}>
