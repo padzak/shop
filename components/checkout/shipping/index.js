@@ -38,6 +38,7 @@ export default function Shipping({
   user,
   addresses,
   setAddresses,
+  profile,
 }) {
   const [shipping, setShipping] = useState(initialValues);
   const [visible, setVisible] = useState(user?.addresses.length ? false : true);
@@ -114,9 +115,11 @@ export default function Shipping({
 
   return (
     <div className={styles.shipping}>
-      <div className={styles.header}>
-        <h2>Shipping Information</h2>
-      </div>
+      {!profile && (
+        <div className={styles.header}>
+          <h2>Shipping Information</h2>
+        </div>
+      )}
       <div className={styles.addresses}>
         {addresses.map((address) => (
           <div style={{ position: "relative" }} key={address._id}>
@@ -131,7 +134,7 @@ export default function Shipping({
               onClick={() => changeActiveHandler(address._id)}
             >
               <div className={styles.address__side}>
-                <img src={user.image} alt="userImg" />
+                <img src={profile ? user.user.image : user.image} alt="" />
               </div>
               <div className={styles.address__col}>
                 <span>
