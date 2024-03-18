@@ -21,7 +21,7 @@ export default function Item({ item, visible, index }) {
       {show && (
         <ul>
           {item.links.map((link, i) => (
-            <>
+            <span key={i}>
               {link.link.startsWith("/profile/orders") ? (
                 <li
                   className={
@@ -57,7 +57,7 @@ export default function Item({ item, visible, index }) {
                   </Link>
                 </li>
               )}
-            </>
+            </span>
           ))}
         </ul>
       )}
