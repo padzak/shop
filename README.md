@@ -81,6 +81,9 @@ port: 49921
 
 1. Warning: You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`. (client.js:2)
 
+### profile/changePassword
+
+1. Check what the hell is going on with the password setting
 
 ## Components
 
