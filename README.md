@@ -77,6 +77,10 @@ port: 49921
 2. Loading indicators - www.davidhu.io/react-spinners
 3. Check user.addresses (or should it be user.address) in getServerSideProps (pages/profile/address.js f.e.)
 
+### profile/payment
+
+1. Warning: You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`. (client.js:2)
+
 
 ## Components
 
