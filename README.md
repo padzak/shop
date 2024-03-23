@@ -86,7 +86,7 @@ port: 49921
 1. Check what the hell is going on with the password setting
 
 ### browse
-1. Brand images are not displayed on the sidebar
+1. Brand images are not displayed on the sidebar (vid 198)
 
 ## Components
 
