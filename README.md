@@ -87,6 +87,8 @@ port: 49921
 
 ### browse
 1. Brand images are not displayed on the sidebar (vid 198)
+2. Category filters can not be cleared
+3. Search bar does not work
 
 ## Components
 
