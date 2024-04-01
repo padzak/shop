@@ -92,7 +92,9 @@ port: 49921
 
 ## Components
 
+### Header
 1. Provide country for the <Header /> component (especially in profile/layout)
+2. When using search bar, axios errors are returned. However, the search bar works as intended.
 
 ## Cart
 
