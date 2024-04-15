@@ -459,7 +459,7 @@ export async function getServerSideProps(ctx) {
   }
   // TODO change for ipregistry in prod
   // let data = await axios
-  //   .get("https://api.ipregistry.co/?key=r208izz0q0icseks")
+  //   .get("https://api.ipregistry.co/66.165.2.7?key=yfq1uw24gda2l0fv")
   //   .then((res) => {
   //     return res.data.location.country;
   //   })
