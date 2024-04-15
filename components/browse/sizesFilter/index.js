@@ -21,6 +21,7 @@ export default function SizesFilter({ sizes, sizeHandler }) {
               onClick={() =>
                 sizeHandler(existedSize ? `${existedSize}_${size}` : size)
               }
+              key={i}
             >
               <Size key={i} size={size} sizeHandler={sizeHandler} />
             </div>
