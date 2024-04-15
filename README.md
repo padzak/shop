@@ -96,6 +96,9 @@ port: 49921
 1. Provide country for the <Header /> component (especially in profile/layout)
 2. When using search bar, axios errors are returned. However, the search bar works as intended.
 
+### Browse
+1. Check if keys in sizeFilter/index.js are correctly provided to <Size />
+
 ## Cart
 
 ### Update
