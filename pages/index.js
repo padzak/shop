@@ -71,7 +71,7 @@ export async function getServerSideProps() {
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),
-      // country: { name: data.name, flag: data.flag.emojitwo }, // includes location from ipregistry API to be passed to Home instead of hardcoding it
+      // country: { name: data.name, flag: data.flag.emojitwo }, // includes location from ipregistry API to be passed to Home instead of hardcoding it TODO
       country: {
         name: 'Poland',
         flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/240px-Flag_of_Europe.svg.png'
