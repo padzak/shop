@@ -83,6 +83,9 @@ port: 49921
 1. Change country to be user specific in return of getServerSideProps in pages/brose.js
 2. Add dropdown with amount of items per page selection (pageSize in browse.js)
 3. Fix category buttons above the product list to actually have effect
+4. Applying a single filter reloads a page - introduce "Apply filters" button
+5. Sidebar is overflowing its container 
+6. Specific filter categories are not collapsible 
 
 ### profile/payment
 
