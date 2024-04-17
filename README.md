@@ -76,11 +76,13 @@ port: 49921
 1. Check all the errors within [id].js, [slug].js pages
 2. Loading indicators - www.davidhu.io/react-spinners
 3. Check user.addresses (or should it be user.address) in getServerSideProps (pages/profile/address.js f.e.)
+4. Add wishlist page
 
 ### browse
 
 1. Change country to be user specific in return of getServerSideProps in pages/brose.js
 2. Add dropdown with amount of items per page selection (pageSize in browse.js)
+3. Fix category buttons above the product list to actually have effect
 
 ### profile/payment
 
