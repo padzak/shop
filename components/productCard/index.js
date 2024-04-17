@@ -43,7 +43,7 @@ export default function ProductCard({ product }) {
                 {
                     product.subProducts[active].discount ? (
                     <div className={styles.product__discount}>
-                        {product.subProducts[active].discount}%
+                        -{product.subProducts[active].discount}%
                     </div>
                 ) : (
                     ""
