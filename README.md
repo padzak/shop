@@ -80,6 +80,7 @@ port: 49921
 ### browse
 
 1. Change country to be user specific in return of getServerSideProps in pages/brose.js
+2. Add dropdown with amount of items per page selection (pageSize in browse.js)
 
 ### profile/payment
 
