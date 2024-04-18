@@ -171,6 +171,7 @@ Inspect all the endpoints and database updates there. I don't like how it looks 
 2. middleware/auth.js has to be tested before production
 3. middleware.js - test if admin route is properly protected
 4. middleware/admin.js - check if any issues with createProduct occur - change on Feb 25th 2024
+5. Data Validation and Security: The code directly uses req.body and req.user without any apparent validation or sanitization. This could make your application vulnerable to injection attacks or unexpected errors due to malformed inputs. Consider adding middleware for validating request data.
 
 ## coupons
 

@@ -43,6 +43,23 @@ export default function Cart() {
   //   }
   // }, [cart.cartItems, dispatch]);
 
+  // TODO The second one below might be catching errors correctly
+  // useEffect(() => {
+  //   const update = async () => {
+  //     try {
+  //       const { data } = await axios.post("/api/updateCart", {
+  //         products: cart.cartItems,
+  //       });
+  //       dispatch(updateCart(data));
+  //     } catch (error) {
+  //       console.error("Error updating cart:", error);
+  //     }
+  //   };
+  //   if (cart.cartItems.length > 0) {
+  //     update();
+  //   }
+  // }, [cart.cartItems, dispatch]);
+
   useEffect(() => {
     setShippingFee(
       selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2)
