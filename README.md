@@ -89,8 +89,7 @@ port: 49921
 
 ### signin
 
-1. Forget password is not working
-2. Deleting character from the middle of email address moves caret to the end of the input field...
+1. Deleting character from the middle of email address moves caret to the end of the input field...
 
 ### profile/payment
 
