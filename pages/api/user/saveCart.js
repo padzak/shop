@@ -1,7 +1,6 @@
 import { createRouter } from "next-connect";
 import Product from "../../../models/Product";
 import User from "../../../models/User";
-import nextConnect from "next-connect";
 import db from "../../../utils/db";
 import Cart from "@/models/Cart";
 import auth from "@/middleware/auth";
@@ -18,7 +17,7 @@ router.post(async (req, res) => {
     let user = await User.findById(req.user);
     let existingCart = await Cart.findOne({ user: user._id });
     if (existingCart) {
-        await Cart.deleteOne({ user: user._id });
+      await Cart.deleteOne({ user: user._id });
     }
 
     for (let i = 0; i < cart.length; i++) {
@@ -37,10 +36,11 @@ router.post(async (req, res) => {
       let price = Number(
         subProduct.sizes.find((product) => product.size == cart[i].size).price
       );
-      tempProduct.price =
+      tempProduct.price = parseFloat(
         subProduct.discount > 0
           ? (price - (price * subProduct.discount) / 100).toFixed(2)
-          : price.toFixed(2); // TODO check if price calculation is correct
+          : price.toFixed(2)
+      ); // TODO check if price calculation is correct
       products.push(tempProduct);
     }
 
@@ -56,9 +56,15 @@ router.post(async (req, res) => {
       user: user._id,
     }).save();
 
-    db.disconnectDb();
+    res.status(200).json({
+      message: "Cart updated successfully",
+      cartTotal,
+      products,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.message });
+  } finally {
+    db.disconnectDb();
   }
 });
 
