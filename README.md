@@ -87,6 +87,11 @@ port: 49921
 5. Sidebar is overflowing its container 
 6. Specific filter categories are not collapsible 
 
+### signin
+
+1. Forget password is not working
+2. Deleting character from the middle of email address moves caret to the end of the input field...
+
 ### profile/payment
 
 1. Warning: You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`. (client.js:2)
