@@ -1,38 +1,38 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const saveCart = async (cart) => {
-    try {
-        const {data} = await axios.post('/api/user/saveCart', {
-            cart,
-        });
-        return data;
-    } catch(error) {
-        console.log(error.response.data.message)
-        return error.response.data.message;
-    }
-}
+  try {
+    const { data } = await axios.post("/api/user/saveCart", {
+      cart,
+    });
+    return data;
+  } catch (error) {
+    console.log("Save cart error:", error.response.data.message);
+    return null;
+  }
+};
 
 export const saveAddress = async (address) => {
-    try {
-        const {data} = await axios.post('/api/user/saveAddress', {
-            address,
-        });
-        return data;
-    } catch(error) {
-        return error.response.data.message;
-    }
-}
+  try {
+    const { data } = await axios.post("/api/user/saveAddress", {
+      address,
+    });
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
 
 export const changeActiveAddress = async (id) => {
-    try {
-        const {data} = await axios.put('/api/user/manageAddress', {
-            id,
-        });
-        return data;
-    } catch(error) {
-        return error.response.data.message;
-    }
-}
+  try {
+    const { data } = await axios.put("/api/user/manageAddress", {
+      id,
+    });
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
 
 export const deleteAddress = async (id) => {
   try {
@@ -44,8 +44,8 @@ export const deleteAddress = async (id) => {
 };
 
 export const applyCoupon = async (coupon) => {
-    const { data } = await axios.post("/api/user/applyCoupon", {
-      coupon,
-    });
-    return data;
-  };
+  const { data } = await axios.post("/api/user/applyCoupon", {
+    coupon,
+  });
+  return data;
+};

@@ -74,8 +74,15 @@ export default function Cart() {
 
   const saveCartToDbHandler = async () => {
     if (session) {
-      const res = saveCart(selected);
-      router.push("/checkout");
+      try {
+        const res = await saveCart(selected);
+        if (res && res.message === "Cart updated successfully") {
+          console.log("Cart saved successfully", res)
+          router.push("/checkout");
+        }
+      } catch (error) {
+        console.error("Failed to save cart:", error);
+      }
     } else {
       signIn();
     }

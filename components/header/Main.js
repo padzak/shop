@@ -8,7 +8,7 @@ import { logo } from "@/data/links";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function Main({ searchHandler}) {
+export default function Main({ searchHandler }) {
   const router = useRouter();
   const [query, setQuery] = useState(router.query.search || "");
   const cart = useSelector((state) => ({ ...state }));
