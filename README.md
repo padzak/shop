@@ -109,6 +109,8 @@ port: 49921
 ### Header
 1. Provide country for the <Header /> component (especially in profile/layout)
 2. When using search bar, axios errors are returned. However, the search bar works as intended.
+3. Something wrong with selectors in Main.js - Selector unknown returned a different result when called with the same parameters. This can lead to unnecessary rerenders.
+Selectors that return a new reference (such as an object or an array) should be memoized:
 
 ### Browse
 1. Check if keys in sizeFilter/index.js are correctly provided to <Size />
