@@ -16,7 +16,6 @@ import { updateCart } from "@/store/cartSlice";
 import axios from "axios";
 import { createSelector } from "reselect";
 
-
 export default function Cart() {
   const Router = useRouter();
   const { data: session } = useSession();
@@ -79,8 +78,7 @@ export default function Cart() {
       try {
         const res = await saveCart(selected);
         if (res && res.message === "Cart updated successfully") {
-          console.log("Cart saved successfully", res)
-          Router.push("/shipping"); 
+          Router.push("/shipping");
         }
       } catch (error) {
         console.error("Failed to save cart:", error);
