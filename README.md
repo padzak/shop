@@ -126,13 +126,12 @@ However, the provided solutions are not working and the author removed them with
 
 1. Needs to be fixed - probably due to auth middleware introduced on 04.02.2024
 2. API resolved without sending a response for /api/user/saveCart, this may result in stalled requests.
-3. Why clicking "Checkout" button redirects to home page (or is it a recent page)?
 
 ## Session
 
 1. Shouldn't user session be checked not to be null?
 2. Database access optimization - Shouldn't we limit the database access? Several calls seems to be at least doubled without a valid reason.
-3. Is fetching user data within checkout.js getServerSideProps() safe?
+3. Is fetching user data within shipping.js getServerSideProps() safe?
 
 ## Product 
 
@@ -144,11 +143,11 @@ However, the provided solutions are not working and the author removed them with
 
 ## Checkout
 
-1. Add links to products in checkout (redirect to product page from checkout)
+1. Add links to products in shipping.js (redirect to product page from checkout)
 
 ### shipping input
 
-1. Fix grid display in checkout.module.scss
+1. Fix grid display in checkout.module.scss (shipping.js)
 2. Add indication that specific fields are required
 3. Check if all the shipping data is properly pushed to the database - address1 and address2 are not pushed (state?)
 4. Why lessons with shipping input (no. ~100-108) have address field in user objects in the database? (I settled for addresses and don't know why)
@@ -157,7 +156,7 @@ However, the provided solutions are not working and the author removed them with
 ### payment
 
 1. Add proper images for payment methods
-2. Payment method remains highlighted after deselect (check in payment component and setPaymentMethod in checkout.js)
+2. Payment method remains highlighted after deselect (check in payment component and setPaymentMethod in shipping.js)
 
 ## yup-phone
 
