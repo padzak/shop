@@ -14,9 +14,11 @@ import { useRouter } from "next/router";
 import { saveCart } from "@/requests/user";
 import { updateCart } from "@/store/cartSlice";
 import axios from "axios";
+import { createSelector } from "reselect";
+
 
 export default function Cart() {
-  const router = useRouter();
+  const Router = useRouter();
   const { data: session } = useSession();
   const [selected, setSelected] = useState([]);
   const { cart } = useSelector((state) => ({ ...state }));
@@ -78,7 +80,7 @@ export default function Cart() {
         const res = await saveCart(selected);
         if (res && res.message === "Cart updated successfully") {
           console.log("Cart saved successfully", res)
-          router.push("/checkout");
+          Router.push("/shipping"); 
         }
       } catch (error) {
         console.error("Failed to save cart:", error);

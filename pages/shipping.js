@@ -1,12 +1,12 @@
+import Header from "../components/cart/header";
+import styles from "../styles/cart.module.scss";
+import { useEffect, useState } from "react";
 import React from "react";
-import styles from "../styles/checkout.module.scss";
 import { getSession } from "next-auth/react";
 import User from "@/models/User";
 import Cart from "@/models/Cart";
 import db from "@/utils/db";
-import Header from "@/components/cart/header";
 import Shipping from "@/components/checkout/shipping";
-import { useState, useEffect } from "react";
 import Products from "@/components/checkout/products";
 import Payment from "@/components/checkout/payment";
 import Summary from "@/components/checkout/summary";
