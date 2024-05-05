@@ -34,9 +34,8 @@ export default function ProductCard({ images }) {
                 modules={[Autoplay]}
             >
                 {
-                    images.map((image) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <SwiperSlide>
+                    images.map((image, i) => (
+                        <SwiperSlide key={i}>
                             <img src={image.url} alt="" />
                         </SwiperSlide>
                     ))

@@ -15,8 +15,7 @@ export default function Category({ header, products, background }) {
             <div className={styles.category__products}>
                 {
                     products.slice(0, slices).map((product, index) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <div className={styles.product}>
+                        <div key={index} className={styles.product}>
                             <img src={product.image} /*alt={product.name}*/ alt="" />
                         </div>
                     ))

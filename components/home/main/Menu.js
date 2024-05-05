@@ -16,8 +16,7 @@ export default function Menu() {
         </li>
         <div className={styles.menu__list}>
           {menuList.map((item, i) => (
-            // eslint-disable-next-line react/jsx-key
-            <li className={styles.menu__list}>
+            <li key={i} className={styles.menu__list}>
               <Link href={item.link}>
                 {i == 0 ? <GiLargeDress /> : i == 1 ? <GiClothes /> : ""}
                 <span>{item.name}</span>

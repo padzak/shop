@@ -38,9 +38,8 @@ export default function ProductSwiper({ header, products, bg }) {
                 }}
             >
                 {
-                    products?.map((product) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <SwiperSlide>
+                    products?.map((product, i) => (
+                        <SwiperSlide key={i}>
                             <div className={styles.product}>
                                 <div className={styles.product__image}>
                                     <img src={product.image} alt="" />

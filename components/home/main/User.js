@@ -80,9 +80,8 @@ export default function User() {
               marginTop: "4rem",
             }}
           >
-            {userSwiperArray.map((item) => (
-              // eslint-disable-next-line react/jsx-key
-              <SwiperSlide>
+            {userSwiperArray.map((item, i) => (
+              <SwiperSlide key={i}>
                 <Link href="">
                   <img src={item.image} alt="" />
                 </Link>

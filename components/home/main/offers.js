@@ -26,9 +26,9 @@ export default function Offers() {
         modules={[Pagination, Navigation]}
         className="offersSwiper"
       >
-        { offersList.map((offer) => (
+        { offersList.map((offer, i) => (
           // eslint-disable-next-line react/jsx-key
-          <SwiperSlide>
+          <SwiperSlide key={i}>
             <Link href="">
               <img src={offer.image} alt=""/>
             </Link>

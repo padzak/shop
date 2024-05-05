@@ -11,9 +11,8 @@ export default function Copyrights({ country }) {
             <section>
                 <ul>
                     {
-                        data.map((link) => (
-                            // eslint-disable-next-line react/jsx-key
-                            <li>
+                        data.map((link, i) => (
+                            <li key={i}>
                                 <Link href={link.link} target="_blank">{link.name}</Link>
                             </li>
                         ))

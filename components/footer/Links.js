@@ -7,8 +7,7 @@ export default function Links() {
     return (
         <div className={styles.footer__links}>
             {links.map((link, i) => (
-                // eslint-disable-next-line react/jsx-key
-                <ul>
+                <ul key={i}>
                     {
                         i===0 ? (
                             <img src={logo} />
@@ -16,9 +15,8 @@ export default function Links() {
                                 <b>{link.heading}</b>
                             )
                     }
-                    {link.links.map((link) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <li>                           
+                    {link.links.map((link, i) => (
+                        <li key={i}>
                             <Link href={link.link}>{link.name}</Link>
                         </li>
                     ))}

@@ -28,8 +28,7 @@ export default function Countdown({ date }) {
         <div className={styles.countdown}>
             {
                 [...Array(timeLeft?.days.length).keys()].map((d, i) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <span>{timeLeft?.days.slice(i, i + 1)}</span>
+                    <span key={i}>{timeLeft?.days.slice(i, i + 1)}</span>
                 ))
             }
             <b>:</b>
