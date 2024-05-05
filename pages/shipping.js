@@ -58,7 +58,7 @@ export default function Checkout({ cart, user }) {
 }
 
 export async function getServerSideProps(context) {
-  db.connectDb();
+  await db.connectDb();
   const session = await getSession(context);
   const user = await User.findById(session?.user.id);
   const cart = await Cart.findOne({ user: user?._id });
